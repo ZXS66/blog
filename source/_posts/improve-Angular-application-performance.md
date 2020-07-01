@@ -1,7 +1,8 @@
 ---
-title: improve Angular application performance
+title: 提升 Angular 应用性能技巧
 date: 2020-06-22 17:47:35
-tags: Angular, Performance, Javascript
+tags: [Angular, Performance, Javascript]
+comments: false
 ---
 
 以下是我在项目中实际使用到的优化方法，更多详情，请移步本文末尾 [参考链接](#参考链接)

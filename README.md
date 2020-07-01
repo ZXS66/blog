@@ -8,12 +8,21 @@ hexo new "My New Post"
 
 More info: [Writing](https://hexo.io/docs/writing.html)
 
+### Generate static files
+
+``` bash
+$ npm run build
+```
+
+More info about [hexo generate](https://hexo.io/docs/generating.html)
 
 ### push to Gitee repository
 
 ``` bash
 $ npm run deploy
 ```
+
+More info about [hexo deploy](https://hexo.io/docs/one-command-deployment.html)
 
 ### deploy to Gitee Pages
 
