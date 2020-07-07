@@ -55,10 +55,9 @@
         '<div id="' + id + '" class="article-share-box">',
           '<input class="article-share-input" value="' + url + '">',
           '<div class="article-share-links">',
-            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+            '<a href="http://service.weibo.com/share/share.php?title=%E8%B5%9E:%E6%97%B6%E4%BB%A3%E6%AE%8B%E5%85%9A%E7%9A%84%E9%9A%8F%E6%89%8B%E7%AC%94%E8%AE%B0&url=' + encodedUrl + '" class="article-share-weibo" target="_blank" title="微博分享"></a>',
+            // TODO: 根据 encodedUrl 生成二维码
+            '<a href="' + encodedUrl + '" class="article-share-wechat" target="_blank" title="微信分享"></a>',
           '</div>',
         '</div>'
       ].join('');
