@@ -1,136 +1,166 @@
-(function($){
+(function($) {
   // Search
-  var $searchWrap = $('#search-form-wrap'),
+  var $searchWrap = $("#search-form-wrap"),
     isSearchAnim = false,
     searchAnimDuration = 200;
 
-  var startSearchAnim = function(){
+  var startSearchAnim = function() {
     isSearchAnim = true;
   };
 
-  var stopSearchAnim = function(callback){
-    setTimeout(function(){
+  var stopSearchAnim = function(callback) {
+    setTimeout(function() {
       isSearchAnim = false;
       callback && callback();
     }, searchAnimDuration);
   };
 
-  $('#nav-search-btn').on('click', function(){
+  $("#nav-search-btn").on("click", function() {
     if (isSearchAnim) return;
 
     startSearchAnim();
-    $searchWrap.addClass('on');
-    stopSearchAnim(function(){
-      $('.search-form-input').focus();
+    $searchWrap.addClass("on");
+    stopSearchAnim(function() {
+      $(".search-form-input").focus();
     });
   });
 
-  $('.search-form-input').on('blur', function(){
+  $(".search-form-input").on("blur", function() {
     startSearchAnim();
-    $searchWrap.removeClass('on');
+    $searchWrap.removeClass("on");
     stopSearchAnim();
   });
 
   // Share
-  $('body').on('click', function(){
-    $('.article-share-box.on').removeClass('on');
-  }).on('click', '.article-share-link', function(e){
-    e.stopPropagation();
+  $("body")
+    .on("click", function() {
+      $(".article-share-box.on").removeClass("on");
+    })
+    .on("click", ".article-share-link", function(e) {
+      e.stopPropagation();
 
-    var $this = $(this),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      id = 'article-share-box-' + $this.attr('data-id'),
-      offset = $this.offset();
+      var $this = $(this),
+        url = $this.attr("data-url"),
+        encodedUrl = encodeURIComponent(url),
+        id = "article-share-box-" + $this.attr("data-id"),
+        offset = $this.offset();
 
-    if ($('#' + id).length){
-      var box = $('#' + id);
+      if ($("#" + id).length) {
+        var box = $("#" + id);
 
-      if (box.hasClass('on')){
-        box.removeClass('on');
-        return;
-      }
-    } else {
-      var html = [
-        '<div id="' + id + '" class="article-share-box">',
-          '<input class="article-share-input" value="' + url + '">',
+        if (box.hasClass("on")) {
+          box.removeClass("on");
+          return;
+        }
+      } else {
+        var html = [
+          '<div id="' + id + '" class="article-share-box">',
+          '<input class="article-share-input" value="' + url + '" readonly>',
           '<div class="article-share-links">',
-            '<a href="http://service.weibo.com/share/share.php?title=%E8%B5%9E:%E6%97%B6%E4%BB%A3%E6%AE%8B%E5%85%9A%E7%9A%84%E9%9A%8F%E6%89%8B%E7%AC%94%E8%AE%B0&url=' + encodedUrl + '" class="article-share-weibo" target="_blank" title="微博分享"></a>',
-            // TODO: 根据 encodedUrl 生成二维码
-            '<a href="' + encodedUrl + '" class="article-share-wechat" target="_blank" title="微信分享"></a>',
-          '</div>',
-        '</div>'
-      ].join('');
+          '<a href="http://service.weibo.com/share/share.php?title=👍&url=' +
+            encodedUrl +
+            '" class="article-share-weibo" target="_blank" title="微博分享"></a>',
+          // TODO 1: 根据 encodedUrl 生成二维码
+          // TODO 2: 升级 fontawesome （4.0 -> 4.1)，以增加微信图标
+          '<a href="' +
+            encodedUrl +
+            '" class="article-share-wechat" target="_blank" title="微信分享"></a>',
+          '<a href="https://twitter.com/intent/tweet?url=' +
+            encodedUrl +
+            '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+          "</div>",
+          "</div>"
+        ].join("");
 
-      var box = $(html);
+        var box = $(html);
 
-      $('body').append(box);
-    }
+        $("body").append(box);
+      }
 
-    $('.article-share-box.on').hide();
+      $(".article-share-box.on").hide();
 
-    box.css({
-      top: offset.top + 25,
-      left: offset.left
-    }).addClass('on');
-  }).on('click', '.article-share-box', function(e){
-    e.stopPropagation();
-  }).on('click', '.article-share-box-input', function(){
-    $(this).select();
-  }).on('click', '.article-share-box-link', function(e){
-    e.preventDefault();
-    e.stopPropagation();
+      box
+        .css({
+          top: offset.top + 25,
+          left: offset.left
+        })
+        .addClass("on");
+    })
+    .on("click", ".article-share-box", function(e) {
+      e.stopPropagation();
+    })
+    .on("click", ".article-share-box-input", function() {
+      $(this).select();
+    })
+    .on("click", ".article-share-box-link", function(e) {
+      e.preventDefault();
+      e.stopPropagation();
 
-    window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-  });
+      window.open(
+        this.href,
+        "article-share-box-window-" + Date.now(),
+        "width=500,height=450"
+      );
+    });
 
   // Caption
-  $('.article-entry').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
+  $(".article-entry").each(function(i) {
+    $(this)
+      .find("img")
+      .each(function() {
+        if (
+          $(this)
+            .parent()
+            .hasClass("fancybox")
+        )
+          return;
 
-      var alt = this.alt;
+        var alt = this.alt;
 
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+        if (alt) $(this).after('<span class="caption">' + alt + "</span>");
 
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
+        $(this).wrap(
+          '<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>'
+        );
+      });
 
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
+    $(this)
+      .find(".fancybox")
+      .each(function() {
+        $(this).attr("rel", "article" + i);
+      });
   });
 
-  if ($.fancybox){
-    $('.fancybox').fancybox();
+  if ($.fancybox) {
+    $(".fancybox").fancybox();
   }
 
   // Mobile nav
-  var $container = $('#container'),
+  var $container = $("#container"),
     isMobileNavAnim = false,
     mobileNavAnimDuration = 200;
 
-  var startMobileNavAnim = function(){
+  var startMobileNavAnim = function() {
     isMobileNavAnim = true;
   };
 
-  var stopMobileNavAnim = function(){
-    setTimeout(function(){
+  var stopMobileNavAnim = function() {
+    setTimeout(function() {
       isMobileNavAnim = false;
     }, mobileNavAnimDuration);
-  }
+  };
 
-  $('#main-nav-toggle').on('click', function(){
+  $("#main-nav-toggle").on("click", function() {
     if (isMobileNavAnim) return;
 
     startMobileNavAnim();
-    $container.toggleClass('mobile-nav-on');
+    $container.toggleClass("mobile-nav-on");
     stopMobileNavAnim();
   });
 
-  $('#wrap').on('click', function(){
-    if (isMobileNavAnim || !$container.hasClass('mobile-nav-on')) return;
+  $("#wrap").on("click", function() {
+    if (isMobileNavAnim || !$container.hasClass("mobile-nav-on")) return;
 
-    $container.removeClass('mobile-nav-on');
+    $container.removeClass("mobile-nav-on");
   });
 })(jQuery);
