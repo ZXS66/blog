@@ -30,4 +30,3 @@ Speech Synthesis API 虽然实用性没前者大，但是也是值得一玩的�
 ## 参考链接
 
 - [Using the Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API)
-- 

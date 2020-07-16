@@ -1,12 +1,13 @@
 # Header
 menu:
-  Home: /
-  Archives: /archives
+  home: /
+  archives: /archives
 rss: 
 
 # Content
 excerpt_link: Read More
 fancybox: true
+recent_posts_limits: 5
 
 # Sidebar
 sidebar: right
@@ -23,15 +24,18 @@ index_widgets:
 # - tagcloud
 # - archive
 
+language:
+- zh-CN
+- en
+
 # widget behavior
 archive_type: 'monthly'
 show_count: false
 
 # Miscellaneous
-google_analytics:
 gauges_analytics:
 favicon: /favicon.ico
-twitter:
-google_plus:
-fb_admins:
-fb_app_id:
+weibo: Junior_99
+wechat: ZXS-WeChat
+qq: 546990481
+mail: zh_cn2008@hotmail.com

@@ -41,13 +41,14 @@
 
       var $this = $(this),
         url = $this.attr("data-url"),
+        title = "👍 //" + $this.attr("data-title"),
         encodedUrl = encodeURIComponent(url),
+        encodedTitle = encodeURIComponent(title),
         id = "article-share-box-" + $this.attr("data-id"),
         offset = $this.offset();
 
       if ($("#" + id).length) {
         var box = $("#" + id);
-
         if (box.hasClass("on")) {
           box.removeClass("on");
           return;
@@ -57,23 +58,33 @@
           '<div id="' + id + '" class="article-share-box">',
           '<input class="article-share-input" value="' + url + '" readonly>',
           '<div class="article-share-links">',
-          '<a href="http://service.weibo.com/share/share.php?title=👍&url=' +
+          // 微博分享
+          '<a href="http://service.weibo.com/share/share.php?title=' +
+            encodedTitle +
+            "&url=" +
             encodedUrl +
             '" class="article-share-weibo" target="_blank" title="微博分享"></a>',
-          // TODO 1: 根据 encodedUrl 生成二维码
-          // TODO 2: 升级 fontawesome （4.0 -> 4.1)，以增加微信图标
-          '<a href="' +
+          // 微信二维码分享
+          '<a href="https://zixuephp.net/inc/qrcode_img.php?url=' +
             encodedUrl +
             '" class="article-share-wechat" target="_blank" title="微信分享"></a>',
-          '<a href="https://twitter.com/intent/tweet?url=' +
+          // QQ 好友分享
+          '<a href="https://connect.qq.com/widget/shareqq/index.html?url=' +
             encodedUrl +
-            '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+            "&sharesource=qzone&title=" +
+            encodedTitle +
+            '" class="article-share-qq" target="_blank" title="分享给QQ好友"></a>',
+          // 邮件分享
+          '<a href="mailto:your@mail.com?subject=' +
+            encodedTitle +
+            "&body=" +
+            encodedUrl +
+            '" class="article-share-mail" target="_blank" title="邮件分享"></a>',
           "</div>",
           "</div>"
         ].join("");
 
         var box = $(html);
-
         $("body").append(box);
       }
 

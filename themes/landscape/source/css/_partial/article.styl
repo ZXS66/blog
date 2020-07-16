@@ -270,38 +270,6 @@ $article-share-link
   &:hover
     color: #fff
 
-.article-share-twitter
-  @extend $article-share-link
-  &:before
-    content: "\f099"
-  &:hover
-    background: color-twitter
-    text-shadow: 0 1px darken(color-twitter, 20%)
-
-.article-share-facebook
-  @extend $article-share-link
-  &:before
-    content: "\f09a"
-  &:hover
-    background: color-facebook
-    text-shadow: 0 1px darken(color-facebook, 20%)
-
-.article-share-pinterest
-  @extend $article-share-link
-  &:before
-    content: "\f0d2"
-  &:hover
-    background: color-pinterest
-    text-shadow: 0 1px darken(color-pinterest, 20%)
-
-.article-share-google
-  @extend $article-share-link
-  &:before
-    content: "\f0d5"
-  &:hover
-    background: color-google
-    text-shadow: 0 1px darken(color-google, 20%)
-
 .article-share-weibo
   @extend $article-share-link
   &:before
@@ -310,6 +278,14 @@ $article-share-link
     background: color-weibo
     text-shadow: 0 1px darken(color-weibo, 20%)
 
+.article-share-qq
+  @extend $article-share-link
+  &:before
+    content: "\f1d6"
+  &:hover
+    background: color-qq
+    text-shadow: 0 1px darken(color-qq, 20%)
+
 .article-share-wechat
   @extend $article-share-link
   &:before
@@ -317,6 +293,14 @@ $article-share-link
   &:hover
     background: color-wechat
     text-shadow: 0 1px darken(color-wechat, 20%)
+    
+.article-share-mail
+  @extend $article-share-link
+  &:before
+    content: "\f003"
+  &:hover
+    background: color-mail
+    text-shadow: 0 1px darken(color-mail, 20%)
 
 .article-gallery
   background: #000

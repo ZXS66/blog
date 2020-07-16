@@ -70,7 +70,7 @@ public static IEnumerable<T> ReturnEFResult<T>(IEnumerable<T> data) where T : cl
     {
         //return !ImplementsInterface(_.PropertyType, icollectionType);
         var pt = _.PropertyType;
-        return pt.Name != "ICollection`1" && !pt.Namespace.StartsWith("CIS.Next.Models.SpotCheck");
+        return pt.Name != "ICollection`1" && !pt.Namespace.StartsWith("your.namespace.here");
     }).ToList();
     foreach (T d in data)
     {

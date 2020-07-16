@@ -3,7 +3,14 @@ title: 待办事项及更改日志
 tags: [draft, 随笔]
 ---
 
+## 2020.7.16
 
+- [x] [Hexo 本地化](https://hexo.io/docs/internationalization)
+- [x] Hexo 文章添加 open graph meta [The Ultimate Guide to SEO Meta Tags](https://moz.com/blog/the-ultimate-guide-to-seo-meta-tags)
+
+## 2020.7.15
+
+- [x] 添加邮件分享
 
 ## 2020.7.10
 
@@ -13,9 +20,9 @@ tags: [draft, 随笔]
 ## 2020.7.9
 
 - [x] favicon.ico 已手动同步，检查下次重新部署是否会被删除？(手动更新无效)
-- [ ] 微博分享图标/微信二维码分享
+- [x] 微博分享图标/微信二维码分享
 
-## 2020.7.9
+## 2020.7.8
 
 - [x] favicon.ico 未部署至服务器
 - [x] commit blog to server
