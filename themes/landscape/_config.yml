@@ -7,16 +7,16 @@ rss:
 # Content
 excerpt_link: Read More
 fancybox: true
-recent_posts_limits: 5
+recent_posts_limits: 10
 
 # Sidebar
 sidebar: right
 widgets:
-- category
-- tag
+- recent_posts
 - tagcloud
 - archive
-- recent_posts
+# - category
+# - tag
 
 # display widgets at the bottom of index pages (pagination == 2)
 index_widgets:
