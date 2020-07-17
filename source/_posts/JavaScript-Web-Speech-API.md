@@ -17,13 +17,13 @@ Web Speech API 还是比较新的功能，兼容性并没有那么好。最新�
 
 emmm，我还是太年轻了，看着这个功能的支持情况，我觉得，还是过几年再看吧。
 
-![Speech Recognition API](https://gitee.com/nextwave/assets/raw/master/images/Speech%20Recognition%20API.20200713.PNG)
+![Speech Recognition API](/images/Speech%20Recognition%20API.20200713.PNG)
 
 ## Speech Synthesis API
 
 Speech Synthesis API 虽然实用性没前者大，但是也是值得一玩的。
 
-![Speech Synthesis API](https://gitee.com/nextwave/assets/raw/master/images/Speech%20Synthesis%20API.20200713.PNG)
+![Speech Synthesis API](/images/Speech%20Synthesis%20API.20200713.PNG)
 
 (Coming soon...)
 

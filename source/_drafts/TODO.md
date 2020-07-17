@@ -3,6 +3,10 @@ title: 待办事项及更改日志
 tags: [draft, 随笔]
 ---
 
+## 2020.7.17
+
+- [x] source 文件夹下添加 images 子文件夹，用于存储博客图片（取代引用外网站点图片）
+
 ## 2020.7.16
 
 - [x] [Hexo 本地化](https://hexo.io/docs/internationalization)
