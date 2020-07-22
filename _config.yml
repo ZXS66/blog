@@ -101,4 +101,6 @@ deploy:
   type: 'git'
   repo: https://gitee.com/nextwave/nextwave.git
   branch: master
-  message: "Blog committed: {{ now('YYYY-MM-DD HH:mm') }}"
+  message: "Blog committed on {{ now('YYYY/MM/DD') }}"
+
+cdn: https://cdn.bootcdn.net/ajax/libs/
