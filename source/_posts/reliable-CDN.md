@@ -19,7 +19,7 @@ tags: [CDN, cloudflare, baidu, firefox, iconfont]
 
 查证一下 [Can I use](https://caniuse.com/#feat=fontface)：
 
-![Can I Use font face for web fonts](/images/reliable-cdn/caniuse%20font%20face%20web%20fonts.jpg)
+![](/images/reliable-cdn/caniuse%20font%20face%20web%20fonts.jpg)
 
 只要服务器支持 CORS 浏览器就没问题！[这篇文章](http://cssbakery.com/2010/07/fixing-firefox-font-face-cross-domain_25.html) 遇到的问题也是这样。
 
@@ -37,7 +37,7 @@ tags: [CDN, cloudflare, baidu, firefox, iconfont]
 
 ![firefox 请求字体文件不带版本号](/images/reliable-cdn/firefox%20cert%20invalid%204.jpg)
 
-什么鬼，你耍我？ ![？？？](https://bkimg.cdn.bcebos.com/pic/8cb1cb1349540923e1860cc29958d109b2de499a) 
+什么鬼，你耍我？ ![？？？](/images/questions.png) 
 
 莫非，真的是 CDN 问题？我查查...
 
