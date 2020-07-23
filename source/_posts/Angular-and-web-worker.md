@@ -231,3 +231,4 @@ emmmm，一切都按照预期走了，没什么问题。除了：Google Chrome �
 - [Using Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
 - [The Basics of Web Workers](https://www.html5rocks.com/en/tutorials/workers/basics/#toc-gettingstarted)
 - [Functions and classes available to Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers)
+- [Web Worker 文献综述](https://github.com/CntChen/cntchen.github.io/issues/19)

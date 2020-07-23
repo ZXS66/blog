@@ -13,10 +13,11 @@ tags: [Flutter, get started]
 
 ## 网站
 
-- [Flutter](https://flutter.dev/)
-- [Flutter 中文社区](https://flutter.cn/)
-- [Dart 开发语言概览](https://dart.cn/guides/language/language-tour)
-- [重磅|庖丁解牛之——Flutter for Web · 语雀](https://www.yuque.com/xytech/flutter/aqsvov)
+- [Flutter](https://flutter.dev/) *【Flutter 官网】*
+- [Flutter 中文社区](https://flutter.cn/) *【Flutter 官网（中文）】*
+- [Dart 开发语言概览](https://dart.cn/guides/language/language-tour) *【1小时入门 Dart】*
+- [Flutter Codelabs](https://codelabs.flutter-io.cn/) *【更多入门案例】*
+- [重磅|庖丁解牛之——Flutter for Web · 语雀](https://www.yuque.com/xytech/flutter/aqsvov) *【咸鱼出品】*
 
 ## 安装 
 
