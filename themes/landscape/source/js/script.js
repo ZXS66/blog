@@ -1,4 +1,58 @@
-(function($) {
+// document.addEventListener("DOMContentLoaded", function() {
+var dependencies = [
+  {
+    export: window.jQuery,
+    failover: "https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js",
+    // failover: "https://code.jquery.com/jquery-2.0.3.min.js",
+    integrity: "sha256-sTy1mJ4I/LAjFCCdEB4RAvPSmRCb3CU7YqodohyeOLo="
+  },
+  {
+    export: (window.jQuery || {}).fancybox,
+    failover:
+      "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js",
+    integrity:
+      "sha384-A/Tc8RFHsjkPvgL0yZebgTxxmCGCSaTpGkyQLeFFFJQIAzSozLwNGX9AOCIpxoXC"
+  }
+];
+// failover to load alternative files when CDN libraries failed.
+var nonLoadedDependencies = dependencies.filter(function(dep) {
+  return !dep.export;
+});
+/** lazy load js files */
+function lazyLoadDependency(dep) {
+  return new Promise(function(resolve, reject) {
+    var script = document.createElement("script");
+    script.src = dep.failover;
+    if (dep.integrity && dep.integrity.length) {
+      script.integrity = dep.integrity;
+      script.crossOrigin = "anonymous";
+    }
+    // https://www.html5rocks.com/en/tutorials/speed/script-loading/#toc-dom-rescue
+    script.async = false;
+    script.addEventListener("load", function() {
+      resolve(dep.failover + " is loaded");
+    });
+    script.addEventListener("error", function() {
+      reject(dep.failover + " can't be loaded!");
+    });
+    document.head.appendChild(script);
+  });
+}
+(nonLoadedDependencies.length
+  ? new Promise(function(resolve, reject) {
+      Promise.all(nonLoadedDependencies.map(lazyLoadDependency)).then(
+        function() {
+          resolve("All dependencies are loaded!");
+        },
+        reject
+      );
+    })
+  : Promise.resolve("All dependencies are loaded!")
+).then(function() {
+  // library were all loaded
+  // main content comes here
+
+  var $ = window.jQuery;
   // Search
   var $searchWrap = $("#search-form-wrap"),
     isSearchAnim = false,
@@ -174,4 +228,5 @@
 
     $container.removeClass("mobile-nav-on");
   });
-})(jQuery);
+});
+// });
