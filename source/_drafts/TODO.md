@@ -3,12 +3,18 @@ title: 待办事项及更改日志
 tags: [draft, 随笔]
 ---
 
+## 2020.7.23
+
+- [ ] 替换搜索引擎（Google -> Baidu、sogou）
+- [ ] failover CDN
+- [ ] 
+
 ## 2020.7.22
 
 - [x] add integrity for static files from CDN
 - [x] lazy load scripts and dns-prefetch
 - [x] load fancybox library from CDN
-- [ ] delete local libraries(jquery, fancybox, fontawesome), cause now we can load it from CDN
+- [x] failover to local libraries(jquery, fancybox, fontawesome), cause now we can load it from CDN
 
 ## 2020.7.19
 
