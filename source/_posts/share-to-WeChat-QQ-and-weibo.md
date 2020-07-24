@@ -95,8 +95,6 @@ Hexo 默认的主题 Landscape，默认支持分享到 <i class="fa fa-twitter" 
 
 ```yml
 # Miscellaneous
-google_analytics:
-gauges_analytics:
 favicon: /favicon.ico
 weibo: your weibo name
 wechat: your wechat name

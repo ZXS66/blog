@@ -33,7 +33,6 @@ archive_type: 'monthly'
 show_count: false
 
 # Miscellaneous
-gauges_analytics:
 favicon: /favicon.ico
 weibo: Junior_99
 wechat: ZXS-WeChat

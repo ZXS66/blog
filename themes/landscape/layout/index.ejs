@@ -1,1 +1,44 @@
 <%- partial('_partial/archive', {pagination: 2, index: true}) %>
+<style>
+    .article {
+        max-height: 80vh;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .article.unfold {
+        max-height: initial;
+    }
+
+    .article .more {
+        position: absolute;
+        bottom: 0;
+        padding: 3em;
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0), silver);
+        color: white;
+        box-sizing: border-box;
+    }
+
+    .article.unfold .more {
+        display: none;
+    }
+</style>
+<script>
+    (function () {
+        const moreText = '<i class="fa fa-arrow-circle-down" aria-hidden="true"></i> '+"<%- __('more') %>";
+        var articles = document.getElementsByClassName('article');
+        for (var i = 0; i < articles.length; i++) {
+            var $more = document.createElement('div');
+            $more.classList.add('more');
+            $more.innerHTML = moreText;
+            $more.onclick = function (evt) {
+                var $src = evt.target || evt.srcElement;
+                $src.parentElement.classList.add('unfold');
+            };
+            articles[i].appendChild($more);
+        }
+    })();
+</script>
