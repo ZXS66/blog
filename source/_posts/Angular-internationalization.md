@@ -17,7 +17,88 @@ tags: [Angular, internationalization, i18n]
 在没有去搜索引擎找寻方案的前提下，下面是自己写的 C# 控制台项目：
 
 1. 备份当前 `messages.zh.xlf` 文件。
-2. 新建 C# 控制台项目，复制 [此 gist](https://gitee.com/nextwave/codes/svcegrhbnxd82a7pkijlw10) 代码。
+2. 新建 C# 控制台项目，复制如下代码：<span hidden>https://gitee.com/nextwave/codes/svcegrhbnxd82a7pkijlw10</span>
+``` CSharp
+namespace ConsoleApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            generateNewI18NFile();
+            return;
+        }
+        private static void generateNewI18NFile()
+        {
+            // step 1: extract all translations from history.xlf
+            // trans-unit@id, target
+            IDictionary<string, string> dict = new Dictionary<string, string>();
+            string[] allLines = File.ReadAllLines
+            (
+                "./history.xlf",
+                Encoding.UTF8   //Encoding.Default
+            );
+            string lastTransUnitId = string.Empty;
+            string lastTarget = string.Empty;
+            foreach (string line in allLines)
+            {
+                string line_trimed = line.Trim();
+                if (line_trimed.StartsWith("<trans-unit "))
+                {
+                    int firstQuote = line_trimed.IndexOf("\""), secondQuote = line_trimed.IndexOf("\"", firstQuote + 1);
+                    lastTransUnitId = line_trimed.Substring(firstQuote + 1, secondQuote - firstQuote - 1);
+                    continue;
+                }
+                if (line_trimed.StartsWith("<target>"))
+                {
+                    // all target values are inside one line
+                    lastTarget = line;
+                    dict.Add(lastTransUnitId, lastTarget);
+                }
+            }
+            // step 2: generate new translation file by appending target node
+            List<string> outputLines = new List<string>();
+            allLines = File.ReadAllLines("./now.xlf", Encoding.Default);
+            string[] prefixOfIgnoreLines = new string[]
+            {
+                "<?xml ",
+                "<xliff ",
+                "<file ",
+                "<body>",
+                "</body>",
+                "</file>",
+                "</xliff>"
+            };
+            foreach (string line in allLines)
+            {
+                outputLines.Add(line);
+                string line_trimed = line.Trim();
+
+                if (prefixOfIgnoreLines.Any(_ => line_trimed.StartsWith(_)))
+                    continue;
+
+                if (line_trimed.StartsWith("<trans-unit "))
+                {
+                    int firstQuote = line_trimed.IndexOf("\""), secondQuote = line_trimed.IndexOf("\"", firstQuote + 1);
+                    lastTransUnitId = line_trimed.Substring(firstQuote + 1, secondQuote - firstQuote - 1);
+                    continue;
+                }
+                if (line_trimed.EndsWith("</source>"))
+                {
+                    lastTarget = dict.ContainsKey(lastTransUnitId) ? dict[lastTransUnitId] : string.Empty;
+                    if (!string.IsNullOrEmpty(lastTarget))
+                    {
+                        outputLines.Add(lastTarget);
+                    }
+                }
+            }
+            // step 3: write result to file
+            File.WriteAllLines("./output.xlf", outputLines);
+            //Console.WriteLine(string.Join(Environment.NewLine, outputLines));
+        }
+    }
+}
+```
 3. 复制 `messages.zh.xlf` 到当前项目的根目录，并重命名未 `history.xlf`。
 4. 运行命令 `ng xi18n --output-path locale` 重新生成新的 `messages.xlf` 文件。
 5. 复制 `messages.xlf` 到当前项目的根目录，并重命名未 `now.xlf`。
