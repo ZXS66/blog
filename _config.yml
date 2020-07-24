@@ -29,7 +29,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: [README.md, README.html]
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -58,7 +58,7 @@ highlight:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 10
+  per_page: 5
   order_by: -date
 
 # Category & Tag
@@ -101,6 +101,6 @@ deploy:
   type: 'git'
   repo: https://gitee.com/nextwave/nextwave.git
   branch: master
-  message: "Blog committed on {{ now('YYYY/MM/DD') }}"
+  message: "Blog committed on {{ now('YYYY/MM/DD HH:mm') }}"
 
 cdn: https://cdn.bootcdn.net/ajax/libs/
