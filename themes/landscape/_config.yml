@@ -6,7 +6,7 @@ rss:
 
 # Content
 excerpt_link: Read More
-fancybox: true
+fancybox: false
 recent_posts_limits: 10
 
 # Sidebar

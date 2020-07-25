@@ -1,27 +1,25 @@
-(function() {
-  var dependencies = [
-    {
-      export: window.jQuery,
-      failover: "https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js",
-      // failover: "https://code.jquery.com/jquery-2.0.3.min.js",
-      integrity: "sha256-sTy1mJ4I/LAjFCCdEB4RAvPSmRCb3CU7YqodohyeOLo="
-    },
-    {
-      export: (window.jQuery || {}).fancybox,
-      failover:
-        "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js",
-      integrity:
-        "sha384-A/Tc8RFHsjkPvgL0yZebgTxxmCGCSaTpGkyQLeFFFJQIAzSozLwNGX9AOCIpxoXC"
-    }
+(() => {
+  const dependencies = [
+    // {
+    //   export: window.jQuery,
+    //   failover: "https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js",
+    //   // failover: "https://code.jquery.com/jquery-2.0.3.min.js",
+    //   integrity: "sha256-sTy1mJ4I/LAjFCCdEB4RAvPSmRCb3CU7YqodohyeOLo="
+    // },
+    // {
+    //   export: (window.jQuery || {}).fancybox,
+    //   failover:
+    //     "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js",
+    //   integrity:
+    //     "sha384-A/Tc8RFHsjkPvgL0yZebgTxxmCGCSaTpGkyQLeFFFJQIAzSozLwNGX9AOCIpxoXC"
+    // }
   ];
   // failover to load alternative files when CDN libraries failed.
-  var nonLoadedDependencies = dependencies.filter(function(dep) {
-    return !dep.export;
-  });
+  const nonLoadedDependencies = dependencies.filter(dep => !dep.export);
   /** lazy load js files */
-  function loadDependency(dep) {
-    return new Promise(function(resolve, reject) {
-      var script = document.createElement("script");
+  const loadDependency = dep => {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement("script");
       script.src = dep.failover;
       if (dep.integrity && dep.integrity.length) {
         script.integrity = dep.integrity;
@@ -29,81 +27,105 @@
       }
       // // https://www.html5rocks.com/en/tutorials/speed/script-loading/#toc-dom-rescue
       script.async = false;
-      script.addEventListener("load", function() {
+      script.addEventListener("load", () => {
         resolve(dep.failover + " is loaded");
       });
-      script.addEventListener("error", function() {
+      script.addEventListener("error", () => {
         reject(dep.failover + " can't be loaded!");
       });
       document.body.appendChild(script);
     });
-  }
-
-  (nonLoadedDependencies.length
-    ? new Promise(function(resolve, reject) {
-        Promise.all(nonLoadedDependencies.map(loadDependency)).then(function() {
-          resolve("All dependencies are loaded!");
-        }, reject);
-      })
-    : Promise.resolve("All dependencies are loaded!")
-  ).then(myBiz);
+  };
 
   /** business logic, will be executed when all dependencies loaded */
-  function myBiz() {
-    var $ = window.jQuery;
+  const myBiz = () => {
+    // var $ = window.jQuery;
     // Search
-    var $searchWrap = $("#search-form-wrap"),
-      isSearchAnim = false,
-      searchAnimDuration = 200;
-    var startSearchAnim = function() {
-      isSearchAnim = true;
-    };
-    var stopSearchAnim = function(callback) {
-      setTimeout(function() {
+    const $searchWrap = document.getElementById("search-form-wrap");
+    let isSearchAnim = false;
+    let searchAnimDuration = 200;
+    const startSearchAnim = () => (isSearchAnim = true);
+    const stopSearchAnim = callback =>
+      setTimeout(() => {
         isSearchAnim = false;
         callback && callback();
       }, searchAnimDuration);
-    };
-
-    $("#nav-search-btn").on("click", function() {
+    document.getElementById("nav-search-btn").addEventListener("click", () => {
       if (isSearchAnim) return;
       startSearchAnim();
-      $searchWrap.addClass("on");
-      stopSearchAnim(function() {
-        $(".search-form-input").focus();
+      $searchWrap.classList.add("on");
+      stopSearchAnim(() =>
+        document.querySelector(".search-form-input").focus()
+      );
+    });
+    document
+      .querySelector(".search-form-input")
+      .addEventListener("blur", () => {
+        startSearchAnim();
+        $searchWrap.classList.remove("on");
+        stopSearchAnim();
       });
+    // Mobile nav
+    const $container = document.getElementById("container");
+    const mobileNavOnClass = "mobile-nav-on";
+    let isMobileNavAnim = false;
+    let mobileNavAnimDuration = 200;
+    const startMobileNavAnim = () => (isMobileNavAnim = true);
+    const stopMobileNavAnim = () => {
+      setTimeout(() => (isMobileNavAnim = false), mobileNavAnimDuration);
+    };
+    document.getElementById("main-nav-toggle").addEventListener("click", () => {
+      if (isMobileNavAnim) return;
+      startMobileNavAnim();
+      $container.classList.contains(mobileNavOnClass)
+        ? $container.classList.remove(mobileNavOnClass)
+        : $container.classList.add(mobileNavOnClass);
+      stopMobileNavAnim();
     });
-    $(".search-form-input").on("blur", function() {
-      startSearchAnim();
-      $searchWrap.removeClass("on");
-      stopSearchAnim();
+    document.getElementById("wrap").addEventListener("click", () => {
+      if (isMobileNavAnim || !$container.classList.contains(mobileNavOnClass))
+        return;
+      $container.classList.remove(mobileNavOnClass);
     });
+
     // Share
-    $("body")
-      .on("click", function() {
-        $(".article-share-box.on").removeClass("on");
-      })
-      .on("click", ".article-share-link", function(e) {
-        e.stopPropagation();
+    document.body.addEventListener("click", evt => {
+      const classArticleShareBox = "article-share-box";
+      const classOn = "on";
+      Array.prototype.forEach.call(
+        document.querySelectorAll(`.${classArticleShareBox}.${classOn}`),
+        (value, inex) => {
+          value.classList.remove(classOn);
+        }
+      );
+      const $evtSrc = evt.target || evt.srcElement;
+      if ($evtSrc.classList.contains("article-share-link")) {
+        evt.stopPropagation();
 
-        var $this = $(this),
-          url = $this.attr("data-url"),
-          title = "👍 //" + $this.attr("data-title"),
-          encodedUrl = encodeURIComponent(url),
-          encodedTitle = encodeURIComponent(title),
-          id = "article-share-box-" + $this.attr("data-id"),
-          offset = $this.offset();
+        const id = `${classArticleShareBox}-${$evtSrc.getAttribute("data-id")}`;
+        const offsetOf = (el) => {
+          var rect = el.getBoundingClientRect(),
+            scrollLeft =
+              window.pageXOffset || document.documentElement.scrollLeft,
+            scrollTop =
+              window.pageYOffset || document.documentElement.scrollTop;
+          return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+        };
+        const offset = offsetOf($evtSrc);
 
-        if ($("#" + id).length) {
-          var box = $("#" + id);
-          if (box.hasClass("on")) {
-            box.removeClass("on");
+        let $box = document.getElementById(id);
+        if ($box) {
+          if ($box.classList.contains(classOn)) {
+            $box.classList.remove(classOn);
             return;
           }
         } else {
-          var html = [
-            '<div id="' + id + '" class="article-share-box">',
-            '<input class="article-share-input" value="' + url + '" readonly>',
+          const url = $evtSrc.getAttribute("data-url");
+          const title = "👍 //" + $evtSrc.getAttribute("data-title");
+          const encodedUrl = encodeURIComponent(url);
+          const encodedTitle = encodeURIComponent(title);
+          const html = [
+            `<input class="article-share-input" value="${url}" readonly>`,
             '<div class="article-share-links">',
             // 微博分享
             '<a href="http://service.weibo.com/share/share.php?title=' +
@@ -127,110 +149,83 @@
               "&body=" +
               encodedUrl +
               '" class="article-share-mail" target="_blank" title="邮件分享"></a>',
-            "</div>",
             "</div>"
           ].join("");
-
-          var box = $(html);
-          $("body").append(box);
+          $box = document.createElement("div");
+          $box.id = id;
+          $box.classList.add(classArticleShareBox);
+          $box.innerHTML = html;
+          document.body.appendChild($box);
         }
 
-        $(".article-share-box.on").hide();
-
-        box
-          .css({
-            top: offset.top + 25,
-            left: offset.left
-          })
-          .addClass("on");
-      })
-      .on("click", ".article-share-box", function(e) {
-        e.stopPropagation();
-      })
-      .on("click", ".article-share-box-input", function() {
-        $(this).select();
-      })
-      .on("click", ".article-share-box-link", function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-
+        $box.style.top = offset.top + 25 + "px";
+        $box.style.left = offset.left + "px";
+        $box.classList.add(classOn);
+      }
+      if ($evtSrc.classList.contains(classArticleShareBox)) {
+        evt.stopPropagation();
+      }
+      if ($evtSrc.classList.contains(classArticleShareBox + "-input")) {
+        $evtSrc.select && $evtSrc.select();
+      }
+      if ($evtSrc.classList.contains(classArticleShareBox + "-link")) {
+        evt.preventDefault();
+        evt.stopPropagation();
         window.open(
-          this.href,
-          "article-share-box-window-" + Date.now(),
+          $evtSrc.href,
+          `${classArticleShareBox}-window-${Performance.now()}`,
           "width=500,height=450"
         );
-      });
-
-    // Caption
-    $(".article-entry").each(function(i) {
-      $(this)
-        .find("img")
-        .each(function() {
-          if (
-            $(this)
-              .parent()
-              .hasClass("fancybox")
-          )
-            return;
-
-          var alt = this.alt;
-
-          if (alt) $(this).after('<span class="caption">' + alt + "</span>");
-
-          $(this).wrap(
-            '<a href="' +
-              this.src +
-              '" title="' +
-              alt +
-              '" class="fancybox"></a>'
-          );
-        });
-
-      $(this)
-        .find(".fancybox")
-        .each(function() {
-          $(this).attr("rel", "article" + i);
-        });
+      }
     });
 
-    if ($.fancybox) {
-      $(".fancybox").fancybox();
-    }
+    // // Caption
+    // $(".article-entry").each(function(i) {
+    //   $(this)
+    //     .find("img")
+    //     .each(function() {
+    //       if (
+    //         $(this)
+    //           .parent()
+    //           .hasClass("fancybox")
+    //       )
+    //         return;
 
-    // Mobile nav
-    var $container = $("#container"),
-      isMobileNavAnim = false,
-      mobileNavAnimDuration = 200;
+    //       var alt = this.alt;
 
-    var startMobileNavAnim = function() {
-      isMobileNavAnim = true;
-    };
+    //       if (alt) $(this).after('<span class="caption">' + alt + "</span>");
 
-    var stopMobileNavAnim = function() {
-      setTimeout(function() {
-        isMobileNavAnim = false;
-      }, mobileNavAnimDuration);
-    };
+    //       $(this).wrap(
+    //         '<a href="' +
+    //           this.src +
+    //           '" title="' +
+    //           alt +
+    //           '" class="fancybox"></a>'
+    //       );
+    //     });
 
-    $("#main-nav-toggle").on("click", function() {
-      if (isMobileNavAnim) return;
-      startMobileNavAnim();
-      $container.toggleClass("mobile-nav-on");
-      stopMobileNavAnim();
-    });
+    //   $(this)
+    //     .find(".fancybox")
+    //     .each(function() {
+    //       $(this).attr("rel", "article" + i);
+    //     });
+    // });
+  };
 
-    $("#wrap").on("click", function() {
-      if (isMobileNavAnim || !$container.hasClass("mobile-nav-on")) return;
-      $container.removeClass("mobile-nav-on");
-    });
-  }
+  (nonLoadedDependencies.length
+    ? new Promise((resolve, reject) => {
+        Promise.all(nonLoadedDependencies.map(loadDependency)).then(
+          () => resolve("All dependencies are loaded!"),
+          reject
+        );
+      })
+    : Promise.resolve("All dependencies are loaded!")
+  ).then(myBiz);
 
   // let's just ignore IE users
   class FontAwesomeLink extends HTMLElement {
     constructor() {
       super();
-    }
-    connectedCallback() {
       this.innerHTML = '<i class="fa fa-link"></i>';
     }
   }
