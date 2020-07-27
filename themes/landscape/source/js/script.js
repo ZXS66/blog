@@ -103,7 +103,7 @@
         evt.stopPropagation();
 
         const id = `${classArticleShareBox}-${$evtSrc.getAttribute("data-id")}`;
-        const offsetOf = (el) => {
+        const offsetOf = el => {
           var rect = el.getBoundingClientRect(),
             scrollLeft =
               window.pageXOffset || document.documentElement.scrollLeft,
@@ -124,9 +124,32 @@
           const title = "👍 //" + $evtSrc.getAttribute("data-title");
           const encodedUrl = encodeURIComponent(url);
           const encodedTitle = encodeURIComponent(title);
+
+          $box = document.createElement("div");
+          $box.id = id;
+          $box.classList.add(classArticleShareBox);
+          const $input = document.createElement("input");
+          $input.classList.add("article-share-input");
+          $input.setAttribute("readonly", true);
+          $input.value = url;
+          $input.setAttribute("title", "click to copy the URL");
+          if (navigator.clipboard) {
+            $input.addEventListener("click", async () => {
+              event.stopPropagation();
+              const $evtSrc = event.target || event.srcElement;
+              const { value } = $evtSrc;
+              try {
+                await navigator.clipboard.writeText(value);
+                console.log("URL copied!");
+              } catch (error) {
+                console.error("URL copy failed", error);
+              }
+            });
+          }
+          $box.appendChild($input);
+          const $links = document.createElement("div");
+          $links.classList.add("article-share-links");
           const html = [
-            `<input class="article-share-input" value="${url}" readonly>`,
-            '<div class="article-share-links">',
             // 微博分享
             '<a href="http://service.weibo.com/share/share.php?title=' +
               encodedTitle +
@@ -148,13 +171,10 @@
               encodedTitle +
               "&body=" +
               encodedUrl +
-              '" class="article-share-mail" target="_blank" title="邮件分享"></a>',
-            "</div>"
+              '" class="article-share-mail" target="_blank" title="邮件分享"></a>'
           ].join("");
-          $box = document.createElement("div");
-          $box.id = id;
-          $box.classList.add(classArticleShareBox);
-          $box.innerHTML = html;
+          $links.innerHTML = html;
+          $box.appendChild($links);
           document.body.appendChild($box);
         }
 
