@@ -106,5 +106,11 @@ deploy:
   branch: master
   message: "Blog committed on {{ now('YYYY/MM/DD HH:mm') }}"
 
+
+# Miscellaneous
 cdn: https://cdn.bootcdn.net/ajax/libs/
 # cdn: https://cdnjs.cloudflare.com/ajax/libs/
+weibo: Junior_99
+wechat: ZXS-WeChat
+qq: 546990481
+mail: zh_cn2008@hotmail.com

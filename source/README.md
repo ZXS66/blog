@@ -4,6 +4,12 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 
 ## Changelog
 
+## 2020.7.27
+
+- [x] feat: append my contact info to the source code
+- [ ] bug: specify source code pro font version, otherwise the checksum will be changed in future
+- [ ] feat: copy source code or current url
+
 ## 2020.7.24
 
 - [x] feat: hide article content in index.html

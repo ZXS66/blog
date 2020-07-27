@@ -87,15 +87,14 @@ Hexo 默认的主题 Landscape，默认支持分享到 <i class="fa fa-twitter" 
 
 ## 更改配置 
 
-（此步骤可省略）
+（此步骤可省略，可用于 Contact 页面）
 
 大概从第 30 行开始，增加 `weibo`、`wechat`、`qq`、`mail` 配置项
 
-文件：`themes\landscape\_config.yml`
+文件：`_config.yml`
 
 ```yml
 # Miscellaneous
-favicon: /favicon.ico
 weibo: your weibo name
 wechat: your wechat name
 qq: your QQ

@@ -1,4 +1,5 @@
 <%- partial('_partial/head') %>
+
 <body>
   <div id="container">
     <div id="wrap">
@@ -6,7 +7,7 @@
       <div class="outer">
         <section id="main"><%- body %></section>
         <% if (theme.sidebar && theme.sidebar !== 'bottom'){ %>
-          <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
+        <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
         <% } %>
       </div>
       <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
@@ -14,5 +15,13 @@
     <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
     <%- partial('_partial/after-footer') %>
   </div>
+<!-- I'm looing for a job right now, please reach out to me via: -->
+<!-- 
+<%- __('weibo') %> ：<%- config.weibo %>
+<%- __('wechat') %> ：<%- config.wechat %>
+<%- __('qq') %> ：<%- config.qq %>
+<%- __('mail') %> ：<%- config.mail %>
+-->
 </body>
+
 </html>
