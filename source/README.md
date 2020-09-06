@@ -2,11 +2,47 @@
 
 Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 
+## code snippets
+
+### fontawesome sample
+
+``` html
+<i class="fa fa-weibo" aria-hidden="true"></i>
+```
+
+### custom element for link
+
+``` html
+[<fa-link/>](https://your-link.here)
+```
+
+### insert local image
+
+``` html
+![title](/images/postfolder/image.png)
+```
+
 ## Changelog
+
+### 2020.9.3
+
+- [ ] feat: about me page (not post)
+
+### 2020.8.31
+
+- [x] post: shrink ASP.NET WebAPI build package file size
+
+### 2020.8.20
+
+- [x] post: node package version
+
+### 2020.8.7
+
+- [x] post: windows shortcut key for file explorer
 
 ### 2020.7.31
 
-- [x] feat: replace favicon with PNG file
+- [x] feat: replace favicon with PNG file (transparent background)
 
 ### 2020.7.27
 
@@ -21,7 +57,7 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 
 ### 2020.7.23
 
-- [ ] feat: replace search engine（Google -> Baidu、sogou）
+- [x] feat: replace search engine（Google -> Baidu、sogou）*task cancelled, the blog is aim for self review*
 - [x] post: failover CDN
 - [x] bug: when click image in fancybox modal, the article will scroll to the top (fancybox is removed)
 

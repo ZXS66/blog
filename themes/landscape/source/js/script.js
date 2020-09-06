@@ -121,7 +121,7 @@
           }
         } else {
           const url = $evtSrc.getAttribute("data-url");
-          const title = "👍 //" + $evtSrc.getAttribute("data-title");
+          const title = "👍" + $evtSrc.getAttribute("data-title");
           const encodedUrl = encodeURIComponent(url);
           const encodedTitle = encodeURIComponent(title);
 
@@ -151,7 +151,7 @@
           $links.classList.add("article-share-links");
           const html = [
             // 微博分享
-            '<a href="http://service.weibo.com/share/share.php?title=' +
+            '<a href="https://service.weibo.com/share/share.php?title=' +
               encodedTitle +
               "&url=" +
               encodedUrl +

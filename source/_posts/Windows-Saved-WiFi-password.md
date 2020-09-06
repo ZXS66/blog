@@ -19,7 +19,7 @@ tags: [Windows, command]
 netsh wlan show profiles
 ```
 
-![](/images/Windows%20saved%20wifi_1.png)
+![](/images/windows-saved-wifi-password/Windows%20saved%20wifi_1.png)
 
 ## 步骤二: 显示指定配置的详情
 
@@ -27,7 +27,7 @@ netsh wlan show profiles
 netsh wlan show profile name="your-profile-name" key=clear
 ```
 
-![](/images/Windows%20saved%20wifi_2.png)
+![](/images/windows-saved-wifi-password/Windows%20saved%20wifi_2.png)
 
 找到图片中 Key Content 就是了！
 

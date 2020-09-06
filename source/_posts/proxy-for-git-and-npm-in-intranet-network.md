@@ -9,33 +9,33 @@ comments: false
 
 ## 设置当前用户网络代理 
 
-```
+``` shell
 set http_proxy=http://[username:password@]proxyserver:port
 set https_proxy=https://[username:password@]proxyserver:port
 ```
 
 ## 设置 Git 代理：
 
-```
+``` shell
 git config --global http.proxy http://xxx.xxx.xxx.xxx:80
 ```
 
 ## 移除 Git 代理：
 
-```
+``` shell
 git config --global --unset http.proxy
 ```
 
 ## 设置 npm 代理
 
-```
+``` shell
 npm config set proxy http://xxx.xxx.xxx.xxx:8080
 npm config set https-proxy http://xxx.xxx.xxx.xxx:8080
 ```
 
 ## 移除 npm 代理
 
-```
+``` shell
 npm config rm proxy
 npm config rm https-proxy
 ```

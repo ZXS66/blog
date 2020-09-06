@@ -37,7 +37,7 @@ tags: [CDN, cloudflare, baidu, firefox, iconfont]
 
 ![firefox 请求字体文件不带版本号](/images/reliable-cdn/firefox%20cert%20invalid%204.jpg)
 
-什么鬼，你耍我？ ![？？？](/images/questions.png) 
+什么鬼，你耍我？ ![？？？](/images/reliable-cdn/questions.png) 
 
 莫非，真的是 CDN 问题？我查查...
 
