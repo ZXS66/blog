@@ -20,9 +20,9 @@ tags: [ASP.NET, cache, caching, log, logging, MemoryCache]
 
 ## 缓存
 
-提到缓存，小团队的选择挺少的，[Memcached](https://www.memcached.org/) 还是 [Redis](https://redis.io/)？稍大一点的团队可以直接购买阿里云或其他云平台的相关产品，省时省力有保证。大型企业基本上都有自己的中间件了。
+提到缓存，小团队的选择，[Memcached](https://www.memcached.org/) 还是 [Redis](https://redis.io/)？稍大一点的团队可以直接购买阿里云或其他云平台的相关产品，省时省力有保证。大型企业基本上都有自己的中间件了。
 
-前面说到，我打算自己造轮子，采用的是 C# 自带的 [System.Runtime.Caching.MemoryCache](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.caching.memorycache)。Web 和非 Web 应用都可以使用。好处是基于内存（和目标应用公用一个 app pool 或进程），支持任意数据类型，避免同目标应用间的网络通信，支持简单的过期策略；坏处就是无法与其他因应用共享数据，无法持久化（随着 app pool 或进程的终止而清空），数据量大了还会影响目标应用的性能。
+前面说到，我打算自己造轮子，采用的是 C# 自带的 [System.Runtime.Caching.MemoryCache](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.caching.memorycache)。Web 和非 Web 应用都可以使用。好处是基于内存（和目标应用公用一个 app pool 或进程），支持任意数据类型，避免同目标应用间的网络通信，支持简单的过期策略；坏处就是无法与其他因应用共享数据，无法启动自恢复（随着 app pool 或进程的终止而清空），数据量大了还会影响目标应用的性能。
 
 Linus Torvalds 大神说过：
 
@@ -406,14 +406,8 @@ namespace ProjX.API
             string controllerName = actionContext.ActionDescriptor.ControllerDescriptor.ControllerType.FullName,
                 actionName = actionContext.ActionDescriptor.ActionName;
             Dictionary<string, object> arguments = actionContext.ActionArguments;
-            return string.Format
-            (
-                "{0}`{1}`{2}`{3}",
-                controllerName,
-                actionName,
-                actionContext.RequestContext.Principal.Identity.Name,
-                arguments != null && arguments.Count > 0 ? Newtonsoft.Json.JsonConvert.SerializeObject(arguments) : string.Empty
-            );
+            string form = arguments != null && arguments.Count > 0 ? Newtonsoft.Json.JsonConvert.SerializeObject(arguments) : string.Empty;
+            return $"{controllerName}.{actionName}^.^{form}";
         }
         private EventLog GetLogEntry(HttpActionContext actionContext, Exception exception = null)
         {
@@ -441,6 +435,8 @@ namespace ProjX.API
 }
 ```
 
+从源码可以看出，该 `[APICacheHelper]` 可以 ① 将上次请求返回的数据先序列化成**字符串**然后缓存起来，下次相同的请求进来了直接从缓存读取结果并返回；② 记录每次 Action 执行的结果。
+
 使用方法有两种：
 
 1. 同时启用缓存和日志(默认)
@@ -459,7 +455,7 @@ namespace ProjX.API
         };
     }
     ```
-2. 只启用日志，无缓存
+2. 只启用日志，无缓存。应用场景：非查询类（新增、删除、更新）数据请求、返回结果仅依赖函数参数列表（唯一输入确定唯一输出，没有全局/环境变量依赖）、返回结果非 JSON。
    ``` csharp
     /// <summary>
     /// sample WebAPI to update data

@@ -24,6 +24,11 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 
 ## Changelog
 
+### 2020.9.7
+
+- [x] feat: javascript clipboard API
+- [x] post: javascript clipboard API
+
 ### 2020.9.3
 
 - [ ] feat: about me page (not post)

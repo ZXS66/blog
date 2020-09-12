@@ -140,7 +140,10 @@
               const { value } = $evtSrc;
               try {
                 await navigator.clipboard.writeText(value);
-                console.log("URL copied!");
+                $box.classList.add("copied");
+                setTimeout(() => {
+                  $box.classList.remove("copied");
+                }, 1024);
               } catch (error) {
                 console.error("URL copy failed", error);
               }
@@ -198,38 +201,6 @@
         );
       }
     });
-
-    // // Caption
-    // $(".article-entry").each(function(i) {
-    //   $(this)
-    //     .find("img")
-    //     .each(function() {
-    //       if (
-    //         $(this)
-    //           .parent()
-    //           .hasClass("fancybox")
-    //       )
-    //         return;
-
-    //       var alt = this.alt;
-
-    //       if (alt) $(this).after('<span class="caption">' + alt + "</span>");
-
-    //       $(this).wrap(
-    //         '<a href="' +
-    //           this.src +
-    //           '" title="' +
-    //           alt +
-    //           '" class="fancybox"></a>'
-    //       );
-    //     });
-
-    //   $(this)
-    //     .find(".fancybox")
-    //     .each(function() {
-    //       $(this).attr("rel", "article" + i);
-    //     });
-    // });
   };
 
   (nonLoadedDependencies.length
@@ -242,7 +213,7 @@
     : Promise.resolve("All dependencies are loaded!")
   ).then(myBiz);
 
-  // let's just ignore IE users
+  // create custom HTML element fa-link for common usage (let's just ignore IE users)
   class FontAwesomeLink extends HTMLElement {
     constructor() {
       super();
@@ -250,4 +221,55 @@
     }
   }
   customElements.define("fa-link", FontAwesomeLink);
+  // append copy icon to each source code section
+  if (navigator.clipboard) {
+    const className_shining = "shining";
+    const copySourceCode = async () => {
+      const $elem = event.currentTarget;
+      const sourceCode = $elem.parentElement.querySelector(".code").innerText;
+      await navigator.clipboard.writeText(sourceCode);
+      const $msg = $elem.querySelector("span");
+      // const duration = $msg.style.animationDuration;
+      const duration = 512; // 512ms
+      $elem.classList.add(className_shining); // add the class to trigger the animation
+      // swap the innerText during the animation
+      setTimeout(() => {
+        $msg.innerText = $msg.dataset.afterMsg;
+      }, duration / 2);
+      // resume
+      setTimeout(() => {
+        // https://css-tricks.com/restart-css-animation/
+        $elem.classList.remove(className_shining);
+        void $elem.offsetWidth; // trigger reflow
+        $elem.classList.add(className_shining);
+        setTimeout(() => {
+          $msg.innerText = $msg.dataset.beforeMsg;
+        }, duration / 2);
+        setTimeout(() => {
+          $elem.classList.remove(className_shining);
+        }, duration);
+      }, duration * 4);
+    };
+    Array.from(
+      document.querySelectorAll(".article-entry figure.highlight")
+    ).forEach($fig => {
+      const $fa = document.createElement("i");
+      $fa.classList.add("copy");
+      $fa.classList.add("fa");
+      $fa.classList.add("fa-files-o");
+      const beforeMsg = `👈 tap this icon to copy the code snippet`;
+      const afterMsg = `copied`;
+      const $msg = document.createElement("span");
+      $msg.classList.add("msg");
+      $msg.innerText = beforeMsg;
+      $msg.dataset.beforeMsg = beforeMsg;
+      $msg.dataset.afterMsg = afterMsg;
+      const $row = document.createElement("div");
+      $row.classList.add("source-clipboard");
+      $row.appendChild($fa);
+      $row.appendChild($msg);
+      $row.addEventListener("click", copySourceCode);
+      $fig.appendChild($row);
+    });
+  }
 })();
