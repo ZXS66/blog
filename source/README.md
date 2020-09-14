@@ -31,7 +31,7 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 
 ### 2020.9.3
 
-- [ ] feat: about me page (not post)
+- [x] feat: about me page (not post)
 
 ### 2020.8.31
 

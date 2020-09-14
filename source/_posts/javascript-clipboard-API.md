@@ -121,7 +121,7 @@ The clipboard-write permission is granted automatically to pages when they are i
 
 ## 展示
 
-<video src="/images/javascript-clipboard-API/demo.mp4" autoplay loop></video>
+![copy source code demo](/images/javascript-clipboard-API/demo.gif)
 
 ## 参考链接
 

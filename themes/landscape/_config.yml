@@ -2,7 +2,8 @@
 menu:
   home: /
   archives: /archives
-rss: 
+  contact: /app
+rss:
 
 # Content
 excerpt_link: Read More
@@ -12,9 +13,9 @@ recent_posts_limits: 10
 # Sidebar
 sidebar: right
 widgets:
-- recent_posts
-- tagcloud
-- archive
+  - recent_posts
+  - tagcloud
+  - archive
 # - category
 # - tag
 
@@ -25,11 +26,11 @@ index_widgets:
 # - archive
 
 language:
-- zh-CN
-- en
+  - zh-CN
+  - en
 
 # widget behavior
-archive_type: 'monthly'
+archive_type: "monthly"
 show_count: false
 
 # Miscellaneous
