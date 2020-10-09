@@ -24,6 +24,14 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 
 ## Changelog
 
+### 2020.9.16
+
+- [ ] feat: support of custom routing for static service engine(gitee pages)
+
+### 2020.9.11
+
+- [ ] post: get started with WeChat mini program
+
 ### 2020.9.7
 
 - [x] feat: javascript clipboard API
