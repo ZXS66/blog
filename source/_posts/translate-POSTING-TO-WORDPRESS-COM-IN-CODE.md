@@ -2,14 +2,14 @@
 title: 译：从代码中发帖至 WordPress.com
 comments: false
 date: 2020-10-01 21:04:08
-tags: [translate, C#, WordPress, blog]
+tags: [translate, C#, WordPress, blog, 随笔]
 ---
 
 各位中秋&国庆节日快乐~
 
 [Jon Skeet](https://codeblog.jonskeet.uk) 大神更新博客啦！作为 C# 专家、Stackoverflow 排名第一的神一样的人物，自然是订阅的啦。正好放假，闲来无事，不如把这篇文章翻译一下，正好加深理解。 🙂
 
-声明：如果各位英文够用，请移步[原文](https://codeblog.jonskeet.uk/2020/08/29/1793/)，本文仅用作自我复习及英文捉急的朋友食用。
+声明：如果各位英文够用，请移步[原文](https://codeblog.jonskeet.uk/2020/08/29/1793/)，本文仅仅是随笔，英文捉急的朋友可自由食用。
 
 正文开始：
 
@@ -104,16 +104,20 @@ WordPress 是一个非常通用的博客平台，让我们接受它。我完全�
 
 取而代之，我目前的解决方案是在文章正文开始添加一点元数据头，这样应用可以读取它并做相应的处理。它也可以在 wordpress.com 上创建文章之后更新成文章 ID。这样也避免我在命令行中不得不指定比如标题这样的信息。在我写这篇文章的时候，这篇文章的元数据头如下：
 
-> title: Posting to wordpress.com in code\
-> categories: C#, General\
-> --- &nbsp;
+```
+title: Posting to wordpress.com in code
+categories: C#, General
+---
+```
 
 在我第一次运行我的应用之后，我预计这篇文章将会变成这样：
 
-> postId: 12345\
-> title: Posting to wordpress.com in code\
-> categories: C#, General\
-> --- &nbsp;
+```
+postId: 12345
+title: Posting to wordpress.com in code
+categories: C#, General
+---
+```
 
 下次我让它去处理这个文件的时候，因为有 `postId` 值的存在，它将触发我的应用去“更新”而不是去“创建”。
 

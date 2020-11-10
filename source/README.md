@@ -24,34 +24,22 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 
 ## Changelog
 
+### 2020.11.10
+
+- [x] feat: replace h3 (###) with h5 (#####) because h3 is very similar with h2 (##)
+- [ ] bug: wrong date format in archive page
+
 ### 2020.9.16
 
-- [ ] feat: support of custom routing for static service engine(gitee pages)
-
-### 2020.9.11
-
-- [ ] post: get started with WeChat mini program
+- [x] feat: support of custom routing for static service engine(gitee pages)
 
 ### 2020.9.7
 
 - [x] feat: javascript clipboard API
-- [x] post: javascript clipboard API
 
 ### 2020.9.3
 
-- [x] feat: about me page (not post)
-
-### 2020.8.31
-
-- [x] post: shrink ASP.NET WebAPI build package file size
-
-### 2020.8.20
-
-- [x] post: node package version
-
-### 2020.8.7
-
-- [x] post: windows shortcut key for file explorer
+- [x] feat: about me page
 
 ### 2020.7.31
 
@@ -60,7 +48,8 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 ### 2020.7.27
 
 - [x] feat: append my contact info to the source code
-- [ ] bug: specify source code pro font version, otherwise the checksum will be changed in future
+- [ ] ~~bug: specify source code pro font version, otherwise the checksum will be changed in future~~ 
+- [x] bug: remove static file integrity of font "source code pro" due to unsupport versioning by google fonts
 - [x] feat: copy source code (in progress) or current url (done)
 
 ### 2020.7.24
@@ -71,7 +60,6 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 ### 2020.7.23
 
 - [x] feat: replace search engine（Google -> Baidu、sogou）*task cancelled, the blog is aim for self review*
-- [x] post: failover CDN
 - [x] bug: when click image in fancybox modal, the article will scroll to the top (fancybox is removed)
 
 ### 2020.7.22
@@ -81,21 +69,12 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 - [x] feat: load fancybox library from CDN
 - [x] feat: failover to local libraries(jquery, fancybox, fontawesome), cause now we can load it from CDN
 
-### 2020.7.19
-
-- [x] post: reliable CDN
-
-### 2020.7.18
-
-- [x] post: get started with Flutter
-
 ### 2020.7.17
 
 - [x] feat: create subfolder of source, named images, which is used for storing post's illustrations (previously used a external website instead)
 
 ### 2020.7.16
 
-- [x] post: [Hexo i18n](https://hexo.io/docs/internationalization)
 - [x] feat: add open graph meta [The Ultimate Guide to SEO Meta Tags](https://moz.com/blog/the-ultimate-guide-to-seo-meta-tags) to Hexo posts
 
 ### 2020.7.15
@@ -105,7 +84,6 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 ### 2020.7.10
 
 - [x] research: favicon.ico will be delete automatically if user uploaded it to server manually! need to find a solution to upload favicon in Hexo manner (solution: put favicon.ico under source folder)
-- [x] post: acknowledge JavaScript Web Speech API
 
 ### 2020.7.9
 

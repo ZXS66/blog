@@ -115,7 +115,7 @@ figure
 
 使用了点 CSS 3 animation 新特性。🙂
 
-## 提示
+## 友情提醒
 
 The clipboard-write permission is granted automatically to pages when they are in the active tab. The clipboard-read permission must be requested, which you can do by trying to read data from the clipboard.
 

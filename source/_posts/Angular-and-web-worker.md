@@ -63,7 +63,7 @@ ng generate webWorker [name]
 
 一般情况下，web worker 是需要操作请求服务器数据的，所以这里简单贴一下请求代码
 
-### `xxxx.worker.ts` 文件：
+##### `xxxx.worker.ts` 文件：
 
 ``` TypeScript
 /// <reference lib="webworker" />
@@ -154,7 +154,7 @@ const fetchCheckpointTagMap = async () => {
 
 ```
 
-### `worker-common.model.ts` 文件
+##### `worker-common.model.ts` 文件
 
 ``` TypeScript
 

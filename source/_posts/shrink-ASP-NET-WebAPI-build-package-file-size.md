@@ -61,33 +61,33 @@ tags:
 
 以下是此次移除的依赖项清单：
 
-### Antlr [<fa-link/>](https://www.nuget.org/packages/Antlr/) ###
+##### Antlr [<fa-link/>](https://www.nuget.org/packages/Antlr/) ###
 
 此依赖项被 `WebGrease` 所引用（参考 NuGet 主页 Used By 章节，一般 top 5 NuGet packages 都会有你想要的东西），后者是优化 `JavaScript`、`CSS` 及图片的工具包。考虑到该项目性质是 Web API，不是 Web Application，删除。
 
-### BouncyCastle [<fa-link/>](https://www.nuget.org/packages/BouncyCastle/) ###
+##### BouncyCastle [<fa-link/>](https://www.nuget.org/packages/BouncyCastle/) ###
 
 此依赖项被 `MySql.Data` 所引用，后者是项目前期 Research 阶段使用 MySQL 引入的。现阶段项目采用 SQL Server 作为结构化数据存储数据库，删除。
 
-### EntityFramework [<fa-link/>](https://www.nuget.org/packages/EntityFramework/) ###
+##### EntityFramework [<fa-link/>](https://www.nuget.org/packages/EntityFramework/) ###
 
 EntityFramework 是项目前期快速搭建 prototype 引入的。现阶段项目采用 ADO.NET 及 Stored Procedure 作为底层数据访问方式，删除。
 
-### Google.Protobuf [<fa-link/>](https://www.nuget.org/packages/Google.Protobuf/) ###
+##### Google.Protobuf [<fa-link/>](https://www.nuget.org/packages/Google.Protobuf/) ###
 
 此依赖项被 `MySql.Data` 所引用，后者是项目前期 Research 阶段使用 MySQL 引入的。现阶段项目采用 SQL Server 作为结构化存储数据库，删除。
 
-### Microsoft.AspNet.TelemetryCorrelation [<fa-link/>](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) ###
+##### Microsoft.AspNet.TelemetryCorrelation [<fa-link/>](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) ###
 
 此依赖项被 `Microsoft.ApplicationInsights.Web`，后者在上一次瘦身中已经移除，故移除。
 
-### Microsoft.AspNet.Web.Optimization [<fa-link/>](https://www.nuget.org/packages/Microsoft.AspNet.Web.Optimization/) ###
+##### Microsoft.AspNet.Web.Optimization [<fa-link/>](https://www.nuget.org/packages/Microsoft.AspNet.Web.Optimization/) ###
 
 此依赖项是优化 `JavaScript` 和 `CSS` 文件打包的，考虑到该项目性质是 Web API，不是 Web Application，删除。
 
 Tips: 既然不是个 Web Application，那就应在项目中排除 `Views` 文件夹。
 
-### Microsoft.CodeDom.Providers.DotNetCompilerPlatform [<fa-link/>](https://www.nuget.org/packages/Microsoft.CodeDom.Providers.DotNetCompilerPlatform/) ###
+##### Microsoft.CodeDom.Providers.DotNetCompilerPlatform [<fa-link/>](https://www.nuget.org/packages/Microsoft.CodeDom.Providers.DotNetCompilerPlatform/) ###
 
 这个是 .Net 编译平台 [Roslyn](https://github.com/aspnet/RoslynCodeDomProvider/) 的包，移除此依赖项得当心，因为很可能导致项目编译不通过。但是移除此依赖项会带来显著的效果。移除前，每次编译，都会在项目的 `bin\roslyn` 文件夹下生成一堆你并不想要的东西，还特别大。移除后，这些烦恼随着文件夹一并烟消云散了。
 
@@ -95,18 +95,18 @@ Tips: 既然不是个 Web Application，那就应在项目中排除 `Views` 文�
 
 因为项目的目标运行环境(.Net Framework)版本是 4.6.1，[该版本天然支持 C# 6.0 语法](https://devblogs.microsoft.com/dotnet/announcing-net-framework-4-6/) (或参考此[问答](https://stackoverflow.com/questions/28921701/does-c-sharp-6-0-work-for-net-4-0))，只要我不去学习 C# 7.0，那就可以任意玩耍了，哈哈，机智如我。*（此处未经验证，如有错误，欢迎指正）*
 
-### MySql.Data [<fa-link/>](https://www.nuget.org/packages/MySql.Data/) ###
-### MySql.Data.Entities [<fa-link/>](https://www.nuget.org/packages/MySql.Data.Entities/) ###
-### MySql.Data.Entity [<fa-link/>](https://www.nuget.org/packages/MySql.Data.Entity/) ###
-### popper.js [<fa-link/>](https://www.nuget.org/packages/popper.js/) ###
+##### MySql.Data [<fa-link/>](https://www.nuget.org/packages/MySql.Data/) ###
+##### MySql.Data.Entities [<fa-link/>](https://www.nuget.org/packages/MySql.Data.Entities/) ###
+##### MySql.Data.Entity [<fa-link/>](https://www.nuget.org/packages/MySql.Data.Entity/) ###
+##### popper.js [<fa-link/>](https://www.nuget.org/packages/popper.js/) ###
 
 以上四个依赖项，皆因项目前期 Research 阶段使用 MySQL 引入的。现阶段项目采用 SQL Server 作为结构化存储数据库，删除。
 
-### System.Diagnostics.DiagnosticSource [<fa-link/>](https://www.nuget.org/packages/System.Diagnostics.DiagnosticSource/) ###
+##### System.Diagnostics.DiagnosticSource [<fa-link/>](https://www.nuget.org/packages/System.Diagnostics.DiagnosticSource/) ###
 
 官网看不出来做什么用的，但是自信项目没用到这个依赖项，删！(迷之自信)
 
-### WebGrease [<fa-link/>](https://www.nuget.org/packages/WebGrease/) ###
+##### WebGrease [<fa-link/>](https://www.nuget.org/packages/WebGrease/) ###
 
 `WebGrease` 是优化 `JavaScript`、`CSS` 及图片的工具包。考虑到该项目性质是 Web API，不是 Web Application，删除。
 

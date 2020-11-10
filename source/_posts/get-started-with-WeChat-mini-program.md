@@ -31,9 +31,13 @@ tags: [get started, WeChat, mini program]
 
 考虑到微信小程序的 `wxss` 其实就是 `css`（除了多了 `rpx` 这一个单位），所以，其实可以将小程序中的 `view` (同 `div`) 设置成 `display:table`。
 
-*（未完待续）*
-
 ## 发布
+
+微信开发者工具集成发布功能，一键点击即可发布。此处不过多赘述了。
+
+## 2020.10.29 更新
+
+哈哈，阮一峰终于也 [染指微信小程序](http://www.ruanyifeng.com/blog/2020/10/wechat-miniprogram-tutorial-part-one.html) 了，大家快去观摩啊~ 😄
 
 ## 参考链接 ##
 

@@ -257,8 +257,8 @@
       $fa.classList.add("copy");
       $fa.classList.add("fa");
       $fa.classList.add("fa-files-o");
-      const beforeMsg = `👈 tap this icon to copy the code snippet`;
-      const afterMsg = `copied`;
+      const beforeMsg = `👈 copy to clipboard`;
+      const afterMsg = `✔️ copied`;
       const $msg = document.createElement("span");
       $msg.classList.add("msg");
       $msg.innerText = beforeMsg;

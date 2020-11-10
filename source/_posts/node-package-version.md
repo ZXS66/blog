@@ -5,15 +5,25 @@ date: 2020-08-20 16:11:52
 tags: [node, package.json]
 ---
 
+## 背景
+
 复习时间到啦 <i class="fa fa-bell" aria-hidden="true"></i>
 
 突然脑子不灵光了，不记得 `package.json` 文件下面的包，带 `^` 和 `~` 有什么区别了，看来是上年纪了。
+
+## TLDR，太长不看版
+
+一句话加深印象：
+
+> `~`(波峰小)表示接受补丁升级(变动小)，`^`(波峰大)表示接受次要版本及补丁升级(变动大)。 
+
+## 正片
 
 直接上[官方解释](https://nodejs.dev/learn/the-package-json-guide)：
 
 ---------------------------
 
-### Package versions
+##### Package versions
 
 You have seen in the description above version numbers like these: `~3.0.0` or `^0.13.0`. What do they mean, and which other version specifiers can you use?
 
@@ -42,7 +52,7 @@ and you can combine most of the above in ranges, like this: `1.0.0 || >=1.1.0 <1
 
 ---------------------------
 
-### Package versions
+##### Package versions
 
 你可以在上面描述中看到类似于 `~3.0.0` 或 `^0.13.0` 这样的版本编号。它们是什么意思，我们又如何抉择？
 
@@ -64,9 +74,3 @@ and you can combine most of the above in ranges, like this: `1.0.0 || >=1.1.0 <1
 - `latest`：我们可以使用最新可用版本
 
 同时我们可以结合上面所列的大部分规则，就像这样：`1.0.0 || >=1.1.0 <1.2.0`，表示或者使用 1.0.0，或者使用一个大于 1.1.0 且小于 1.2.0 的版本。
-
----------------------------
-
-一句话加深印象：
-
-> `~`(波峰小)表示接受补丁升级(变动小)，`^`(波峰大)表示接受次要版本及补丁升级(变动大)。 
