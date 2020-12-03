@@ -7,7 +7,7 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 ### fontawesome sample
 
 ``` html
-<i class="fa fa-weibo" aria-hidden="true"></i>
+<i class="fa fa-chain" aria-hidden="true"></i>
 ```
 
 ### custom element for link
