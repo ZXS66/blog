@@ -24,6 +24,11 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 
 ## Changelog
 
+
+### 2020.12.16
+
+- [x] feat: implement Hexo local search by introducing hexo-generator-search
+
 ### 2020.11.10
 
 - [x] feat: replace h3 (###) with h5 (#####) because h3 is very similar with h2 (##)
@@ -59,7 +64,7 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 
 ### 2020.7.23
 
-- [x] feat: replace search engine（Google -> Baidu、sogou）*task cancelled, the blog is aim for self review*
+- [x] feat: replace search engine（Google -> Baidu、sogou）*task cancelled, the blog is aim for self review, just replaced it with hexo-generator-search*
 - [x] bug: when click image in fancybox modal, the article will scroll to the top (fancybox is removed)
 
 ### 2020.7.22

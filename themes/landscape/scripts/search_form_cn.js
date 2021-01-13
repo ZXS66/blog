@@ -7,5 +7,7 @@ hexo.extend.helper.register("search_form_cn", function(options = {}) {
     // let tmpl = search_form(options);
     // return tmpl.replace('//google.com', '//baidu.com');
 
-    return `<form action="https//www.baidu.com/s" method="get" accept-charset="UTF-8" class="${className}"><input type="search" name="wd" class="${className}-input"${text ? ` placeholder="${text}"` : ''}>${button ? `<button type="submit" class="${className}-submit">${typeof button === 'string' ? button : text}</button>` : ''}</form>`;
+    // return `<form action="https//www.baidu.com/s" method="get" accept-charset="UTF-8" class="${className}"><input type="search" name="wd" class="${className}-input"${text ? ` placeholder="${text}"` : ''}>${button ? `<button type="submit" class="${className}-submit">${typeof button === 'string' ? button : text}</button>` : ''}</form>`;
+
+    return `<div class="${className}"><input type="search" name="wd" class="${className}-input"${text ? ` placeholder="${text}"` : ''} list="search-datalist" autocomplete="false"/></div>`;
 });

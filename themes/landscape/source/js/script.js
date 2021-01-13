@@ -39,32 +39,132 @@
 
   /** business logic, will be executed when all dependencies loaded */
   const myBiz = () => {
-    // var $ = window.jQuery;
     // Search
     const $searchWrap = document.getElementById("search-form-wrap");
     let isSearchAnim = false;
-    let searchAnimDuration = 200;
+    const searchAnimDuration = 200;
     const startSearchAnim = () => (isSearchAnim = true);
     const stopSearchAnim = callback =>
       setTimeout(() => {
         isSearchAnim = false;
         callback && callback();
       }, searchAnimDuration);
-    document.getElementById("nav-search-btn").addEventListener("click", () => {
+    const showSearchForm = () => {
       if (isSearchAnim) return;
       startSearchAnim();
       $searchWrap.classList.add("on");
       stopSearchAnim(() =>
         document.querySelector(".search-form-input").focus()
       );
-    });
+    };
     document
-      .querySelector(".search-form-input")
-      .addEventListener("blur", () => {
+      .getElementById("nav-search-btn")
+      .addEventListener("click", showSearchForm);
+    const $searchInput = document.querySelector(".search-form-input");
+    const $searchDataList = document.getElementById("search-form-datalist");
+    let search_ww;
+    $searchInput.addEventListener("keyup", evt => {
+      const options = Array.from($searchDataList.children);
+      let activeOptIdx = -1;
+      options.some((_, i) => {
+        if (_.classList.contains("active")) {
+          activeOptIdx = i;
+        }
+      });
+      const keyCode = evt.key;
+      if (keyCode === "Enter") {
+        // enter button was pressed
+        // redirect to the highlight matched post
+        const theOpt = $searchDataList.querySelector(".active");
+        if (theOpt) {
+          window.location.pathname = theOpt.dataset.url;
+        }
+      } else if (keyCode === "ArrowUp" || keyCode === "ArrowDown") {
+        if (!(options && options.length && activeOptIdx !== -1)) {
+          return; // no matched posts found
+        }
+        if (keyCode === "ArrowUp") {
+          // up arrow button was pressed
+          activeOptIdx--;
+          if (activeOptIdx < 0) {
+            activeOptIdx = options.length - 1;
+          }
+        } else {
+          // down arrow button was pressed
+          activeOptIdx = (activeOptIdx + 1) % options.length;
+        }
+        // highlight selected post by set class 'active'
+        options.forEach((_, i) => {
+          if (activeOptIdx === i) {
+            _.classList.add("active");
+          } else {
+            _.classList.remove("active");
+          }
+        });
+        $searchDataList.scrollTo({
+          top: options[activeOptIdx].offsetTop,
+          left: 0,
+          behavior: "smooth"
+        });
+      } else {
+        // user is typing search term
+        // TODO: debounce
+        search_ww.postMessage({ action: "SEARCH", data: $searchInput.value });
+      }
+    });
+    $searchInput.addEventListener("blur", () => {
+      setTimeout(() => {
         startSearchAnim();
         $searchWrap.classList.remove("on");
         stopSearchAnim();
-      });
+      }, 128);
+    });
+    if (window.Worker) {
+      search_ww = new Worker("/js/search_ww.js");
+      search_ww.onmessage = e => {
+        // search result returned
+        const matchedPosts = e.data;
+        $searchDataList.innerHTML = "";
+        // render datalist with matched posts
+        if (matchedPosts && matchedPosts.length) {
+          matchedPosts.forEach((_, i) => {
+            const $opt = document.createElement("p");
+            $opt.dataset.url = _.url;
+            const $h = document.createElement("h5");
+            $h.innerHTML = `<a href="${_.url}">${_.title}</a>`;
+            $opt.appendChild($h);
+            const $body = document.createElement("div");
+            $body.innerText = _.content
+              .trim()
+              .replace(/\n/ig, " ")
+              .substring(0, 256);
+            $opt.appendChild($body);
+            $searchDataList.appendChild($opt);
+            // highlight the first matched post by default
+            if (i === 0) {
+              $opt.classList.add("active");
+            }
+          });
+        } else {
+          $searchDataList.innerHTML =
+            "<p>NO post(s) that matched with your input can be found, please try other keywords.</p>";
+        }
+      };
+      setTimeout(() => {
+        // initial search web work with delay
+        if (document.getElementById("search-index-file")) {
+          const indexFilePath = document.getElementById("search-index-file")
+            .value;
+          search_ww.postMessage({ action: "INIT", data: indexFilePath });
+        }
+        // shortcut for showing search form
+        document.body.addEventListener("keyup", evt => {
+          if (["E", "e"].includes(evt.key)) {
+            showSearchForm();
+          }
+        });
+      }, 1024);
+    }
     // Mobile nav
     const $container = document.getElementById("container");
     const mobileNavOnClass = "mobile-nav-on";

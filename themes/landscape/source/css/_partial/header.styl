@@ -21,7 +21,7 @@
 
 #header-inner
   position: relative
-  overflow: hidden
+  overflow: visible
 
 #banner
   position: absolute
@@ -118,8 +118,8 @@ $nav-link
 #search-form-wrap
   position: absolute
   top: 15px
-  width: 150px
-  height: 30px
+  width: 61.8vw
+  min-width: 16em
   right: -150px
   opacity: 0
   transition: 0.2s ease-out
@@ -128,13 +128,13 @@ $nav-link
     right: 0
   @media mq-mobile
     width: 100%
-    right: -100%
 
 .search-form
   position: absolute
   top: 0
   left: 0
   right: 0
+  width: 95%
   background: #fff
   padding: 5px 15px
   border-radius: 15px
@@ -163,3 +163,22 @@ $nav-link
   cursor: pointer
   &:hover, &:focus
     color: #777
+
+#search-form-datalist
+  background-color: white
+  position:absolute
+  top:32px
+  width:100%
+  max-height:90vh
+  overflow:auto
+  box-shadow: 0 0 0.5em #eee
+  z-index: 1
+  .active
+    background-color: lightskyblue
+  p
+    padding:0.5em 1em
+    h5
+      font-weight:bold
+    div
+      height:3em;
+      overflow:hidden

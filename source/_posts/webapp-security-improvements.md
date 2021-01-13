@@ -47,9 +47,38 @@ date: 2020-11-28 09:54:13
 </configuration>
 ```
 
+###### Global.asax.cs 文件
+
+``` cs
+namespace NGL.API
+{
+    public class WebApiApplication : HttpApplication
+    {
+        protected void Application_Start()
+        {
+            // remove asp.net mvc version from response header
+            MvcHandler.DisableMvcResponseHeader = true;
+
+            // AreaRegistration.RegisterAllAreas();
+            // GlobalConfiguration.Configure(WebApiConfig.Register);
+            // FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            // RouteConfig.RegisterRoutes(RouteTable.Routes);
+            // //BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // var serializerSettings = GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings;
+            // serializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            // serializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+        }
+    }
+}
+```
+
+
 ## Content-Security-Policy (CSP) 响应头
 
 通过声明 `CSP` 响应头，可以有效减少现代浏览器在动态加载资源的时候被 `XSS` （跨站攻击）风险。标准做法是在**服务器端**添加，不过也可以在 `html` 文件中添加 `meta` 头声明。具体请移步至 [官网](https://content-security-policy.com/)。
+
+*有点类似于 [SRI](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) (Subresource Integrity)，使用 CDN 加载第三方脚本/样式时，通过使用 `integrity` 属性声明，降低脚本/样式被篡改的风险。不同的是，`CSP`适用范围更广。*
 
 在 ASP.NET 服务器端，修改 `web.config`：
 
@@ -65,6 +94,18 @@ date: 2020-11-28 09:54:13
   </system.webServer>
 </configuration>
 ```
+
+##### 2020/12/8 更新
+
+上文所展示代码中，有一段代码 `'unsafe-inline'`，其实这依然是不安全的做法。严格的 CSP 策略会要求连这个都禁用 [<fa-link/>](https://content-security-policy.com/unsafe-inline/)。
+
+可是，[Angular](https://angular.io) 或者 [Angular-CLI](https://cli.angular.io) 目前不支持自动计算 [hash](https://content-security-policy.com/hash/) 或者 [nonce](https://content-security-policy.com/nonce/) 。这就尴尬了。
+
+要说明的是，Angular 其实是会将全局样式（包括 `styles.css` 和第三方类库的样式表文件）都编译到 `style.xxxxhashxxxx.css` 文件中，这种情况下 `style src 'self'` 是满足需求的，因为该样式文件是通过 `<style>` 标签引入的；问题是1️⃣开发者有时候（图省事）直接给标签的 `style` **属性** 设值或者动态改变其值；2️⃣Angular Component 组件样式是运行时动态插入的（具体可查看下图：1️⃣即是内联样式，2️⃣即是动态插入的样式，一般情况下都不是合法的，只有3️⃣样式表文件中的样式才是合法的）。
+
+![CSP中合法与非法的样式](/images/webapp-security/CSP_styles.png)
+
+这就出问题了，因为 CSP 响应头 [style-src](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src) 即使加上了对应的 SHA 或 nounce 值，`style` 属性（非 style 标签）依旧是被禁止的 [<fa-link/>](https://stackoverflow.com/questions/52724956/why-doesnt-chrome-respect-my-content-security-policy-hashes)。解决方案也很简单：添加对应的 SHA 或 nounce 值到 [style-src-attr](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src-attr) 响应头可解决1️⃣内联样式的问题；避免引用 `style` 属性，改用 `class` 将1️⃣内联样式或者2️⃣动态样式改成3️⃣样式表文件。所以，临时解决办法是，把样式都挪到 `sytles.css` 全局样式表中去。emmm，有一点小膈应，毕竟，所有组件的样式都塞到一个样式表文件中，不好管理，挺糟心的。等之后找到了再更新吧。
 
 ## clientCache 设置 Cache-Control
 
@@ -194,8 +235,24 @@ public class Program
 }
 ```
 
-*未完待续*
+##### 使用 aspnet_regiis 加密
+
+*2020/12/16 更新*
+
+更推荐的做法（加密 connection string）是，使用 aspnet_regiis 命令行，将本机的 web.config 中对应节点加密。更多技术细节请参考 [官网介绍](https://docs.microsoft.com/en-ca/previous-versions/aspnet/zhhddkxy(v=vs.100))，这里就说其特点和使用方法：
+
+特点：加密后的文件对人不可读，对其他机器也不可解密，.Net Framework 会自动运行时解密。
+
+使用方法(先找到 `aspnet_regiis.exe` 所在文件夹位置，一般在 `C:\Windows\Microsoft.NET\Framework\v4.0.30319` )：
+
+1. 加密: `ASPNET_REGIIS -pef "connectionStrings" "D:\inetpub\wwwroot\applicationFolder"`
+
+2. 解密：`ASPNET_REGIIS -pdf "connectionStrings" "D:\inetpub\wwwroot\applicationFolder"`
 
 ## 参考链接
 
 - [常见的加密解密算法](https://www.cnblogs.com/qianjinyan/p/10418750.html)
+- [谷歌CSP工程化实践导读](https://mp.weixin.qq.com/s/YOpb8x-3Lp_WomRu-p1dIw)
+- [Locking Down Your Website Scripts with CSP, Hashes, Nonces and Report URI](https://www.troyhunt.com/locking-down-your-website-scripts-with-csp-hashes-nonces-and-report-uri/)
+- [Connection string encryption and decryption](https://techcommunity.microsoft.com/t5/iis-support-blog/connection-string-encryption-and-decryption/ba-p/830094)
+- [Preventing Cross-site scripting (XSS) attacks in Angular and React](https://alex-klaus.com/protecting-angular-from-xss-attacks-with-csp/)
