@@ -6,8 +6,9 @@
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
-    "go": "hexo clean && hexo generate && hexo deploy",
-    "start": "hexo server"
+    "publish": "hexo clean && hexo generate && hexo deploy && start https://gitee.com/nextwave/nextwave/pages",
+    "start": "hexo server",
+    "giteepages":"start https://gitee.com/nextwave/nextwave/pages"
   },
   "hexo": {
     "version": "4.2.1"
