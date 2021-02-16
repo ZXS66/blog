@@ -54,7 +54,9 @@ date: 2021-01-15 11:04:45
    
 4. 本地安装。也是安装需要的模块来安装。以 .NET web and .NET desktop development 为例，运行以下命令来安装：
    
-   `c:\vslayout\vs_community.exe --noweb --add Microsoft.VisualStudio.Workload.ManagedDesktop --add Microsoft.VisualStudio.Workload.NetWeb --add Component.GitHub.VisualStudio --includeOptional`
+    ``` bat
+    c:\vslayout\vs_community.exe --noweb --add Microsoft.VisualStudio.Workload.ManagedDesktop --add Microsoft.VisualStudio.Workload.NetWeb --add Component.GitHub.VisualStudio --includeOptional
+    ```
 
    接下来有安装界面了，鼠标点点就搞得定。
    
