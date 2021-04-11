@@ -32,6 +32,8 @@ Unicode 码： [u30ede](https://glyphwiki.org/wiki/u30ede) （繁体，日常使
 
 ![biáng](/images/biang/u30ede@5.svg)
 
+4. 当然，还有很多其他方法可以展示生僻字，如 [icon font](https://www.iconfont.cn/)、[LaTex](https://www.latex-project.org/)、Word/PDF 排版等等，欢迎补充。
+
 ### 参考链接
 
 - [汉字编码扩充，终于可以打出这些生僻字了！](https://www.sohu.com/a/379244647_355019)

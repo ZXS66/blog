@@ -7,7 +7,7 @@ tags: [随笔, SQL, SQL Server, Pivot Table, ]
 
 ## 背景
 
-在搜索 [STRING_AGG](https://docs.microsoft.com/en-us/sql/t-sql/functions/string-agg-transact-sql?view=sql-server-ver15) 方法在低版本 SQL Server 中实现的时候，无意中想到，之前好像有用过 pivot table (数据透视表)，用来拼接字符串？？年代久远，记忆模糊了，没办法，又得学习一遍。为加深印象，还是记一下笔记吧。
+在搜索 [STRING_AGG](https://docs.microsoft.com/en-us/sql/t-sql/functions/string-agg-transact-sql?view=sql-server-ver15) 方法（同 MySQL 中的 [GROUP_CONCAT](https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html#function_group-concat)）在低版本 SQL Server 中实现的时候，无意中想到，之前好像有用过 pivot table (数据透视表)，用来拼接字符串？？年代久远，记忆模糊了，没办法，又得学习一遍。为加深印象，还是记一下笔记吧。
 
 ## TLDR，太长不看版
 

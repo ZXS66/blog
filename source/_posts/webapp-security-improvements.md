@@ -9,7 +9,7 @@ date: 2020-11-28 09:54:13
 
 鉴于细节过多，内容过于繁杂，就不一一列举每个整改步骤了。
 
-## Session timeout
+### Session timeout
 
 前期便于快速原型开发及上线，此应用采用的是 Windows 认证。而一般此类应用不会考虑到 Session timeout 时长。但既然审查出了这个 finding （发现），那就要整改了。
 
@@ -23,11 +23,11 @@ date: 2020-11-28 09:54:13
 </configuration>
 ```
 
-## 删除服务器版本
+### 删除服务器版本
 
 默认 ASP.NET Web 应用程序的 HTTP 请求的响应头，会夹带 `IIS`、`ASP.NET MVC` 及其版本信息。要想成为健壮的网页应用程序，就必须移除这些信息。以下是要做的改动:
 
-##### web.config 文件
+###### web.config 文件
 
 ``` xml
 <configuration>
@@ -74,7 +74,7 @@ namespace NGL.API
 ```
 
 
-## Content-Security-Policy (CSP) 响应头
+### Content-Security-Policy (CSP) 响应头
 
 通过声明 `CSP` 响应头，可以有效减少现代浏览器在动态加载资源的时候被 `XSS` （跨站攻击）风险。标准做法是在**服务器端**添加，不过也可以在 `html` 文件中添加 `meta` 头声明。具体请移步至 [官网](https://content-security-policy.com/)。
 
@@ -95,7 +95,7 @@ namespace NGL.API
 </configuration>
 ```
 
-##### 2020/12/8 更新
+###### 2020/12/8 更新
 
 上文所展示代码中，有一段代码 `'unsafe-inline'`，其实这依然是不安全的做法。严格的 CSP 策略会要求连这个都禁用 [<fa-link/>](https://content-security-policy.com/unsafe-inline/)。
 
@@ -107,7 +107,39 @@ namespace NGL.API
 
 这就出问题了，因为 CSP 响应头 [style-src](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src) 即使加上了对应的 SHA 或 nounce 值，`style` 属性（非 style 标签）依旧是被禁止的 [<fa-link/>](https://stackoverflow.com/questions/52724956/why-doesnt-chrome-respect-my-content-security-policy-hashes)。解决方案也很简单：添加对应的 SHA 或 nounce 值到 [style-src-attr](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src-attr) 响应头可解决1️⃣内联样式的问题；避免引用 `style` 属性，改用 `class` 将1️⃣内联样式或者2️⃣动态样式改成3️⃣样式表文件。所以，临时解决办法是，把样式都挪到 `sytles.css` 全局样式表中去。emmm，有一点小膈应，毕竟，所有组件的样式都塞到一个样式表文件中，不好管理，挺糟心的。等之后找到了再更新吧。
 
-## clientCache 设置 Cache-Control
+##### 2021/2/14 更新
+
+网络安全有一系列响应头，除了 `Content-Security-Policy` 之外，还有 `X-Frame-Options`、`Strict-Transport-Security`、`X-XSS-Protection`、`X-Content-Type-Options`、`Referrer-Policy`、`Permissions-Policy` 等。想要查看您的网站还存在哪些问题，可以查看 [此网站](https://securityheaders.com/)。有关各响应头的详情，请查看 [MDN](https://developer.mozilla.org/en-US/)。
+
+以下是 `web.config` 样例：
+
+```xml
+<configuration>
+  <system.webServer>
+    <httpProtocol>
+      <customHeaders>
+        <!-- Protects against Clickjacking attacks. ref.: http://stackoverflow.com/a/22105445/1233379 -->
+        <add name="X-Frame-Options" value="SAMEORIGIN" />
+        <!-- Protects against Clickjacking attacks. ref.: https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet -->
+        <add name="Strict-Transport-Security" value="max-age=31536000; includeSubDomains"/>
+        <!-- Protects against XSS injections. ref.: https://www.veracode.com/blog/2014/03/guidelines-for-setting-security-headers/ -->
+        <add name="X-XSS-Protection" value="1; mode=block" />
+        <!-- Protects against MIME-type confusion attack. ref.: https://www.veracode.com/blog/2014/03/guidelines-for-setting-security-headers/ -->
+        <add name="X-Content-Type-Options" value="nosniff" />
+        <!-- CSP modern XSS directive-based defence, used since 2014. ref.: http://content-security-policy.com/ -->
+        <add name="Content-Security-Policy" value="default-src 'self'; font-src *;img-src * data:; script-src *; style-src *;" />
+        <!-- Prevents from leaking referrer data over insecure connections. ref.: https://scotthelme.co.uk/a-new-security-header-referrer-policy/ -->
+        <add name="Referrer-Policy" value="strict-origin" />
+        <!-- formerly known as Feature-Policy ref.: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy -->
+        <!-- Permissions-Policy syntax ref.:https://github.com/w3c/webappsec-permissions-policy/blob/main/permissions-policy-explainer.md#appendix-big-changes-since-this-was-called-feature-policy -->
+        <add name="Permissions-Policy" value="notifications=(),magnetometer=(),gyroscope=(),fullscreen=(self)"/>
+      </customHeaders>
+    </httpProtocol>
+  </system.webServer>
+</configuration>
+```
+
+### clientCache 设置 Cache-Control
 
 公司要求禁用 `cache` ？？？
 
@@ -121,7 +153,7 @@ namespace NGL.API
 </configuration>
 ```
 
-## 产品环境隐藏错误细节
+### 产品环境隐藏错误细节
 
 这个简单，改改 `customErrors` 的模式即可。
 
@@ -134,7 +166,7 @@ namespace NGL.API
 </configuration>
 ```
 
-## 连接字符串加密
+### 连接字符串加密
 
 `web.config` 中连接字符串 (`connection string`) 默认是不加密的。如果启用 Windows 集成认证，那倒问题不大，但是有些情形下，会直接提供 `user id` 和 `password`，一旦泄露，会造成困扰。
 
@@ -150,11 +182,11 @@ namespace NGL.API
 |6|AES加密||需要密钥解密||
 |7|RSA加密||公钥加密私钥解密||
 
-##### BASE64
+###### BASE64
 
 这个算法其实就是简单地把人类能读懂的语言文字变成 ASCII 编码。这样处理之后，人类是很难读懂了，但是机器读懂它简直不能太 easy。所以，一般这个算法不会单独用来加密，但是可以用来混淆内容。
 
-##### MD5
+###### MD5
 
 emmm，严格来说，这个不算是加密算法，它只是信息摘要算法，就是把一大堆的内容转换成一串 ASCII 编码，同时这个算法有以下两个特点：
 
@@ -163,15 +195,15 @@ emmm，严格来说，这个不算是加密算法，它只是信息摘要算法�
 
 这个算法（目前）是不可解密，所以不存在密钥一说。常用于校验我们从网上下载下来的文件是否被人恶意修改或植入病毒。在当前场景不适用。
 
-##### SHA 
+###### SHA 
 
 MD5 的升级版。
 
-##### AES 对称加密
+###### AES 对称加密
 
 加密和解密使用同一套密码，
 
-##### RSA 非对称加密
+###### RSA 非对称加密
 
 emmm，当今互联网社会的基石啊，多少人都在使用 `RSA` 当作公司 `VPN` 连接的双重身份认证凭证。加密的密钥（公钥）和解密的密钥（私钥）不一样，使用公钥加密的信息可以在互联网上传播，因为没有私钥解密的话此信息就算是天书吧。
 
@@ -243,7 +275,7 @@ public class Program
 }
 ```
 
-##### 使用 aspnet_regiis 加密
+###### 使用 aspnet_regiis 加密
 
 *2020/12/16 更新*
 
@@ -257,7 +289,7 @@ public class Program
 
 2. 解密：`ASPNET_REGIIS -pdf "connectionStrings" "D:\inetpub\wwwroot\applicationFolder"`
 
-## 参考链接
+### 参考链接
 
 - [常见的加密解密算法](https://www.cnblogs.com/qianjinyan/p/10418750.html)
 - [谷歌CSP工程化实践导读](https://mp.weixin.qq.com/s/YOpb8x-3Lp_WomRu-p1dIw)
