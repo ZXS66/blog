@@ -7,7 +7,7 @@ date: 2020-11-28 09:54:13
 
 最近，应工作需要，将某小型应用整改，目的是将此前仅对内可用的小工具公布到互联网上供外部用户使用。这其中就要经历多重审核、整改、测试、上线。
 
-鉴于细节过多，内容过于繁杂，就不一一列举每个整改步骤了。
+鉴于细节过多，内容过于繁杂，就不一一列举每个整改步骤了。很多内容在系统设计之初就应当考虑在内，此处仅记录我在完成产品开发后，公司内部安全审核团队要求整改的点。
 
 ### Session timeout
 
@@ -106,6 +106,8 @@ namespace NGL.API
 ![CSP中合法与非法的样式](/images/webapp-security/CSP_styles.png)
 
 这就出问题了，因为 CSP 响应头 [style-src](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src) 即使加上了对应的 SHA 或 nounce 值，`style` 属性（非 style 标签）依旧是被禁止的 [<fa-link/>](https://stackoverflow.com/questions/52724956/why-doesnt-chrome-respect-my-content-security-policy-hashes)。解决方案也很简单：添加对应的 SHA 或 nounce 值到 [style-src-attr](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src-attr) 响应头可解决1️⃣内联样式的问题；避免引用 `style` 属性，改用 `class` 将1️⃣内联样式或者2️⃣动态样式改成3️⃣样式表文件。所以，临时解决办法是，把样式都挪到 `sytles.css` 全局样式表中去。emmm，有一点小膈应，毕竟，所有组件的样式都塞到一个样式表文件中，不好管理，挺糟心的。等之后找到了再更新吧。
+
+从上面 `web.config` 的 CSP 配置中，可以看出，默认浏览器是默认(推荐)禁止 `unsafe-inline` 的 script 和 style。即内联的脚本和样式都是被禁止的。
 
 ##### 2021/2/14 更新
 
@@ -289,6 +291,15 @@ public class Program
 
 2. 解密：`ASPNET_REGIIS -pdf "connectionStrings" "D:\inetpub\wwwroot\applicationFolder"`
 
+### 表单校验
+
+表单校验，不仅仅是前端的事。好的系统，会在 API 层面，甚至数据库层面都会加上用户输入验证。验证要点包括但不限于：
+
+1. 是否输入非法字符
+2. 输入字符长度是否合法（最短、最长）
+3. 特别地，密码是否符合公司密码复杂度要求
+4. 特殊字符是否转译（防止 SQL 注入、XSS、CSRF）
+
 ### 参考链接
 
 - [常见的加密解密算法](https://www.cnblogs.com/qianjinyan/p/10418750.html)
@@ -296,3 +307,5 @@ public class Program
 - [Locking Down Your Website Scripts with CSP, Hashes, Nonces and Report URI](https://www.troyhunt.com/locking-down-your-website-scripts-with-csp-hashes-nonces-and-report-uri/)
 - [Connection string encryption and decryption](https://techcommunity.microsoft.com/t5/iis-support-blog/connection-string-encryption-and-decryption/ba-p/830094)
 - [Preventing Cross-site scripting (XSS) attacks in Angular and React](https://alex-klaus.com/protecting-angular-from-xss-attacks-with-csp/)
+- [Cross Site Scripting, JavaScript Injection, Contextual Output Encoding](https://privacy.ellak.gr/wp-content/uploads/sites/9/2015/12/XSS_-_5.pdf)
+

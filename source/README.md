@@ -24,6 +24,10 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 
 ## Changelog
 
+### 2021.5.9
+
+- [ ] feat: display references' URL when printing
+- [x] feat: self-serving QR code instead of third party
 
 ### 2020.12.16
 
