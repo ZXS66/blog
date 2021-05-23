@@ -3,7 +3,7 @@
     "name": "时代残党·随手笔记",
     "short_name": "时代残党",
     "description": "时代残党的日常随手笔记",
-    "version": "1.1",
+    "version": "1.1.0",
     "start_url": "/",
     "scope": "/",
     "background_color": "#2f3d58",
@@ -18,14 +18,34 @@
     ],
     "shortcuts": [
         {
+            "name": "首页",
+            "url": "/",
+            "description": "首页",
+            "icons": [
+                {
+                    "src": "/images/icons/home.svg"
+                }
+            ]
+        },
+        {
             "name": "归档",
             "url": "/archives",
-            "description": "历史所有发帖"
+            "description": "历史所有发帖",
+            "icons": [
+                {
+                    "src": "/images/icons/archive.svg"
+                }
+            ]
         },
         {
             "name": "联系我",
             "url": "/app/#/resume/2020",
-            "description": "我的简历"
+            "description": "我的简历",
+            "icons": [
+                {
+                    "src": "/images/icons/contact.svg"
+                }
+            ]
         }
     ]
 }

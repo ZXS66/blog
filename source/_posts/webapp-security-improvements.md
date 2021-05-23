@@ -174,15 +174,15 @@ namespace NGL.API
 
 对此，建议应用程序本身对连接字符串做简单加密。常见加密解密算法如下（引用 [网上的一张图](/images/webapp-security/algorithms.png)）：
 
-|序号|加密方式|是否可解密|存在密钥|解密后的特征|备注|
-|-----|-----|-----|-----|-----|-----|
-|1|BASE64加密|YES|不存在|长度是3的倍数，只含有65种字符，大写的A至Z，小写的a至z，数字到9，以及3种符号+/=，=最多两个，且在末尾|只要知道加密类型是BASE64，可通过BASE64解密程序解密|
-|2|异或加密|YES|存在||需要知道异或的值，再次异或该值，可得到加密前的value|
-|3|MD5加密|NO||32位或者16位||
-|4|SHA128加密|NO|||
-|5|SHA1加密|NO|||
-|6|AES加密||需要密钥解密||
-|7|RSA加密||公钥加密私钥解密||
+| 序号 | 加密方式   | 是否可解密 | 存在密钥         | 解密后的特征                                                                                        | 备注                                                |
+| ---- | ---------- | ---------- | ---------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| 1    | BASE64加密 | YES        | 不存在           | 长度是3的倍数，只含有65种字符，大写的A至Z，小写的a至z，数字到9，以及3种符号+/=，=最多两个，且在末尾 | 只要知道加密类型是BASE64，可通过BASE64解密程序解密  |
+| 2    | 异或加密   | YES        | 存在             |                                                                                                     | 需要知道异或的值，再次异或该值，可得到加密前的value |
+| 3    | MD5加密    | NO         |                  | 32位或者16位                                                                                        |                                                     |
+| 4    | SHA128加密 | NO         |                  |                                                                                                     |
+| 5    | SHA1加密   | NO         |                  |                                                                                                     |
+| 6    | AES加密    |            | 需要密钥解密     |                                                                                                     |
+| 7    | RSA加密    |            | 公钥加密私钥解密 |                                                                                                     |
 
 ###### BASE64
 
@@ -300,6 +300,70 @@ public class Program
 3. 特别地，密码是否符合公司密码复杂度要求
 4. 特殊字符是否转译（防止 SQL 注入、XSS、CSRF）
 
+前三项可能会根据业务，稍有不同，但基本大同小异，此处就不过多展开了。
+
+##### 防止 SQL 注入
+
+[ScottGu](https://weblogs.asp.net/scottgu/Tip_2F00_Trick_3A00_-Guard-Against-SQL-Injection-Attacks) 早在十多年前就教大家如何防止 SQL 注入了，我搬一下砖：
+
+1. 不要拼接动态 SQL 语句，使用更加类型安全的参数编码机制，如 `ADO.NET` 中的 [SqlParameter](https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlparameter?view=dotnet-plat-ext-5.0)；
+2. 在部署到产品环境之前，始终坚持安全审查，每次更新时都坚持走正式的安全流程审核所有代码；
+3. 从不存储明文的敏感数据在数据库；
+4. 确保你编写了自动单元测试，显式的验证了你的数据访问层和应用程序能够很好防御 SQL 注入攻击；
+5. 锁定你的数据库，仅授权网页应用程序访问它是功能所需的最小权限集。
+
+##### 防止 XSS 攻击
+
+`ASP.NET` 中防止 `XSS` 有一套内置的办法：[AntiXssEncoder](https://docs.microsoft.com/en-us/dotnet/api/system.web.security.antixss.antixssencoder?view=netframework-4.8)。
+
+1. 修改 `web.config`，启用 AntiXssEncoder:
+   ```xml
+   <httpRuntime encoderType="System.Web.Security.AntiXss.AntiXssEncoder" />  
+   ```
+2. 编码所有用户输入/潜在 `XSS` 攻击的参数：
+   ```cs
+   user_comment = System.Web.Security.AntiXss.AntiXssEncoder.HtmlEncode(user_comment, true);
+   ```
+3. 解码上一步编码的数据（以下代码仅展示 `Angular` 中如何解码，实际也可采用纯 `js`/`React`/`Vue` 等其它方式）：
+   ```ts
+  import { Pipe, PipeTransform } from '@angular/core';
+
+  /** Used to map HTML entities to characters. */
+  const htmlUnescapes = {
+      '&amp;': '&',
+      '&lt;': '<',
+      '&gt;': '>',
+      '&quot;': '"',
+      '&#39;': '\''
+  };
+
+  /** Used to match HTML entities and HTML characters. */
+  const reEscapedHtml = /&(?:amp|lt|gt|quot|#(0+)?39);/g;
+  const reHasEscapedHtml = RegExp(reEscapedHtml.source);
+
+  /** unescape HTML entities */
+  @Pipe({ name: 'unescape' })
+  export class UnescapePipe implements PipeTransform {
+      transform(value: any, args?: any): any {
+          // solution 1 (may ignore "<script>")
+          // const doc = new DOMParser().parseFromString(value, 'text/html');
+          // return doc.documentElement.textContent;
+          // solution 2 (not working for HTML entities like &amp;)
+          // return value.replace(/&#(\d+);/g, (match, dec) => {
+          //     return String.fromCharCode(dec);
+          // });
+          // solution 3 (enhanced version for solution 2)
+          // reference: https://github.com/lodash/lodash/blob/2f79053d7bc7c9c9561a30dda202b3dcd2b72b90/unescape.js
+          const escapedHtml = (value && reHasEscapedHtml.test(value))
+              ? value.replace(reEscapedHtml, (entity) => (htmlUnescapes[entity] || '\''))
+              : (value || '');
+          return escapedHtml.replace(/&#(\d+);/g, (match, dec) => {
+              return String.fromCharCode(dec);
+          });
+      }
+  }
+   ```
+
 ### 参考链接
 
 - [常见的加密解密算法](https://www.cnblogs.com/qianjinyan/p/10418750.html)
@@ -308,4 +372,3 @@ public class Program
 - [Connection string encryption and decryption](https://techcommunity.microsoft.com/t5/iis-support-blog/connection-string-encryption-and-decryption/ba-p/830094)
 - [Preventing Cross-site scripting (XSS) attacks in Angular and React](https://alex-klaus.com/protecting-angular-from-xss-attacks-with-csp/)
 - [Cross Site Scripting, JavaScript Injection, Contextual Output Encoding](https://privacy.ellak.gr/wp-content/uploads/sites/9/2015/12/XSS_-_5.pdf)
-
