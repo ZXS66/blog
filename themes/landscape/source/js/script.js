@@ -134,10 +134,7 @@
             $h.innerHTML = `<a href="${_.url}">${_.title}</a>`;
             $opt.appendChild($h);
             const $body = document.createElement("div");
-            $body.innerText = _.content
-              .trim()
-              .replace(/\n/ig, " ")
-              .substring(0, 256);
+            $body.innerText = _.content;
             $opt.appendChild($body);
             $searchDataList.appendChild($opt);
             // highlight the first matched post by default

@@ -25,13 +25,53 @@ onmessage = async e => {
         }
         // TODO: implement advanced search algorithm
         // reference: https://stackoverflow.com/questions/5859561/getting-the-closest-string-match
-        const matchedPosts = searchStore
-          .filter(
-            _ =>
-              _.title.toLowerCase().includes(value) ||
-              _.content.toLowerCase().includes(value)
-          )
-          .slice(0, 10);
+        // searchStore is sorted by time
+        const matchedPosts = [];
+        const maxContentLength = 256;
+        const maxPostAmount = 10;
+        // matched with title
+        searchStore.forEach(_ => {
+          if (matchedPosts.length >= maxPostAmount) return;
+          if (_.title.toLowerCase().includes(value)) {
+            let startIdx = _.content.toLowerCase().indexOf(value);
+            if (startIdx < maxContentLength / 3) {
+              startIdx = 0;
+            } else {
+              startIdx = startIdx - parseInt(maxContentLength / 3);
+            }
+            matchedPosts.push(
+              Object.assign({}, _, {
+                content: _.content
+                  .substr(startIdx, maxContentLength)
+                  .trim()
+                  .replace(/\n/gi, " ")
+              })
+            );
+          }
+        });
+        // TODO: matched tag
+        // matched with content
+        if (matchedPosts.length < maxPostAmount) {
+          searchStore.forEach(_ => {
+            if (matchedPosts.length >= maxPostAmount) return;
+            if (_.content.toLowerCase().includes(value)) {
+              let startIdx = _.content.toLowerCase().indexOf(value);
+              if (startIdx < maxContentLength / 3) {
+                startIdx = 0;
+              } else {
+                startIdx = startIdx - parseInt(maxContentLength / 3);
+              }
+              matchedPosts.push(
+                Object.assign({}, _, {
+                  content: _.content
+                    .substr(startIdx, maxContentLength)
+                    .trim()
+                    .replace(/\n/gi, " ")
+                })
+              );
+            }
+          });
+        }
         postMessage(matchedPosts);
         break;
     }

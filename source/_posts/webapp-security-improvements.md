@@ -363,6 +363,9 @@ public class Program
       }
   }
    ```
+##### 防止 CSRF 攻击
+
+ASP.NET 中防止 CSRF 攻击很简单，前端页面 (.cshtml) 中添加 `@Html.AntiForgeryToken()`，后台 Controller 代码中，在相应的 Action 加上 \[ValidateAntiForgeryToken\] 即可。
 
 ### 参考链接
 

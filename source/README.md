@@ -24,6 +24,10 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 
 ## Changelog
 
+### 2021.5.28
+
+- [x] feat: improve the user experience for searching by showing relevant article content
+
 ### 2021.5.9
 
 - [ ] feat: display references' URL when printing
