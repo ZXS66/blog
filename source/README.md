@@ -10,6 +10,8 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 <i class="fa fa-chain" aria-hidden="true"></i>
 ```
 
+[fontawesome library](http://www.fontawesome.com.cn/faicons/)
+
 ### custom element for link
 
 ``` html
