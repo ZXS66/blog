@@ -26,6 +26,14 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 
 ## Changelog
 
+### 2021.8.27
+
+- [ ] bug: the PWA can't be forced updated on mobiles
+
+### 2021.8.24
+
+- [x] bug: re-deploy after 3 months remediation of Gitee
+
 ### 2021.5.28
 
 - [x] feat: improve the user experience for searching by showing relevant article content
