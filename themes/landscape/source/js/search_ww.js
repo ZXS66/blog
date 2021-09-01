@@ -31,7 +31,7 @@ onmessage = async e => {
         const maxPostAmount = 10;
         // matched with title
         searchStore.forEach(_ => {
-          if (matchedPosts.length >= maxPostAmount) return;
+          if (matchedPosts.length >= maxPostAmount) return; // maximum
           if (_.title.toLowerCase().includes(value)) {
             let startIdx = _.content.toLowerCase().indexOf(value);
             if (startIdx < maxContentLength / 3) {
@@ -53,7 +53,8 @@ onmessage = async e => {
         // matched with content
         if (matchedPosts.length < maxPostAmount) {
           searchStore.forEach(_ => {
-            if (matchedPosts.length >= maxPostAmount) return;
+            if (matchedPosts.length >= maxPostAmount) return; // maximum
+            if (matchedPosts.some(p=>p.url===_.url)) return;  // duplicate
             if (_.content.toLowerCase().includes(value)) {
               let startIdx = _.content.toLowerCase().indexOf(value);
               if (startIdx < maxContentLength / 3) {

@@ -28,7 +28,7 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 
 ### 2021.8.27
 
-- [ ] bug: the PWA can't be forced updated on mobiles
+- [x] bug: the PWA can't be forced updated on mobiles
 
 ### 2021.8.24
 

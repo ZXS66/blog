@@ -23,7 +23,7 @@
 			"description": "首页",
 			"icons": [
 				{
-					"src": "/images/icons/home.svg"
+					"src": "https://nextwave.gitee.io/images/icons/home.svg"
 				}
 			]
 		},
@@ -33,7 +33,7 @@
 			"description": "历史所有发帖",
 			"icons": [
 				{
-					"src": "/images/icons/archive.svg"
+					"src": "https://nextwave.gitee.io/images/icons/archive.svg"
 				}
 			]
 		},
@@ -43,7 +43,7 @@
 			"description": "我的简历",
 			"icons": [
 				{
-					"src": "/images/icons/contact.svg"
+					"src": "https://nextwave.gitee.io/images/icons/contact.svg"
 				}
 			]
 		}
