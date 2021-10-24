@@ -26,6 +26,14 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 
 ## Changelog
 
+### 2021.9.24
+
+- [x] feat: enable baidu analytics
+
+### 2021.9.5
+
+- [x] feat: force show image alt text
+
 ### 2021.8.27
 
 - [x] bug: the PWA can't be forced updated on mobiles

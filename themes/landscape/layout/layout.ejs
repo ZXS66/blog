@@ -15,6 +15,22 @@
     <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
     <%- partial('_partial/after-footer') %>
   </div>
+  <script>
+    (function () {
+      // append image-caption
+      const images = document.querySelectorAll('article img');
+      for (let j = 0; j < images.length; j++) {
+        const $img = images[j];
+        const altText = $img.getAttribute('alt');
+        if (altText && altText.length && !$img.classList.contains('inline')) {
+          const $imgCaption = document.createElement('div');
+          $imgCaption.classList.add('img-caption');
+          $imgCaption.innerText = $img.getAttribute('alt');
+          $img.parentNode.insertBefore($imgCaption, $img.nextSibling);
+        }
+      }
+    })();
+  </script>
   <!-- Hey bro, I'm looing for a job right recently, please reach out to me via: 
   <%- __('weibo') %> ：<%- config.weibo %>
   <%- __('wechat') %> ：<%- config.wechat %>

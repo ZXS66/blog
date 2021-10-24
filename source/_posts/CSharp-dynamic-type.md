@@ -9,7 +9,6 @@ tags: [CSharp, dynamic, Anonymous Type, var]
 
 1. 数据由数据库中的 `JSON` 字符串反序列化得出，但反序列化后数据的属性不定；
 2. 某个方法的某个参数，它可以是类型A，也可以是类型B（类似于 `C++` 或者 `TypeScript` 中的 [Union](https://en.cppreference.com/w/cpp/language/union) 类型），但是我不想因为这个简单的场景，去定义一个父类或者接口。
-3. 
 
 针对于此，自 `C# 4.0` (`.Net 4.5`) 开始即推出了 `dynamic` 类型。`dynamic` 类型的变量，在编译的时候不会类型检查，所以运行时可以更改数据类型（就像 `JS` 或者 `Python` 那样）。大部分场景，`dynamic` 类型变量，就像 `object` 类型变量一样，可以使用 `ToString()` 等方法，并且可以使用 `GetType` 方法获取运行时当前变量的实际数据类型。
 

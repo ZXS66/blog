@@ -28,14 +28,15 @@
 </style>
 <script>
     (function () {
-        const moreText = '<i class="fa fa-arrow-circle-down" aria-hidden="true"></i> '+"<%- __('more') %>";
-        var articles = document.getElementsByClassName('article');
-        for (var i = 0; i < articles.length; i++) {
-            var $more = document.createElement('div');
+        // show more
+        const moreText = '<i class="fa fa-arrow-circle-down" aria-hidden="true"></i> ' + "<%- __('more') %>";
+        const articles = document.getElementsByClassName('article');
+        for (let i = 0; i < articles.length; i++) {
+            const $more = document.createElement('div');
             $more.classList.add('more');
             $more.innerHTML = moreText;
             $more.onclick = function (evt) {
-                var $src = evt.target || evt.srcElement;
+                const $src = evt.target || evt.srcElement;
                 $src.parentElement.classList.add('unfold');
             };
             articles[i].appendChild($more);

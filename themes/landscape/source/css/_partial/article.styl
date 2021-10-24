@@ -81,14 +81,21 @@
     font-family: font-serif
     font-size: 1.4em
     margin: line-height 20px
+    p
+      &:before
+        content:'“'
+        font-size:2em
+        color:sliver
+    cite
+      margin-right:1em
+      display:block
+      text-align:right
+      &:before
+        content: "—"
     footer
       font-size: font-size
       margin: line-height 0
       font-family: font-sans
-      cite
-        &:before
-          content: "—"
-          padding: 0 0.5em
   .pullquote
     text-align: left
     width: 45%
@@ -119,6 +126,13 @@
       width: 100%
       height: 100%
       margin-top: 0
+  .inline
+    display: inline
+  .img-caption
+    color:gray
+    text-align:center
+    font-style:italic
+    font-size:smaller
 
 .article-more-link a
   display: inline-block

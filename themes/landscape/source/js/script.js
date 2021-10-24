@@ -3,15 +3,7 @@
     // {
     //   export: window.jQuery,
     //   failover: "https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js",
-    //   // failover: "https://code.jquery.com/jquery-2.0.3.min.js",
     //   integrity: "sha256-sTy1mJ4I/LAjFCCdEB4RAvPSmRCb3CU7YqodohyeOLo="
-    // },
-    // {
-    //   export: (window.jQuery || {}).fancybox,
-    //   failover:
-    //     "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js",
-    //   integrity:
-    //     "sha384-A/Tc8RFHsjkPvgL0yZebgTxxmCGCSaTpGkyQLeFFFJQIAzSozLwNGX9AOCIpxoXC"
     // }
   ];
   // failover to load alternative files when CDN libraries failed.
