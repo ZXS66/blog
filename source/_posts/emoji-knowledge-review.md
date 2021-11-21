@@ -9,7 +9,7 @@ date: 2021-10-16 22:15:25
 
 `Emoji` 现在已经充满我们生活的各种角落里。平时说起 `Emoji`，自然会联想起 `Unicode`，有些人还可能会想起微信或者 `iOS`。事先说明一点，`Emoji` 不是微信表情包，也不是苹果原创！！！
 
-首先，有一点得承认，`Emoji` 是日本人原创（日语：絵文字／えもじ emoji），后来被 `Unicode` 收编（这也是为什么会有一些 `Emoji` 明明显示的是中文，被 `Unicode` 解释却是 `Japanese Character XXXX` 比如：🈲、㊙️）。
+首先，有一点得承认，`Emoji` 是日本人原创（日语：絵文字／えもじ emoji），后来被 `Unicode` 收编（这也是为什么会有一些 `Emoji` 明明显示的是中文，被 `Unicode` 解释却是 `Japanese Character XXXX`，比如：🈲、㊙️）。
 
 然后，我们得了解，一个 `Emoji` 是如何在一台设备（主机、网页、手机、平板、便携设备等）上显示出来的。这其中会牵扯到很多因素，包括但不限于：码点（[Code Points](https://en.wikipedia.org/wiki/Code_point)）、字符集（[Character Set](https://en.wikipedia.org/wiki/Character_set)）、字体（[Font](https://www.dictionary.com/browse/font)）、`Unicode` 编码（[Unicode Encoding](https://techterms.com/definition/unicode)）、零宽度连接字符序列（[Emoji ZWJ Sequence](https://emojipedia.org/emoji-zwj-sequence/)，Emoji Zero Width Joiner Sequence） 等。
 
@@ -25,11 +25,11 @@ date: 2021-10-16 22:15:25
 
 ![Character Map](/images/emoji-knowledge-review/character-map.png)
 
-打开这个软件，大家就会发现，其实一个字符集定义了每个坑到底该村什么。
+打开这个软件，大家就会发现，其实一个字符集定义了每个坑到底该存什么。
 
 ### 字体
 
-字符集再往上就是字体了。一个字体里包含至少一套字符集。还是打开 Characte Map 这个软件，你会发现，同一个字符集中，即使是同一个码点，切换不同字体，它可能长得会不太一样。这就是字体的作用。字体就是定义了每个码点的字符到底该长什么样。计算机只有拿到字体了，它才能正常渲染字符，否则（未安装字体/该字体中未定义该字符的码点）该字符就会被异常显示，俗称乱码。
+字符集再往上就是字体了。一个字体里包含至少一套字符集。还是打开 Characte Map 这个软件，你会发现，同一个字符集中，即使是同一个码点，切换不同字体，它可能长得会不太一样。这就是字体的作用。字体其实定义了每个码点的字符到底该长什么样。计算机只有拿到字体了，它才能正常渲染字符，否则（未安装字体/该字体中未定义该字符对应的码点）该字符就会被异常显示，俗称乱码。
 
 扩展：
 

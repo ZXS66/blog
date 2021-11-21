@@ -11,9 +11,12 @@ onmessage = async e => {
       case "INIT":
         // initialization
         // fetch posts' indexing file
-        const response = await fetch(data);
-        const content = await response.json();
-        searchStore = content || [];
+        if (!(Array.isArray(searchStore) && searchStore.length)) {
+          // no re-init
+          const response = await fetch(data);
+          const content = await response.json();
+          searchStore = content || [];
+        }
         break;
       case "SEARCH":
       case "QUERY":
@@ -54,7 +57,7 @@ onmessage = async e => {
         if (matchedPosts.length < maxPostAmount) {
           searchStore.forEach(_ => {
             if (matchedPosts.length >= maxPostAmount) return; // maximum
-            if (matchedPosts.some(p=>p.url===_.url)) return;  // duplicate
+            if (matchedPosts.some(p => p.url === _.url)) return; // duplicate
             if (_.content.toLowerCase().includes(value)) {
               let startIdx = _.content.toLowerCase().indexOf(value);
               if (startIdx < maxContentLength / 3) {

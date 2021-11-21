@@ -48,6 +48,13 @@
       stopSearchAnim(() =>
         document.querySelector(".search-form-input").focus()
       );
+      // initial search web work with delay
+      const $searchIndexFile = document.getElementById("search-index-file");
+      if ($searchIndexFile && !$searchIndexFile.dataset.init) {
+        const indexFilePath = $searchIndexFile.value;
+        search_ww.postMessage({ action: "INIT", data: indexFilePath });
+        $searchIndexFile.dataset.init = true;
+      }
     };
     document
       .getElementById("nav-search-btn")
@@ -139,20 +146,12 @@
             "<p>NO post(s) that matched with your input can be found, please try other keywords.</p>";
         }
       };
-      setTimeout(() => {
-        // initial search web work with delay
-        if (document.getElementById("search-index-file")) {
-          const indexFilePath = document.getElementById("search-index-file")
-            .value;
-          search_ww.postMessage({ action: "INIT", data: indexFilePath });
+      // shortcut for showing search form
+      document.body.addEventListener("keyup", evt => {
+        if (["E", "e"].includes(evt.key)) {
+          showSearchForm();
         }
-        // shortcut for showing search form
-        document.body.addEventListener("keyup", evt => {
-          if (["E", "e"].includes(evt.key)) {
-            showSearchForm();
-          }
-        });
-      }, 1024);
+      });
     }
     // Mobile nav
     const $container = document.getElementById("container");
