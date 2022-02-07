@@ -2,7 +2,7 @@
 title: ASP.NET 极简缓存及日志
 comments: false
 date: 2020-09-06 15:14:51
-tags: [ASP.NET, cache, caching, log, logging, MemoryCache]
+tags: [asp.net, cache, caching, log, logging, memorycache]
 ---
 
 声明：本文仅仅是我的个人工作回顾，各位看官不必深抠字眼。本人一贯主张点到为止、够用就行，省下来的时间留给自己多去钻研自己感兴趣的东西。😄

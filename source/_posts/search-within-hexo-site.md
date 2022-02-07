@@ -1,7 +1,7 @@
 ---
 title: Hexo 站点支持搜索
 tags:
-  - Hexo
+  - hexo
   - 搜索
 comments: false
 date: 2020-12-16 23:22:37

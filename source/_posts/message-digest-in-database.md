@@ -3,8 +3,8 @@ title: 数据库信息摘要
 tags:
   - database
   - message digest
-  - MD5
-  - SHA256
+  - md5
+  - sha256
 comments: false
 date: 2021-05-23 16:17:58
 ---

@@ -2,7 +2,7 @@
 title: Windows 显示已保存 WiFi 密码
 comments: false
 date: 2020-07-15 15:05:03
-tags: [Windows, command]
+tags: [windows, command, wifi, password]
 ---
 
 有的时候，需要查看 Windows 下已保存的 WiFi 密码。比如好基友问：你要你家 WiFi 密码多少，连上去一起打局 Dota 玩玩。额，我看看。。。

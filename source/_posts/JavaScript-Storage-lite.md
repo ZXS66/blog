@@ -1,10 +1,10 @@
 ---
 title: JavaScript 轻量级缓存
 tags:
-  - JavaScript
-  - Storage
-  - localStorage
-  - sessionStorage
+  - javascript
+  - storage
+  - localstorage
+  - sessionstorage
 comments: false
 date: 2021-06-29 17:41:15
 ---

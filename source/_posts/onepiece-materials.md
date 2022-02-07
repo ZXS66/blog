@@ -1,9 +1,10 @@
 ---
 title: 海贼王素材
 tags:
-  - One Piece
+  - one piece
   - 海贼王
   - 素材
+  - 随笔
 comments: false
 date: 2021-01-04 01:00:40
 ---

@@ -2,7 +2,7 @@
 title: 可靠 CDN
 comments: false
 date: 2020-07-19 15:40:45
-tags: [CDN, cloudflare, baidu, firefox, iconfont]
+tags: [cdn, cloudflare, baidu, firefox, iconfont]
 ---
 
 前几天，把博客的 [font-awesome](https://fontawesome.com/) 引用从博客站点本身切换到 CDN。图省事，就用了以前国内外通用的 [cloudflare](https://www.cloudflare.com/zh-cn/network/china/)，因为之前不管是在公司（外网），还是在家里（国内），访问都挺快的。然后，就出事了。。。

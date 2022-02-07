@@ -1,8 +1,8 @@
 ---
 title: Hexo博客使用二维码生成器
 tags:
-  - QRCode
-  - Hexo
+  - qr code
+  - hexo
 comments: false
 date: 2021-05-16 17:30:56
 ---

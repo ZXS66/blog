@@ -1,12 +1,12 @@
 ---
 title: 从 MySQL 迁移数据至 SQL Server
 tags:
-  - MySQL
-  - SQL Server
-  - Migration
-  - Microsoft SQL Server Migration Assistant for MySQL
-  - SQL Server Integration Service
-  - ETL
+  - mysql
+  - sql server
+  - migration
+  - microsoft sql server migration assistant for mysql
+  - sql server integration service
+  - etl
 comments: false
 date: 2021-06-06 10:24:00
 ---

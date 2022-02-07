@@ -2,7 +2,7 @@
 title: Angular 应用国际化
 comments: false
 date: 2020-07-01 11:19:55
-tags: [Angular, internationalization, i18n]
+tags: [angular, internationalization, i18n]
 ---
 
 

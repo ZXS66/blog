@@ -1,8 +1,8 @@
 ---
 title: SQL Server 复制
 tags:
-  - SQL Server
-  - Replication
+  - sql server
+  - replication
 comments: false
 date: 2021-09-27 17:07:26
 ---

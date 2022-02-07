@@ -2,7 +2,7 @@
 title: ASP.NET 应用国际化
 comments: false
 date: 2020-10-28 18:11:56
-tags: [ASP.NET, ASP.NET MVC, get started, i18n]
+tags: [asp.net, mvc, get started, i18n]
 ---
 
 一般规模稍大，或者受众同时有国内、国外用户的项目，都要考虑提供中英文两个版本，即国际化（Internationalization），简称 i18n。

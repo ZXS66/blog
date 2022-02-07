@@ -2,7 +2,7 @@
 title: ASP.NET WebAPI 编译包瘦身
 comments: false
 date: 2020-08-31 23:07:55
-tags:
+tags: [asp.net, webapi, build, package, shrink]
 ---
 
 伏尔泰曾说：

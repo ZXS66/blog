@@ -2,7 +2,7 @@
 title: JavaScript Web Speech API
 comments: false
 date: 2020-07-12 11:18:40
-tags: [JavaScript, Web Speech API]
+tags: [javascript, web speech api]
 ---
 
 Web Speech API 是 JavaScript 新的规范，主要分为 Speech Recognition 和 Speech Synthesis。目前（2020/7/12），除了 Chrome，其他浏览器基本上都不支持。即使是 Chrome，也是在联网情况下方可使用。

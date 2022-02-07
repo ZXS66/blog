@@ -2,7 +2,7 @@
 title: javascript 剪切板
 comments: false
 date: 2020-09-07 10:46:46
-tags: [JavaScript, clipboard]
+tags: [javascript, clipboard]
 ---
 
 在页面上启用剪切板，一直是一个常见而又头疼的问题。我说的是自定义需要复制/剪切的内容。

@@ -1,11 +1,11 @@
 ---
 title: 使用 ASP.NET Core 和 Angular 构建视频聊天应用
 tags:
-  - ASP.NET Core
-  - Angular
-  - Video Chat
-  - WebRTC
-  - SignalR
+  - asp.net core
+  - angular
+  - video chat
+  - webrtc
+  - signalr
 comments: false
 date: 2021-08-18 15:54:30
 ---

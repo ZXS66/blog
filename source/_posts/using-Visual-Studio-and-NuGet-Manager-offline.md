@@ -1,8 +1,8 @@
 ---
 title: 离线安装使用 Visual Studio 和 NuGet
 tags:
-  - Visual Studio
-  - NuGet
+  - visual studio
+  - nuget
   - offline
 comments: false
 date: 2021-01-15 11:04:45

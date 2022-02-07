@@ -1,10 +1,10 @@
 ---
 title: 渐进式网页应用(PWA)入门
 tags:
-  - PWA
-  - Progressive Web App
+  - pwa
+  - progressive web app
   - get started
-  - Workbox
+  - workbox
 comments: false
 date: 2021-05-06 12:54:15
 ---

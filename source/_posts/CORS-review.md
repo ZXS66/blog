@@ -1,7 +1,7 @@
 ---
 title: CORS 复习
 tags:
-  - CORS
+  - cors
 comments: false
 date: 2021-04-11 14:32:54
 ---

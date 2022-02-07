@@ -2,7 +2,7 @@
 title: C# 动态类型
 comments: false
 date: 2020-11-17 15:08:11
-tags: [CSharp, dynamic, Anonymous Type, var]
+tags: [csharp, dynamic, anonymous type, var]
 ---
 
 以前大家常说，虽说 `C#` 是强类型的静态编程语言，数据类型都在编译的时候已经确定了，不支持运行时更改数据类型（像 `JS` 或者 `Python` 那样）。但是在某些特定场景，开发者就是希望 `C#` 支持动态类型，怎么办。比如以下场景：

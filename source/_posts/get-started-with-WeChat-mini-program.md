@@ -2,7 +2,7 @@
 title: 微信小程序入门
 comments: false
 date: 2020-09-11 11:11:11
-tags: [get started, WeChat, mini program]
+tags: [get started, wechat, mini program]
 ---
 
 还记得很多年前，那时候没有微信小程序，只有微信公众号（订阅号/服务号/企业号）。彼时，个人想要注册一个公众号，各种门槛，各种收费。作为一个本不富裕的铮铮男儿，为了省 **￥300/年** 的认证费，毅然决然的去学习其他的技术，并妄下断言：这种对大众开发者不友好的技术，注定走不长久！

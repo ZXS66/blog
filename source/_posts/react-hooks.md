@@ -2,7 +2,7 @@
 title: React Hooks 学习笔记
 comments: false
 date: 2020-10-10 16:46:10
-tags: [随笔, JavaScript, React, React Hooks]
+tags: [随笔, javascript, react, hooks]
 ---
 
 ## 背景

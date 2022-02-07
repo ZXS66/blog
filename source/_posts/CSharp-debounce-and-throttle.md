@@ -1,7 +1,7 @@
 ---
 title: CSharp 去抖和节流
 tags:
-  - CSharp
+  - csharp
   - debounce
   - throttle
 comments: false

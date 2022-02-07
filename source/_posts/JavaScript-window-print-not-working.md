@@ -1,7 +1,7 @@
 ---
 title: JavaScript window.print 不能正常调用
 tags:
-  - JavaScript
+  - javascript
   - window.print
 comments: false
 date: 2021-06-09 17:19:13

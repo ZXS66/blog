@@ -48,6 +48,10 @@ date: 2021-10-16 22:15:25
 
 而 `Emoji` 组合的时候，就会用到一些特殊的连接字符。如果设备支持的 `Unicode` 不是最新的，那就可能不会正常显示，一个 `Emoji` 会展示成为两个。
 
+### Emoji 搜索
+
+[<i class="fa fa-search" aria-hidden="true"></i> Emoji 搜索工具](/app/#/lab/emoji)
+
 ### Emoji 清单
 
 我已整理当前完整的 `Emoji` 清单(v14.0)，请 [点击这里](/images/emoji-knowledge-review/full-emoji-list.json) 查收。
@@ -79,5 +83,6 @@ date: 2021-10-16 22:15:25
 - [Unicode Emoji data files](https://unicode.org/Public/emoji/14.0/emoji-test.txt)
 - [😃 Every Emoji by Codepoint](https://emojipedia.org/emoji/)
 - [Emoji ZWJ Sequences: Three Letters, Many Possibilities](https://blog.emojipedia.org/emoji-zwj-sequences-three-letters-many-possibilities/)
-- [特殊Emoji编码的介绍](https://mp.weixin.qq.com/s/yMxUjIsfdQsP6XGj6SNr2w)
-- [没有版权的Emoji表情，居然能被这网站拿来卖钱？](https://mp.weixin.qq.com/s/LHVIyN-_B33rK4e_OTeTlw)
+- [<i class="fa fa-weixin" aria-hidden="true"></i> 特殊Emoji编码的介绍](https://mp.weixin.qq.com/s/yMxUjIsfdQsP6XGj6SNr2w)
+- [<i class="fa fa-weixin" aria-hidden="true"></i> 没有版权的Emoji表情，居然能被这网站拿来卖钱？](https://mp.weixin.qq.com/s/LHVIyN-_B33rK4e_OTeTlw)
+- [<i class="fa fa-weixin" aria-hidden="true"></i> 每个 JavaScript 开发者都应该了解的 Unicode](https://mp.weixin.qq.com/s/YIJzT7ymxbxNxXYsV8zpVg)

@@ -1,7 +1,8 @@
 ---
 title: MySQL 变量
 tags:
-  - MySQL
+  - mysql
+  - variable
 comments: false
 date: 2021-03-25 22:42:51
 ---

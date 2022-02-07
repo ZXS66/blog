@@ -2,7 +2,7 @@
 title: SQL Server 数据透视表
 comments: false
 date: 2020-10-20 16:46:37
-tags: [随笔, SQL, SQL Server, Pivot Table, ]
+tags: [随笔, sql, sql server, pivot table]
 ---
 
 ## 背景

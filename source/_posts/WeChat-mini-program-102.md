@@ -1,7 +1,7 @@
 ---
 title: 微信小程序入门篇(2)
 tags:
-  - WeChat
+  - wechat
   - mini program
   - 微信
   - 小程序

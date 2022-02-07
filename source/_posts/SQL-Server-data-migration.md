@@ -1,8 +1,8 @@
 ---
 title: SQL Server 数据迁移
 tags:
-  - SQL Server
-  - SQL
+  - sql server
+  - sql
   - migration
 comments: false
 date: 2021-04-25 12:23:18

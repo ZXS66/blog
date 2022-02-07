@@ -1,10 +1,10 @@
 ---
 title: ASP.NET MVC 表单认证
 tags:
-  - ASP.NET
-  - ASP.NET MVC
-  - Forms Authentication
-  - Windows Authentication
+  - asp.net
+  - mvc
+  - forms authentication
+  - windows authentication
 comments: false
 date: 2021-03-14 10:24:00
 ---

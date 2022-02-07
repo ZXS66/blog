@@ -2,7 +2,7 @@
 title: JS 中如何取消任务
 comments: false
 date: 2020-11-05 16:24:40
-tags: [JavaScript, Promise, fetch, XMLHttpRequest, rxjs, abort, cancel]
+tags: [javascript, promise, fetch, xmlhttprequest, rxjs, abort, cancel]
 ---
 
 在前端编程过程中，虽然很少发生，但确实会遇到，需要取消此前的任务。一般这些任务是耗时任务，比如网络请求、`setTimeout` 或动画等等。而这些不同的场景分别都有不同的解决方案。

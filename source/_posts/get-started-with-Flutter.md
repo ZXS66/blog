@@ -2,7 +2,7 @@
 title: Flutter 入门
 comments: false
 date: 2020-07-18 15:10:21
-tags: [Flutter, get started]
+tags: [flutter, get started]
 ---
 
 ## 为什么要学 Flutter？

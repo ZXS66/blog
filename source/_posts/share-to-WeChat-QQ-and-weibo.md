@@ -2,7 +2,7 @@
 title: '微信、微博、QQ一键分享'
 comments: false
 date: 2020-07-15 23:31:43
-tags: [JavaScript, Hexo]
+tags: [javaScript, hexo]
 ---
 
 Hexo 默认的主题 Landscape，默认支持分享到 <i class="fa fa-twitter" aria-hidden="true"></i> Twitter、<i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook、<i class="fa fa-pinterest" aria-hidden="true"></i> Pinterest、<i class="fa fa-linkedin-square" aria-hidden="true"></i> Linkedin 等国外社交媒体。但是，众所周知，这些社交媒体，在镇上都被🈲了！！

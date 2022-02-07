@@ -2,7 +2,7 @@
 title: 译：从代码中发帖至 WordPress.com
 comments: false
 date: 2020-10-01 21:04:08
-tags: [translate, C#, WordPress, blog, 随笔]
+tags: [translate, c#, wordpress, blog, 随笔]
 ---
 
 各位中秋&国庆节日快乐~

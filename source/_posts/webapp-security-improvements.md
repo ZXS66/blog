@@ -1,6 +1,6 @@
 ---
 title: Web 应用程序安全提升
-tags: [Web, security, ASP.NET, ASP.NET MVC, CSP, Content-Security-Policy, Cache-Control]
+tags: [web, security, asp.net, mvc, csp, content-security-policy, cache-control]
 comments: false
 date: 2020-11-28 09:54:13
 ---

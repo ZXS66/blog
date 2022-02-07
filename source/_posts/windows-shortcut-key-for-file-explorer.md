@@ -2,7 +2,7 @@
 title: Windows 文件管理器快捷键
 comments: false
 date: 2020-08-07 10:24:00
-tags: [随笔, Windows, shortcuts]
+tags: [随笔, windows, shortcuts]
 ---
 
 作为一名程序员，快捷键的使用是日常操作，而对性能的极致追求，则是一名合格程序员的基本修养。

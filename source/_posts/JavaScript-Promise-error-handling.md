@@ -1,8 +1,8 @@
 ---
 title: JavaScript Promise 异常捕获
 tags:
-  - JavaScript
-  - Promise
+  - javascript
+  - promise
   - throw
   - try...catch
 comments: false

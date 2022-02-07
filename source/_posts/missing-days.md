@@ -7,9 +7,9 @@ comments: false
 date: 2021-11-20 13:16:10
 ---
 
-前两天，看见 *科普中国* 公众号发布的一篇[文章](https://mp.weixin.qq.com/s/W2jm-MUQ5QfTq6xo8PG4Ng)，大受震撼，长见识了！原来，历史上“消失了”一些日期。哈哈，和朋友 zhuangbility 的时候到了：为什么历史上会有消失的日期，这到底是自然选择还是集体被 “月读”；究竟是人性的扭曲，还是道德的沦丧。😄😄
+前两天看见 *科普中国* 公众号发布的一篇[文章](https://mp.weixin.qq.com/s/W2jm-MUQ5QfTq6xo8PG4Ng)，大受震撼，长见识了！原来，历史上“消失了”一些日期。哈哈，和朋友 zhuangbility 的时候到了：为什么历史上会有消失的日期，这到底是自然选择还是集体被 “月读”；究竟是人性的扭曲，还是道德的沦丧。😄😄
 
-> 时间和空间并不存在，这只是人们的一个幻觉；
+> 时间和空间并不存在，这只是人们的一个幻觉。
 > <cite>阿尔伯特·爱因斯坦</cite>
 
 以下是历史上“消失的”日期：
@@ -35,7 +35,7 @@ date: 2021-11-20 13:16:10
 1. 年份能够被 4 整除则为闰年；
 2. 特别的，世纪年（年份为整百数）必须要被 400 整除才设为闰年，否则设为平年。
 
-即每 400 年当中只有 97 个闰年，平均每年 `(365×303+366×97/400=365.2425` 日。
+即每 400 年当中只有 97 个闰年，平均每年 `(365×303+366×97)/400=365.2425` 日。
 
 而在此之前的**儒略历**仅有第一点规则，平均每年 `(365×3+366)/4=365.25` 日。这就导致，儒略历对应的日期相比格里历是滞后的（每 133 年差一天）。所以，在历法从儒略历切换到格里历时，就要把滞后的日子直接从日历中删除。（就是这么简单粗暴）
 
@@ -126,5 +126,6 @@ date: 2021-11-20 13:16:10
 
 - [<i class="fa fa-weixin" aria-hidden="true"></i> 历史上"消失"的日期：我消失了，但仿佛又没消失…](https://mp.weixin.qq.com/s/W2jm-MUQ5QfTq6xo8PG4Ng)
 - [<i class="fa fa-weixin" aria-hidden="true"></i> 热搜第一！地球自转加速，一天不足24小时！网友最想知道的果然是它](https://mp.weixin.qq.com/s/hgZMUy54cEf3iPc_DLTQwg)
+- [<i class="fa fa-weixin" aria-hidden="true"></i> 计算机时间到底是怎么来的？程序员必看的时间知识！](https://mp.weixin.qq.com/s/Xw-CQV0QvxhKw0zMgbHpQA)
 - [Leap Seconds FAQs](https://www.nist.gov/pml/time-and-frequency-division/leap-seconds-faqs)
 - [一文看懂世界各国的夏令时冬令时](http://web.overseas-sa.com/article/5876.html)

@@ -2,7 +2,7 @@
 title: Entity Framework 最佳实践
 comments: false
 date: 2020-07-08 18:39:49
-tags: [Entity Framework, C#, best practices]
+tags: [entity framework, c#, best practices]
 ---
 
 平时如果需要搭建原型，选择 [Entity Framework](https://docs.microsoft.com/en-us/ef/)（后简称 EF）将会帮助您**更快地交付和迭代**。

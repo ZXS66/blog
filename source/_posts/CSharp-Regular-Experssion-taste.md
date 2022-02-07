@@ -1,8 +1,8 @@
 ---
 title: CSharp 正则表达式初尝
 tags:
-  - CSharp
-  - Regular Expression
+  - csharp
+  - regular expression
 comments: false
 date: 2021-04-15 18:05:56
 ---

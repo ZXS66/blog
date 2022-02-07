@@ -1,7 +1,7 @@
 ---
 title: 提升 Angular 应用性能技巧
 date: 2020-06-22 17:47:35
-tags: [Angular, Performance, JavaScript]
+tags: [angular, performance, javascript]
 comments: false
 ---
 

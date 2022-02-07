@@ -1,10 +1,10 @@
 ---
 title: SQL Server 中的 GROUP_CONCAT
 tags:
-  - GROUP_CONCAT
-  - SQL Server
-  - STRING_AGG
-  - STUFF FOR XML PATH
+  - group_concat
+  - sql server
+  - string_agg
+  - stuff for xml path
 comments: false
 date: 2021-02-28 16:12:14
 ---
