@@ -121,3 +121,4 @@ Dog.kind pastoral
 ### 参考链接
 
 - [<i class="fa fa-github" aria-hidden="true"></i> run_python_script_in_conda_env.bat](https://gist.github.com/maximlt/531419545b039fa33f8845e5bc92edd6)
+- [Installing packages using pip and virtual environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments)

@@ -23,7 +23,7 @@ date: 2022-02-03 23:28:57
 
 ### 安装和配置
 
-1. 解压下载好的两个 zip 包；
+1. 解压下载好的两个 zip 包
 2. 更改 `elasticsearch-7.16.3/config/elasticsearch.yml` 配置如下(可根据实际情况做调整)：
   ``` elasticsearch.yml
   cluster.name: my-es
@@ -35,25 +35,28 @@ date: 2022-02-03 23:28:57
   xpack.security.enabled : true
   discovery.type: single-node
   ```
-3. 配置 `elasticsearch` 环境变量；
-  因为 `elasticsearch` 是基于 `Apache Lucene` 构建的，所以 `Java` 虚拟机是必须的。为了减少小白用户的困扰，目前，`elasticsearch` 在下载好的 zip 包中已包含了 `jdk` (Open Java 版本) 的子文件夹。配置很简单，只需要设置 `ES_HOME`(`elasticsearch` zip 包解压文件夹) 和 `ES_JAVA_HOME`(`%ES_HOME%\jdk`) 两个环境变量即可。当然，如果你电脑已经安装了 `JDK`，那 `JAVA_HOME` 肯定已经配置好了，这个时候如果没有配置 `ES_JAVA_HOME`，`elasticsearch` 就会回滚读取 `JAVA_HOME` 里的 `jdk` 了。
-4. 设置 `elasticsearch` 密码 [<i class="fa fa-chain" aria-hidden="true"></i>](https://www.elastic.co/guide/en/elasticsearch/reference/7.16/security-minimal-setup.html) ;
+3. 配置 `elasticsearch` 环境变量：因为 `elasticsearch` 是基于 `Apache Lucene` 构建的，所以 `Java` 虚拟机是必须的。为了减少小白用户的困扰，目前，`elasticsearch` 在下载好的 zip 包中已包含了 `jdk` (Open Java 版本) 的子文件夹。配置很简单，只需要设置 `ES_HOME`(`elasticsearch` zip 包解压文件夹) 和 `ES_JAVA_HOME`(`%ES_HOME%\jdk`) 两个环境变量即可。当然，如果你电脑已经安装了 `JDK`，那 `JAVA_HOME` 肯定已经配置好了，这个时候如果没有配置 `ES_JAVA_HOME`，`elasticsearch` 就会回滚读取 `JAVA_HOME` 里的 `jdk` 了
+4. 设置 `elasticsearch` 密码 [<i class="fa fa-chain" aria-hidden="true"></i>](https://www.elastic.co/guide/en/elasticsearch/reference/7.16/security-minimal-setup.html)：
   1. 进入 `ES_HOME` 目录，运行 `./bin/elasticsearch.bat` 命令;
   2. 进入 `ES_HOME` 目录，运行 `./bin/elasticsearch-setup-passwords.bat interactive` 命令，会提示给默认的几个账户(`apm_system`、`kibana_system`、`kibana`、`logstash_system`、`beats_system`、`remote_monitoring_user`、`elastic`)设置密码;
-  3. 打开浏览器，输入网址 [http://192.168.0.8:9200](http://192.168.0.8:9200) 检查一下 ES 是否正常运行。（需要提供上一步设置的用户名密码）
-5. 更改 `kibana-7.16.3-windows-x86_64/config/kibana.yml` 配置如下(可根据实际情况做调整)：
+  3. 打开浏览器，输入网址 [http://192.168.0.8:9200](http://192.168.0.8:9200) 检查一下 ES 是否正常运行（需要提供上一步设置的用户名密码）。
+5. 注册 `elasticsearch` 成为 `Windows` 服务（可选）[<i class="fa fa-chain" aria-hidden="true"></i>](https://www.elastic.co/guide/en/elasticsearch/reference/7.16/zip-windows.html)：进入 `ES_HOME` 目录，运行 `./bin/elasticsearch-service.bat install` 命令
+6. 更改 `kibana-7.16.3-windows-x86_64/config/kibana.yml` 配置如下(可根据实际情况做调整)：
   ``` kibana.yml
   server.host: "192.168.0.8"
   elasticsearch.hosts: ["http://192.168.0.8:9200"]
   elasticsearch.username: "kibana_system"
   elasticsearch.password: "your_password_here"
   ```
-6. 打开浏览器，输入网址 [http://192.168.0.8:5601](http://192.168.0.8:5601) 检查一下 Kibana 是否正常运行。（需要提供上上一步设置的用户名密码）
+7. 打开浏览器，输入网址 [http://192.168.0.8:5601](http://192.168.0.8:5601) 检查一下 Kibana 是否正常运行。（需要提供上上一步设置的用户名密码）
   ![install successfully](/images/get-started-with-elasticsearch/install-successfully.jpg)
 
 ### 使用
 
 `elastic` 官方已经给出了很多使用案例，包括日志分析、机器学习（需要付费解锁😄）、网络安全监测等等。这里就不深入了，仅介绍入门使用：使用 `elasticsearch` 的来增强关系型数据库的全文搜索能力。
+
+首先需要插入部分数据（官方支持一键导入测试数据，此处略过）。
+
 
 
 
