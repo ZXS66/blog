@@ -4,6 +4,10 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 
 ## code snippets
 
+### cite
+
+<cite>时代残党</cite>
+
 ### fontawesome sample
 
 ``` html

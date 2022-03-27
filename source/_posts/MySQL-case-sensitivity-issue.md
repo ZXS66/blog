@@ -60,6 +60,12 @@ emmm，第一个推荐方法，我不能更改 `Linux` 上的 `MySQL` 啊，人�
 
 > 禁止在服务器初始化之后，使用不同的 `lower_case_table_names` 设置来启动服务器。该限制十分必要，因为各种数据字典表字段使用的排序规则是由初始化服务器时的设置决定，使用不同的设置重新启动服务器会在标识符的排序和比较方式方面引入不一致。 [<fa-link/>](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names)
 
+以下是初始化服务器时的设置：
+
+![show advanced and logging options](/images/mysql-case/show-advanced-and-logging-options.png)
+
+![preserve given case](/images/mysql-case/preserve-given-case.png)
+
 什么鬼，推荐了两个不能用的办法???
 
 那还有没有其他办法？我先去倒杯咖啡，冷静一下！<i class="fa fa-coffee" aria-hidden="true"></i>
@@ -83,6 +89,10 @@ OPTIONS (USER 'Remote',PASSWORD '', HOST 'XXX.XXX.XXX.XXX', DATABASE 'test');
 不行，没有预期结果。
 
 这个好像是和表里的**数据**编码有关系，而不是**数据库/表**名称的编码。
+
+所以，结论就是，到此为止了？？？
+
+有一个办法，虽然肯定不是最佳实践，但应该能解决问题（我没试过 😂）：用一个能够区分数据库/表名称大小写的 `MySQL` 实例中转，然后在这个实例中名称能小写的都小写。然后再对这个中转实例创建 `FEDERATED` 表格。
 
 ### 参考链接
 

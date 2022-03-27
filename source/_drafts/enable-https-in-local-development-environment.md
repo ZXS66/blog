@@ -59,5 +59,6 @@ IIS 中怎么导入自签证书就不用我介绍了，本身步骤并不复杂�
 ### 参考链接
 
 - [Tutorial: Using OpenSSL to create self-signed certificates](https://docs.microsoft.com/en-us/azure/iot-hub/tutorial-x509-self-sign)
+- [Create a self-signed public certificate to authenticate your application](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-self-signed-certificate)
 - [SERVE ANGULAR APP OVER HTTPS (LOCALHOST – ANGULAR CLI)](https://fmoralesdev.com/2020/01/03/serve-angular-app-over-https-using-angular-cli/)
 
