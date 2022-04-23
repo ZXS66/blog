@@ -112,13 +112,70 @@ Dog.kind pastoral
 
 通常情况下，遇到这种问题，使用容器即可解决。但是项目组内没有人懂，或者没有专门的运维人员来维护怎么办（其实就是不想用容器 😄）。有一种快速解决的办法。仔细观察电脑中已经安装好的 “Anaconda Prompt (Anaconda3)” 其背后指向的路径：`%windir%\System32\cmd.exe "/K" C:\Users\xxx\Anaconda3\Scripts\activate.bat C:\Users\xxx\Anaconda3`，不难发现，它使用了 [激活虚拟环境](https://docs.python.org/3/tutorial/venv.html) 技术。这就好办了：在其他人的电脑上运行的话，我把我的虚拟环境 (`requirements.txt`) 也搬过去不就行了？(类似于 `Node` 的 `packages.json`)
 
-本来本地运行我的 `HelloWorld` 程序，只需要打开 “Anaconda Prompt (Anaconda3)”，切换运行目录 (cd ) 至当前环境，运行 `./helloworld.py` 或者 `python ./hello.py` 即可。现在只需要把以下代码运行以下的 bat 文件
+本来本地运行我的 `HelloWorld` 程序，只需要打开 “Anaconda Prompt (Anaconda3)”，切换运行目录 (cd ) 至当前环境，运行 `./helloworld.py` 或者 `python ./hello.py` 即可。现在只需要把以下代码运行以下的 `bat` 文件
 
-``` bat
+<!-- ``` bat
 `%windir%\System32\cmd.exe "/K" C:\Users\xxx\Anaconda3\Scripts\activate.bat C:\Users\xxx\Anaconda3 helloworld.py
+``` -->
+
+``` start.bat
+@echo OFF
+rem How to run a Python script in a given conda environment from a batch file.
+
+rem It doesn't require:
+rem - conda to be in the PATH
+rem - cmd.exe to be initialized with conda init
+
+rem Define here the path to your conda installation
+set CONDAPATH=C:\Users\yourname\Anaconda3
+rem Define here the name of the environment
+set ENVNAME=base
+
+rem The following command activates the base environment.
+rem call C:\Users\yourname\Anaconda3\Scripts\activate.bat C:\Users\yourname\Anaconda3
+if %ENVNAME%==base (set ENVPATH=%CONDAPATH%) else (set ENVPATH=%CONDAPATH%\envs\%ENVNAME%)
+
+rem Activate the conda environment
+rem Using call is required here, see: https://stackoverflow.com/questions/24678144/conda-environments-and-bat-files
+call %CONDAPATH%\Scripts\activate.bat %ENVPATH%
+
+rem Run a python main.py in that environment
+python main.py
+
+rem Deactivate the environment
+call conda deactivate
+
+rem If conda is directly available from the command line then the following code works.
+rem call activate someenv
+rem python main.py
+rem conda deactivate
+
+rem One could also use the conda run command
+rem conda run -n someenv python main.py
+python main.py
+```
+
+将上述内容拷贝并保存至 `start.bat`，保存目录和需要运行的 `main.py` 一致。
+
+顺便提一下，建议安装 `Anaconda` 的时候，选择使用 `Anaconda` 作为默认的 `Python` 解释器，这样就不用维护多个 `Python` 版本了，且你在 `Spyder` 或者 `Jupyter Notebook` 运行的结果和你直接在命令行里运行 `Python` 命令结果一样了，不会出现各种模块找不到的问题。
+
+### 安装成功后无法执行命令
+
+某些情况下，安装成功后，无法执行命令，比如：
+
+```
+pip install playwright
+playwright install
+```
+
+上述命令，虽然第一个命令成功执行，第二个依然报错 `the term 'playwright' is not recognized`。通过检查，发现 `Python` 安装目录以及 `Scripts` 子目录都已经放到环境变量里了。解决办法是，还需要把用户目录里的 `Python/Scripts` 也加到环境变量中。[<i class="fa fa-chain" aria-hidden="true"></i>](https://packaging.python.org/en/latest/tutorials/installing-packages/#installing-to-the-user-site)
+
+```
+%USERPROFILE%\AppData\Roaming\Python\Python310\Scripts
 ```
 
 ### 参考链接
 
 - [<i class="fa fa-github" aria-hidden="true"></i> run_python_script_in_conda_env.bat](https://gist.github.com/maximlt/531419545b039fa33f8845e5bc92edd6)
 - [Installing packages using pip and virtual environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments)
+- [<i class="fa fa-stack-overflow" aria-hidden="true"></i> pip installs packages successfully, but executables not found from command line](https://stackoverflow.com/questions/35898734/pip-installs-packages-successfully-but-executables-not-found-from-command-line)

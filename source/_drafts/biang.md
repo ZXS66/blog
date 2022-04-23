@@ -1,5 +1,5 @@
 ---
-title: biáng 
+title: biáng
 tags:
   - unicode
   - 臆造汉字

@@ -2,7 +2,7 @@
 title: Emoji 知识复习
 tags:
   - emoji
-  - Unicode
+  - unicode
 comments: false
 date: 2021-10-16 22:15:25
 ---
@@ -21,7 +21,7 @@ date: 2021-10-16 22:15:25
 
 ### 字符集
 
-细心的同学可能发现了，Windows 系统自带了一个小工具，Character Map。
+细心的同学可能发现了，Windows 系统自带了一个小工具，字符集（Character Map）。
 
 ![Character Map](/images/emoji-knowledge-review/character-map.png)
 

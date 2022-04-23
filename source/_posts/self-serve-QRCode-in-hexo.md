@@ -13,11 +13,13 @@ date: 2021-05-16 17:30:56
 
 这里我就介绍一下 `Hexo` 静态博客中如何启用。
 
-1. 拷贝 [此仓库](https://www.gitee.com/nextwave/qrcode-web) 中 `index.html` 和 `qrcode.min.js` 文件到目标博客目录，如 `/source/app`；
+1. 拷贝 [此仓库](https://www.gitee.com/nextwave/qrcode-web) 中 `index.html` 和 `qrcode.min.js` 文件到目标博客目录，比如 `/source/static`；
 
-2. 打开需要使用的二位生成器的脚本或页面，引用链接到上一步复制的 `index.html`，动态传入参数 `data`；
+2. 打开需要使用的二位生成器的脚本或页面，引用链接到上一步复制的 `index.html`，动态传入参数 `data`(记得转义字符)，比如 `/static/qrcode.html?data=https%3A%2F%2Fnextwave.gitee.io%2F2021%2F05%2F16%2Fself-serve-QRCode-in-hexo%2F`(此处重命名 `index.html` 为 `qrcode.html`)；
 
-3. 更多可参考本博客每篇文章右下角的分享/微信分享。
+3. 更新 `Hexo` 配置 `_config.yml`，添加忽略目标目录 `skip_render`，比如 `static/**`；
+
+4. 更多可参考本博客每篇文章右下角的分享/微信分享。
 
 ### 参考链接
 
