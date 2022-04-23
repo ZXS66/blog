@@ -34,6 +34,7 @@ skip_render:
   - README.html
   - _posts/changelog.md
   - app/**
+  - static/**
 
 # Writing
 new_post_name: :title.md # File name of new posts

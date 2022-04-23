@@ -248,7 +248,7 @@
               encodedUrl +
               '" class="article-share-weibo" target="_blank" title="微博分享"></a>',
             // 微信二维码分享
-            '<a href="/app/qrcode.html?data=' +
+            '<a href="/static/qrcode.html?data=' +
               encodedUrl +
               '" class="article-share-wechat" target="_blank" title="微信分享"></a>',
             // QQ 好友分享
