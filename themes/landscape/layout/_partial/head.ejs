@@ -1,48 +1,31 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="utf-8">
-  <%
-  var title = page.title;
-  if (is_archive()){
-    title = __('archive_a');
-    if (is_month()){
-      title += ': ' + page.year + '/' + page.month;
-    } else if (is_year()){
-      title += ': ' + page.year;
-    }
-  } else if (is_category()){
-    title = __('category') + ': ' + page.category;
-  } else if (is_tag()){
-    title = __('tag') + ': ' + page.tag;
-  }
-  %>
-  <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <% if (theme.favicon){ %>
-  <link rel="icon" href="<%- theme.favicon %>">
-  <% } %>
-  <%- open_graph({weibo:theme.weibo, wechat: theme.wechat, qq:theme.qq, mail: theme.mail}) %>
-  <link rel="dns-prefetch" href="https://cdn.bootcdn.net/">
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
-  <meta name="baidu-site-verification" content="1W34rVIdAO" />
-  <%- css_cdn({href:config.cdn+'font-awesome/4.7.0/css/font-awesome.min',integrity:'sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0= sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=='}) %>
-  <% if (config.highlight.enable){ %>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro" />
-  <% } %>
-  <%- css('css/style') %>
-  <link rel="manifest" href="/manifest.json">
-  <script type="module" src="/pwabuilder-sw-register.js"></script>
-  <!-- 百度统计 -->
-  <script>
-    var _hmt = _hmt || [];
-    (function () {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?de1c4b02a9f8a51a6001797e045d3af9";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
+<meta charset="utf-8">
+<% var title=page.title; if (is_archive()){ title=__('archive_a'); if (is_month()){ title +=': ' + page.year + '/' + page.month; } else if (is_year()){ title +=': ' + page.year; } } else if (is_category()){ title=__('category') + ': ' + page.category; } else if (is_tag()){ title=__('tag') + ': ' + page.tag; } %>
+<title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<% if (theme.favicon){ %><link rel="icon" href="<%- theme.favicon %>"><% } %>
+<%- open_graph({weibo:theme.weibo, wechat: theme.wechat, qq:theme.qq, mail: theme.mail}) %>
+<link rel="dns-prefetch" href="https://cdn.bootcdn.net/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com/">
+<meta name="baidu-site-verification" content="1W34rVIdAO" />
+<%- css_cdn({href:config.cdn+'font-awesome/4.7.0/css/font-awesome.min',integrity:'sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0= sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=='}) %>
+<% if (config.highlight.enable){ %>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro" />
+<% } %>
+<%- css('css/style') %>
+<link rel="manifest" href="/manifest.json">
+<script type="module" src="/pwabuilder-sw-register.js"></script>
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function () {
+var hm = document.createElement("script");
+hm.src = "https://hm.baidu.com/hm.js?de1c4b02a9f8a51a6001797e045d3af9";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </head>

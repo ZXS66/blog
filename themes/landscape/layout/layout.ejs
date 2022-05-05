@@ -1,41 +1,30 @@
-<%- partial('_partial/head') %>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
-      <div class="outer">
-        <section id="main"><%- body %></section>
-        <% if (theme.sidebar && theme.sidebar !== 'bottom'){ %>
-        <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
-        <% } %>
-      </div>
-      <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
-    </div>
-    <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
-    <%- partial('_partial/after-footer') %>
-  </div>
-  <script>
-    (function () {
-      // append image-caption
-      const images = document.querySelectorAll('article img');
-      for (let j = 0; j < images.length; j++) {
-        const $img = images[j];
-        const altText = $img.getAttribute('alt');
-        if (altText && altText.length && !$img.classList.contains('inline')) {
-          const $imgCaption = document.createElement('div');
-          $imgCaption.classList.add('img-caption');
-          $imgCaption.innerText = $img.getAttribute('alt');
-          $img.parentNode.insertBefore($imgCaption, $img.nextSibling);
-        }
-      }
-    })();
-  </script>
-  <!-- Hey bro, I'm looing for a job right recently, please reach out to me via: 
-  <%- __('wechat') %> ：<%- config.wechat %>
-  <%- __('qq') %> ：<%- config.qq %>
-  <%- __('mail') %> ：<%- config.mail %>
-  -->
-</body>
-
-</html>
+<%- partial('_partial/head') %><body>
+<div id="container">
+<div id="wrap">
+<%- partial('_partial/header', null, {cache: !config.relative_link}) %>
+<div class="outer">
+<section id="main">
+<%- body %>
+</section>
+<% if (theme.sidebar && theme.sidebar !=='bottom' ){ partial('_partial/sidebar', null, {cache: !config.relative_link}) } %>
+</div>
+<%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+</div>
+<%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
+<%- partial('_partial/after-footer') %>
+</div>
+<script>
+(function () {
+// append image-caption
+const images = document.querySelectorAll('article img');
+for (let j = 0; j < images.length; j++) {
+const $img = images[j];
+const altText = $img.getAttribute('alt');
+if (altText && altText.length && !$img.classList.contains('inline')) {
+const $imgCaption = document.createElement('div');
+$imgCaption.classList.add('img-caption');
+$imgCaption.innerText = $img.getAttribute('alt');
+$img.parentNode.insertBefore($imgCaption, $img.nextSibling);
+}}})();
+</script>
+</body></html>
