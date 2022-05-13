@@ -22,6 +22,10 @@ date: 2022-05-04 14:17:16
 
 *备注：更多请查看 [油猴文档](https://www.tampermonkey.net/documentation.php#_include)*
 
+实际使用效果预览：
+
+![浏览器查找多个关键词](/images/browser-find-multiple-keywords/browser-find-multiple-entries.jpg)
+
 - [Tampermonkey - Microsoft Edge Addons](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
 - [Tampermonkey · Documentation](https://www.tampermonkey.net/documentation.php)
 - [Text Highlight and Seek](https://greasyfork.org/scripts/13007-text-highlight-and-seek)
