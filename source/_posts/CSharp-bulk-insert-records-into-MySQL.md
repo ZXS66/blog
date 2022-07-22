@@ -63,7 +63,8 @@ date: 2022-05-20 14:58:42
                 connection.Open();
                 using (MySqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = $"SELECT * FROM {tableName} LIMIT 0"; using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    cmd.CommandText = $"SELECT * FROM {tableName} LIMIT 0";
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                     {
                         adapter.UpdateBatchSize = 8192;
                         using (MySqlCommandBuilder cb = new MySqlCommandBuilder(adapter))
