@@ -1,12 +1,18 @@
-## Gitee pages
+## GitHub Pages source code
 
-Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
+[ZXS66/ZXS66.github.io](https://github.com/ZXS66/ZXS66.github.io)
+
+## GitHub Pages site
+
+[时代残党](https://zxs66.github.io)
 
 ## code snippets
 
 ### cite
 
+```
 <cite>时代残党</cite>
+```
 
 ### fontawesome sample
 
@@ -29,6 +35,10 @@ Click [here](https://gitee.com/nextwave/nextwave/pages) to publish 🙂
 ```
 
 ## Changelog
+
+### 2022.7.23
+
+- [x] migrate data from gitee to github
 
 ### 2021.9.24
 

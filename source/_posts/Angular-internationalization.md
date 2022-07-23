@@ -17,7 +17,7 @@ tags: [angular, internationalization, i18n]
 在没有去搜索引擎找寻方案的前提下，下面是自己写的 C# 控制台项目：
 
 1. 备份当前 `messages.zh.xlf` 文件。
-2. 新建 C# 控制台项目，复制如下代码：<span hidden>https://gitee.com/nextwave/codes/svcegrhbnxd82a7pkijlw10</span>
+2. 新建 C# 控制台项目，复制如下代码：[<i class="fa fa-github" aria-hidden="true"></i>ZXS66/GenerateNewI18NFile.cs](https://gist.github.com/ZXS66/69c397ccc7db3687376edc1ff55acf09)
 ``` CSharp
 namespace ConsoleApp
 {

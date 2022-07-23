@@ -23,7 +23,7 @@
 			"description": "首页",
 			"icons": [
 				{
-					"src": "https://nextwave.gitee.io/images/icons/home.svg"
+					"src": "https://zxs66.github.io/images/icons/home.svg"
 				}
 			]
 		},
@@ -33,7 +33,7 @@
 			"description": "历史所有发帖",
 			"icons": [
 				{
-					"src": "https://nextwave.gitee.io/images/icons/archive.svg"
+					"src": "https://zxs66.github.io/images/icons/archive.svg"
 				}
 			]
 		},
@@ -43,7 +43,7 @@
 			"description": "我的简历",
 			"icons": [
 				{
-					"src": "https://nextwave.gitee.io/images/icons/contact.svg"
+					"src": "https://zxs66.github.io/images/icons/contact.svg"
 				}
 			]
 		}

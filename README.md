@@ -1,4 +1,4 @@
-This is the repository for managing [my blog](https://nextwave.gitee.io) in Gitee.com
+This is the repository for managing [my blog](https://zxs66.github.io) in GitHub.com
 
 ### Create a new post
 
@@ -16,7 +16,7 @@ $ npm run build
 
 More info about [hexo generate](https://hexo.io/docs/generating.html)
 
-### push to Gitee repository
+### push to GitHub repository
 
 ``` bash
 $ npm run deploy
@@ -24,10 +24,9 @@ $ npm run deploy
 
 More info about [hexo deploy](https://hexo.io/docs/one-command-deployment.html)
 
-### deploy to Gitee Pages
+### deploy to GitHub Pages
 
-Open [Gitee Pages](https://gitee.com/nextwave/nextwave/pages) and click `Update` button.
-
+The latest code will be pushed to GitHub Pages automatically when you submit new commit to the GitHub repository.
 
 ### best practice
 

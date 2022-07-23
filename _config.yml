@@ -13,7 +13,7 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://nextwave.gitee.io
+url: https://zxs66.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -104,7 +104,7 @@ theme: landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: 'git'
-  repo: https://gitee.com/nextwave/nextwave.git
+  repo: https://github.com/ZXS66/ZXS66.github.io.git
   branch: master
   message: "Blog committed on {{ now('YYYY/MM/DD HH:mm') }}"
 

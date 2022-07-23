@@ -12,7 +12,7 @@ comments: false
 date: 2022-07-14 13:15:25
 ---
 
-本片是接 [上一篇文章](/2022/05/13/dotnet-core-build-standalone-executable-program/)，具体到 CSV 转 Excel 这一个场景下的实际应用。
+本篇是接 [上一篇文章](/2022/05/13/dotnet-core-build-standalone-executable-program/)，具体到 CSV 转 Excel 这一个场景下的实际应用。
 
 # 背景
 
@@ -52,4 +52,4 @@ date: 2022-07-14 13:15:25
 
 综上，我们需要做的，就非常少了，仅剩一些业务代码。
 
-[点击此处](https://gitee.com/nextwave/csv2excel) 查看源代码。
+[点击此处](https://github.com/ZXS66/csv2excel) 查看源代码。
