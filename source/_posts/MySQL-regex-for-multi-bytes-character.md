@@ -32,8 +32,31 @@ date: 2022-06-25 17:30:04
 
 # 放码
 
-Coming soon
+```sql
+DELIMITER $$
+
+USE `project_otis2019`$$
+DROP FUNCTION IF EXISTS `fx_regexp_over_multi_characters_sample`$$
+
+CREATE DEFINER=`zxs66`@`%` FUNCTION `fx_regexp_over_multi_characters_sample`(content TEXT) RETURNS TINYINT(4)
+    COMMENT 'check if given content match specific regular expression'
+BEGIN
+
+	DECLARE normalized_content TEXT;
+	SET normalized_content=REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(
+					REPLACE(REPLACE(REPLACE(
+						REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(content,'水果','`'),'蔬菜','`'),'牛奶','`'),'牛羊肉','`'),'杂粮','`'),
+						'，',','),'；',','),'。',','),
+						'种植','@'),'运输','@'),'储藏','@'),'销售','@'),'检验','@'),'保供','@'),'批发','@');
+
+	-- the regular expression below can be revised based on your actual bussiness requirements.
+	RETURN normalized_content REGEXP '`[^,;\.]*@' OR normalized_content REGEXP '@[^,;\.]*`'; 
+
+END$$
+
+DELIMITER ;
+```
 
 # 回顾
 
-这种解决方案自然存在诸多弊端，其中一个显而易见的问题就是，替换掉的单字节字符不能与原来的文件内容有冲突。
+上述脚本仅提供一种思路，肯定不是最优解，还存在诸多弊端，其中一个显而易见的问题就是，替换掉的单字节字符不能与原来的文件内容有冲突。如果有不同意见，还请不吝赐教。
