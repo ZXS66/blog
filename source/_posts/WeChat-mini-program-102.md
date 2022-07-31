@@ -54,4 +54,4 @@ date: 2021-06-20 23:26:00
 ### 参考链接
 
 - [微信官方文档·小程序](https://developers.weixin.qq.com/miniprogram/dev/framework/)
-- [源码](https://gitee.com/nextwave/nextwave-miniprogram)
+- [源码](https://github.com/ZXS66/nextwave-miniprogram)

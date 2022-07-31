@@ -51,7 +51,7 @@ export class BaseService {
     }
 }
 ```
-更多请参考此 [gist](https://gitee.com/nextwave/codes/89lyrde47iqb1n0v6pc2a62)
+更多请参考 ~~[此 gist](https://gitee.com/nextwave/codes/89lyrde47iqb1n0v6pc2a62)~~ [此 gist](https://gist.github.com/ZXS66/b31d4f513ee5d19846742844d6260921)
 
 ## ngFor 指令添加 trackBy
 目的是让 Angular 刷新组件部分刷新，而不是全部。

@@ -14,6 +14,16 @@ date: 2022-03-31 11:03:50
 
 BTW，[Oracle 开发工程师离职后怒喷 MySQL 很烂](https://www.theregister.com/2021/12/06/mysql_a_pretty_poor_database/) 这条新闻，去年就上了热搜，说起来确实是个笑话。
 
+### MySQL 中 PRINT 方法
+
+MySQL 中暂无此方法！如果有大佬知道，请告诉我，不胜感激！
+
+### 支持 Emoji 字符
+
+首先，MySQL 是支持 Emoji 字符的，但是，也不完全支持，即使编码设置的是 `utf8mb4`。
+
+这里就不展开了，更多可以查看我的 [另一篇文章](/2022/04/07/mysql-charset-issue/)。
+
 ### MySQL 中 SLEEP 方法
 
 基于 [MySQL SLEEP 命令官方文档](https://dev.mysql.com/doc/refman/8.0/en/miscellaneous-functions.html#function_sleep)，推荐用法是 `SELECT SLEEP(1)`。但是，如果这样书写方式，会给存储过程的既定输出造成影响。 
@@ -26,55 +36,49 @@ DO SLEEP(5);
 -- SELECT ...
 ```
 
-### MySQL 中 PRINT 方法
+为什么我需要到 `SLEEP` 方法，原因在于我需要根据参数 `ticket` 查询一个表的数据，但是目标表是不定时更新的。即使使用了 [批量插入](/2022/05/20/CSharp-bulk-insert-records-into-MySQL/)，把插入时间尽量缩短，仍存在插入途中遇到查询请求的情况。一般这时候都会引入锁的概念，以确保数据完整性。但是：
 
-MySQL 中暂无此方法！如果有大佬知道，请告诉我，不胜感激！
+1. 锁会降低并发量，得不偿失；
+2. 插入数据的代码不便更改，因为 owner 不是我（沟通/变更很费劲）。
 
-### 一个范例
+考虑到大多数情况下，一个 `ticket` 及其对应的数据都能在 5 秒之内成功插入。那为何我发现该 `ticket` 对应的数据还在插入中，我多等一会儿行不行？？
+
+### 真实案例
 
 ``` sql
 DELIMITER $$
-USE `media`$$
-DROP PROCEDURE IF EXISTS `sp_news_query_with_safe_check`$$
-CREATE DEFINER=`media_user`@`%` PROCEDURE `sp_news_query_with_safe_check`(IN `batch_no` VARCHAR(128),IN `order_no` VARCHAR(45))
-    COMMENT 'query news by order_no and batch_no, with safe check (if the data insertion completed)'
+USE `mydb`$$
+DROP PROCEDURE IF EXISTS `sp_query_with_safe_check`$$
+CREATE DEFINER=`mysql_user`@`%` PROCEDURE `sp_query_with_safe_check`(IN `ticket` VARCHAR(128)) COMMENT 'query data by ticket, with safe check (return only if the data insertion completed)'
 proc_label:BEGIN
-		
+
 		DECLARE lastRowID INT;
 		DECLARE newRowID INT;
-		DECLARE lastOrderNO VARCHAR(45);
-		DECLARE lastBatchNO VARCHAR(128);
-		SELECT MAX(t.id) INTO lastRowID FROM `news` t;
-		SELECT t.order_no INTO lastOrderNO FROM `news` t WHERE id=lastRowID;
-		SELECT t.batch_no INTO lastBatchNO FROM `news` t WHERE id=lastRowID;
-		
-		-- SELECT lastRowID, lastOrderNO, lastBatchNO;
-		
+		DECLARE lastTicket VARCHAR(45);
+		SELECT MAX(t.id) INTO lastRowID FROM `mytable` t;
+		SELECT t.ticket INTO lastTicket FROM `mytable` t WHERE id=lastRowID;
+
+		-- SELECT lastRowID, lastTicket;
+
 		-- safe check (if the data insertion completed)
-		IF lastOrderNO=`order_no` AND lastBatchNO=`batch_no` THEN
-			-- the lastest row's order_no and batch_no are equal to the querying request form
-			-- wait for 4 seconds to see if any new rows inserted
+		IF lastTicket=`ticket` THEN
+			-- the lastest row's ticket is equal to the querying request form
+			-- wait for 5 seconds to see if any new rows inserted
 			-- if yes, the insertion is happening and just exit the query
 			-- if no, continue the query
-			DO SLEEP(4);
-			SELECT MAX(t.id) INTO newRowID FROM `news` t;
+			DO SLEEP(5);
+			SELECT MAX(t.id) INTO newRowID FROM `mytable` t;
 			IF newRowID!=lastRowID THEN LEAVE proc_label; END IF;
 		END IF;
 
-		SELECT DISTINCT 
-			n.*
-		FROM news n 
-		INNER JOIN requestform r ON n.batch_no=r.batch_no AND n.order_no=r.order_no
-		WHERE n.batch_no=`batch_no` AND n.order_no=`order_no` AND (n.pub_date BETWEEN r.start_pub_date AND r.end_pub_date);
+		SELECT 
+			DISTINCT t.*
+		FROM `mytable` t WHERE t.ticket=`ticket`;
 	END$$
 DELIMITER ;
 ```
 
-### 支持 Emoji 字符
-
-首先，MySQL 是支持 Emoji 字符的，但是，也不完全支持，即使编码设置的是 `utf8mb4`。
-
-这里就不展开了，更多可以查看我的 [另一篇文章](/2022/04/07/mysql-charset-issue/)。
+*👆 上面代码其实还可以继续优化，使用 `WHILE` 写法，在插入结束之前一直等着，这样可以避免等待了 5s 之后仍在插入返回空的情况。*
 
 ### 参考链接
 
