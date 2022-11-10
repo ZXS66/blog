@@ -1,11 +1,12 @@
 {
   "name": "hexo-site",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
+    "new": "hexo new",
     "publish": "hexo clean && hexo generate && hexo deploy && echo ✔️",
     "start": "hexo server"
   },

@@ -3,7 +3,7 @@ This is the repository for managing [my blog](https://zxs66.github.io) in GitHub
 ### Create a new post
 
 ``` bash
-hexo new "My New Post"
+npm run new 'My New Post'
 ```
 
 More info: [Writing](https://hexo.io/docs/writing.html)
