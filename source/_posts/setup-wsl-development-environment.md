@@ -79,7 +79,6 @@ deb https://mirror.sjtu.edu.cn/ubuntu/ jammy-security main restricted universe m
 1. 以管理员权限，打开记事本
 2. 记事本中打开 `C:\Windows\System32\drivers\etc\hosts` 文件
 3. 添加以下 IP 映射：
-
 ```sh
 # 需要定期更新如下代码
 # New！欢迎使用基于DNS的新方案
@@ -113,6 +112,9 @@ deb https://mirror.sjtu.edu.cn/ubuntu/ jammy-security main restricted universe m
 
 # GitHub Host End
 ```
+4. 运行命令 `ipconfig /flushdns` 刷新 DNS。
+
+当然，也有其他的提供最新 hosts（比如 https://raw.hellogithub.com/hosts ) 或者自动 switchhosts（比如 https://github.com/oldj/SwitchHosts ），或者其他科学上网方式，感兴趣的请自行搜索。
 
 ### 参考链接
 
