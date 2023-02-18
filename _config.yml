@@ -104,7 +104,8 @@ theme: landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: 'git'
-  repo: https://github.com/ZXS66/ZXS66.github.io.git
+  # repo: https://github.com/ZXS66/ZXS66.github.io.git
+  repo: git@github.com:ZXS66/ZXS66.github.io.git
   branch: master
   message: "Blog committed on {{ now('YYYY/MM/DD HH:mm') }}"
 

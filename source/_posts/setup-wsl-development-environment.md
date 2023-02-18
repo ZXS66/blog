@@ -72,7 +72,7 @@ deb https://mirror.sjtu.edu.cn/ubuntu/ jammy-security main restricted universe m
 根据各开发者技术栈不同，需要安装的软件会有所不同。包括但不限于：[git](https://git-scm.com/download/linux)、[node.js](https://nodejs.org)、[python](https://www.python.org/downloads/)
 
 
-##### GitHub 加速
+##### GitHub 访问加速
 
 其实，现在好多办法都可以加速访问 [GitHub](https://github.com)，我这里介绍一种特别原始的办法，就是修改 hosts 文件。
 
@@ -114,7 +114,28 @@ deb https://mirror.sjtu.edu.cn/ubuntu/ jammy-security main restricted universe m
 ```
 4. 运行命令 `ipconfig /flushdns` 刷新 DNS。
 
-当然，也有其他的提供最新 hosts（比如 https://raw.hellogithub.com/hosts ) 或者自动 switchhosts（比如 https://github.com/oldj/SwitchHosts ），或者其他科学上网方式，感兴趣的请自行搜索。
+当然，也有其他的提供最新 hosts（比如 https://raw.hellogithub.com/hosts ) 或者自动 switchhosts（比如 https://github.com/oldj/SwitchHosts ），或者镜像 github 网站，或者其他科学上网方式，感兴趣的请自行搜索。
+
+
+##### Github SSH 配置
+
+1. 生成 ssh 公钥和私钥（如果没有的话） [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+2. 添加公钥至 Github 账户 [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=linux&tool=webui)
+3. 更改 Repository 至 SSH 协议。
+```yml
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: 'git'
+  # repo: https://github.com/ZXS66/ZXS66.github.io.git
+  repo: git@github.com:ZXS66/ZXS66.github.io.git
+  branch: master
+  message: "Blog committed on {{ now('YYYY/MM/DD HH:mm') }}"
+```
+
+
+
+
 
 ### 参考链接
 
