@@ -1,4 +1,5 @@
 ---
+uuid: 5d3460f2-1a1a-946f-12dc-789f8b1e421c
 title: ASP.NET 极简缓存及日志
 comments: false
 date: 2020-09-06 15:14:51

@@ -1,4 +1,5 @@
 ---
+uuid: 05b3bfa4-2f1a-47b0-89a9-993692b675f4
 title: SQL Server 实例间的数据同步
 tags:
   - sql server
@@ -12,8 +13,8 @@ date: 2022-10-07 18:06:06
 
 不同的程序员估计会有不同的解决方案。我的解决方案，超级简单粗暴，但是亲测有效，就是把一个环境（源）下的数据先导出成 excel/csv 文件，然后人肉复制粘贴到另一个环境（目标）下，然后再导入数据库。
 
-我用 dotnet 写成了一个小程序，可以直接运行。欢迎大家参考并提出宝贵意见。[<i class="fa fa-github" aria-hidden="true"></i>](https://github.com/ZXS66/SQLServerSync)
+我用 dotnet 写成了一个小程序，可以直接运行。欢迎大家参考并提出宝贵意见。[<i class="mdui-icon material-icons">link</i>](https://github.com/ZXS66/SQLServerSync)
 
 # 参考链接
 
-- [<i class="fa fa-github" aria-hidden="true"></i> ZXS66/SQLServerSync](https://github.com/ZXS66/SQLServerSync)
+- [ZXS66/SQLServerSync](https://github.com/ZXS66/SQLServerSync)

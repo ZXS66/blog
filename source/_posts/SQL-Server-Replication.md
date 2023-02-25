@@ -1,4 +1,5 @@
 ---
+uuid: 66569f91-2e0a-ad82-2838-9e725f747b9b
 title: SQL Server 复制
 tags:
   - sql server
@@ -40,5 +41,5 @@ date: 2021-09-27 17:07:26
 
 ### 参考链接
 
-- [<i class="fa fa-microsoft" aria-hidden="true"></i>SQL Server Replication](https://docs.microsoft.com/en-us/sql/relational-databases/replication/sql-server-replication?view=sql-server-ver15)
+- [SQL Server Replication](https://docs.microsoft.com/en-us/sql/relational-databases/replication/sql-server-replication?view=sql-server-ver15)
 - [SQL Replication: Basic setup and configuration](https://www.sqlshack.com/sql-replication-basic-setup-and-configuration/)

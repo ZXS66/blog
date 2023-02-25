@@ -14,18 +14,21 @@
 <cite>时代残党</cite>
 ```
 
-### fontawesome sample
+### material icon sample
 
 ``` html
-<i class="fa fa-chain" aria-hidden="true"></i>
+<i class="mdui-icon material-icons">favorite</i>
 ```
 
-[fontawesome library](http://www.fontawesome.com.cn/faicons/)
+[material icons | MDUI](https://mdui-docs-en.netlify.app/material_icon.html)
 
 ### custom element for link
 
-``` html
+<!-- ``` html
 [<fa-link/>](https://your-link.here)
+``` -->
+```html
+[<i class="mdui-icon material-icons">link</i>](https://your-link.here)
 ```
 
 ### insert local image
@@ -35,6 +38,11 @@
 ```
 
 ## Changelog
+
+### 2023.2.18
+
+- [x] migrate to [new hexo theme](https://niemingzhao.github.io/)
+- [x] replace [fontawesome icons](http://www.fontawesome.com.cn/faicons/) with [material design UI icons](https://mdui-docs-en.netlify.app/material_icon.html)
 
 ### 2022.7.23
 
@@ -95,7 +103,7 @@
 - [x] feat: append my contact info to the source code
 - [ ] ~~bug: specify source code pro font version, otherwise the checksum will be changed in future~~ 
 - [x] bug: remove static file integrity of font "source code pro" due to unsupport versioning by google fonts
-- [x] feat: copy source code (in progress) or current url (done)
+- [x] feat: copy source code or current url (done)
 
 ### 2020.7.24
 

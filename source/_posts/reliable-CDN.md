@@ -1,4 +1,5 @@
 ---
+uuid: 66cd7033-4274-73b8-9c2b-3798f55f2651
 title: 可靠 CDN
 comments: false
 date: 2020-07-19 15:40:45
@@ -11,9 +12,9 @@ tags: [cdn, cloudflare, baidu, firefox, iconfont]
 
 去网上搜索一圈，发现 MDN 说：
 
-> [<i class="fa fa-link" aria-hidden="true"></i>](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) Web Fonts (for cross-domain font usage in @font-face within CSS), so that servers can deploy TrueType fonts that can only be cross-site loaded and used by web sites that are permitted to do so. 
+> [<i class="mdui-icon material-icons">link</i>](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) Web Fonts (for cross-domain font usage in @font-face within CSS), so that servers can deploy TrueType fonts that can only be cross-site loaded and used by web sites that are permitted to do so. 
 
-> [<i class="fa fa-link" aria-hidden="true"></i>](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) Fonts applied with @font-face. Some browsers allow cross-origin fonts, others require same-origin. 
+> [<i class="mdui-icon material-icons">link</i>](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) Fonts applied with @font-face. Some browsers allow cross-origin fonts, others require same-origin. 
 
 发生跨域了？废话，用 CDN 肯定要跨域啊。但这些应该都是正常操作，Chrome 都行。emmm，Firefox 你在作妖吗。MDN 说的 others，该不会说的就是它自己吧。。。
 

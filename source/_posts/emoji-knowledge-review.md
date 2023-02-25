@@ -1,4 +1,5 @@
 ---
+uuid: 84ccf12d-9cf0-d04c-2b58-e46f5f129f3a
 title: Emoji 知识复习
 tags:
   - emoji
@@ -50,7 +51,7 @@ date: 2021-10-16 22:15:25
 
 ### Emoji 搜索
 
-[<i class="fa fa-search" aria-hidden="true"></i> Emoji 搜索工具](/app/#/lab/emoji)
+[<i class="mdui-icon material-icons">search</i> Emoji 搜索工具](/app/#/lab/emoji)
 
 ### Emoji 清单
 
@@ -83,7 +84,7 @@ date: 2021-10-16 22:15:25
 - [Unicode Emoji data files](https://unicode.org/Public/emoji/14.0/emoji-test.txt)
 - [😃 Every Emoji by Codepoint](https://emojipedia.org/emoji/)
 - [Emoji ZWJ Sequences: Three Letters, Many Possibilities](https://blog.emojipedia.org/emoji-zwj-sequences-three-letters-many-possibilities/)
-- [<i class="fa fa-weixin" aria-hidden="true"></i> 特殊Emoji编码的介绍](https://mp.weixin.qq.com/s/yMxUjIsfdQsP6XGj6SNr2w)
-- [<i class="fa fa-weixin" aria-hidden="true"></i> 没有版权的Emoji表情，居然能被这网站拿来卖钱？](https://mp.weixin.qq.com/s/LHVIyN-_B33rK4e_OTeTlw)
-- [<i class="fa fa-weixin" aria-hidden="true"></i> 每个 JavaScript 开发者都应该了解的 Unicode](https://mp.weixin.qq.com/s/YIJzT7ymxbxNxXYsV8zpVg)
-- [<i class="fa fa-weixin" aria-hidden="true"></i> 展开操作符：一家人就这么被拆散了](https://mp.weixin.qq.com/s/zI32qR7aZPVHsMH5LX9Vcg)
+- [特殊Emoji编码的介绍](https://mp.weixin.qq.com/s/yMxUjIsfdQsP6XGj6SNr2w)
+- [没有版权的Emoji表情，居然能被这网站拿来卖钱？](https://mp.weixin.qq.com/s/LHVIyN-_B33rK4e_OTeTlw)
+- [每个 JavaScript 开发者都应该了解的 Unicode](https://mp.weixin.qq.com/s/YIJzT7ymxbxNxXYsV8zpVg)
+- [展开操作符：一家人就这么被拆散了](https://mp.weixin.qq.com/s/zI32qR7aZPVHsMH5LX9Vcg)

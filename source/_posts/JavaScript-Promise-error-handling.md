@@ -1,4 +1,5 @@
 ---
+uuid: 9510e4e0-698a-3a9d-8be7-fa5c5100dc8e
 title: JavaScript Promise 异常捕获
 tags:
   - javascript

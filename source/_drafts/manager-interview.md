@@ -1,4 +1,5 @@
 ---
+uuid: 1427b496-1b62-d100-fdd4-1ef16a0fe12f
 title: 经理面试准备
 comments: false
 tags: [随笔, manager, interview]

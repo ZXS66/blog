@@ -1,4 +1,5 @@
 ---
+uuid: 2ed5449b-6a6b-4203-bd71-621d3c5a157a
 title: SQL Server 数据透视表
 comments: false
 date: 2020-10-20 16:46:37

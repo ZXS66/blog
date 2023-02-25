@@ -1,4 +1,5 @@
 ---
+uuid: 5dd4929c-cb3a-29f5-6c11-b1c15f2a8a89
 title: MySQL 编码问题
 tags:
   - mysql

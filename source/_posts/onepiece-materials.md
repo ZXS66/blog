@@ -1,4 +1,5 @@
 ---
+uuid: 38c0247d-5c5b-7a79-d4d9-8774ae1af3a7
 title: 海贼王素材
 tags:
   - one piece

@@ -1,4 +1,5 @@
 ---
+uuid: 0a740af2-4b09-e79d-4fcf-438aa366ad86
 title: JS 中如何取消任务
 comments: false
 date: 2020-11-05 16:24:40
@@ -173,6 +174,6 @@ try {
 ## 参考链接
 
 - [XMLHttpRequest.abort()](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/abort)
-- <i class="fa fa-stack-overflow" aria-hidden="true"></i> [Promise - is it possible to force cancel a promise](https://stackoverflow.com/questions/30233302/promise-is-it-possible-to-force-cancel-a-promise)
+- [Promise - is it possible to force cancel a promise](https://stackoverflow.com/questions/30233302/promise-is-it-possible-to-force-cancel-a-promise)
 - [Promise.race()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)
 - [AbortController.abort()](https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort)

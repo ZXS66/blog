@@ -1,4 +1,5 @@
 ---
+uuid: 84149168-506c-7b09-8f4a-83ca53d35178
 title: dotnet core 编译绿色版程序
 tags:
   - dotnet core

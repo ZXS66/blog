@@ -1,4 +1,5 @@
 ---
+uuid: 7f200371-5960-aee4-218f-27a3a1f2c87b
 title: ASP.NET 应用国际化
 comments: false
 date: 2020-10-28 18:11:56

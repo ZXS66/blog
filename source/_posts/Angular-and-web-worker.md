@@ -1,4 +1,5 @@
 ---
+uuid: 14617783-aade-bf04-ea66-aa9084992ffc
 title: Angular × web worker
 comments: false
 date: 2020-07-05 23:19:38
@@ -219,7 +220,7 @@ export class WorkerMessage {
 
 ## 拉出来遛一遛
 
-[<i class="fa fa-search" aria-hidden="true"></i> Emoji 搜索工具](/app/#/lab/emoji)
+[<i class="mdui-icon material-icons">search</i> Emoji 搜索工具](/app/#/lab/emoji)
 
 emmmm，一切都按照预期走了，没什么问题。除了：Google Chrome 调试 Web Worker 真的是鸡肋！！！以后真的在项目中大量使用了再说吧。。。。。。
 

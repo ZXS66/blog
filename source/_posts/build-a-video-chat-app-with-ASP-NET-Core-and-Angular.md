@@ -1,4 +1,5 @@
 ---
+uuid: 7266d19a-b8cc-d07a-3a3b-566f34830211
 title: 使用 ASP.NET Core 和 Angular 构建视频聊天应用
 tags:
   - asp.net core

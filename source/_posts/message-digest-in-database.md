@@ -1,4 +1,5 @@
 ---
+uuid: 42b2dcca-54c7-e69d-b07e-dfbdea954124
 title: 数据库信息摘要
 tags:
   - database

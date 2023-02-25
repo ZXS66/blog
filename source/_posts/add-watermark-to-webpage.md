@@ -1,4 +1,5 @@
 ---
+uuid: e7fff7ad-bd0a-5f0b-6223-27662c391d83
 title: 页面添加水印
 tags:
   - watermark

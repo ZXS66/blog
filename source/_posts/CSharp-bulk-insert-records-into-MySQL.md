@@ -1,4 +1,5 @@
 ---
+uuid: 195a3791-736e-db16-01d5-0c884457763d
 title: C# 批量插入记录至 MySQL
 tags:
   - csharp

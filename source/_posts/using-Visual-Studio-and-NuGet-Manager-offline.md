@@ -1,4 +1,5 @@
 ---
+uuid: 55a1cc03-89f6-2a2c-285c-4a3b1428809b
 title: 离线安装使用 Visual Studio 和 NuGet
 tags:
   - visual studio

@@ -1,4 +1,5 @@
 ---
+uuid: 8f47cb28-901f-3f55-93a9-8896d1ef4e87
 title: JavaScript window.print 不能正常调用
 tags:
   - javascript

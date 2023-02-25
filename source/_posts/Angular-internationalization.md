@@ -1,4 +1,5 @@
 ---
+uuid: 8f752c60-8771-14cc-ba49-9123c79b637f
 title: Angular 应用国际化
 comments: false
 date: 2020-07-01 11:19:55
@@ -17,7 +18,7 @@ tags: [angular, internationalization, i18n]
 在没有去搜索引擎找寻方案的前提下，下面是自己写的 C# 控制台项目：
 
 1. 备份当前 `messages.zh.xlf` 文件。
-2. 新建 C# 控制台项目，复制如下代码：[<i class="fa fa-github" aria-hidden="true"></i>ZXS66/GenerateNewI18NFile.cs](https://gist.github.com/ZXS66/69c397ccc7db3687376edc1ff55acf09)
+2. 新建 C# 控制台项目，复制如下代码：[ZXS66/GenerateNewI18NFile.cs](https://gist.github.com/ZXS66/69c397ccc7db3687376edc1ff55acf09)
 ``` CSharp
 namespace ConsoleApp
 {

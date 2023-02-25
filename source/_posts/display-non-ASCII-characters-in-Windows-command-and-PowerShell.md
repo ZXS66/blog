@@ -1,4 +1,5 @@
 ---
+uuid: 5216bed1-c464-9bb6-8b08-9ad127e92c31
 title: 在 Windows 命令行和 PowerShell 中显示非 ASCII 字符
 tags:
   - ASCII
@@ -15,7 +16,7 @@ date: 2022-03-04 23:14:48
 
 为什么会出现这种情况？简单来讲：
 
-> It does not make sense to have a string without knowing what encoding it uses. [<i class="fa fa-chain" aria-hidden="true"></i>](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
+> It does not make sense to have a string without knowing what encoding it uses. [<i class="mdui-icon material-icons">link</i>](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
 > 一个字符串如果不知道它用的编码，将毫无意义。
 > <cite>Joel Spolsky</cite>
 
@@ -53,7 +54,7 @@ emmm… 还是不行… 😢
 
 ### 参考链接
 
-- [<i class="fa fa-windows" aria-hidden="true"></i> Windows Command-Line: Backgrounder](https://devblogs.microsoft.com/commandline/windows-command-line-backgrounder/)
-- [<i class="fa fa-stack-overflow" aria-hidden="true"></i> Using non-ASCII characters in a cmd batch file](https://stackoverflow.com/questions/18813495/using-non-ascii-characters-in-a-cmd-batch-file)
+- [Windows Command-Line: Backgrounder](https://devblogs.microsoft.com/commandline/windows-command-line-backgrounder/)
+- [Using non-ASCII characters in a cmd batch file](https://stackoverflow.com/questions/18813495/using-non-ascii-characters-in-a-cmd-batch-file)
 - [Set Windows PowerShell to UTF-8 Encoding to Fix GBK Codec Can Not Encode Character Error – PowerShell Tutorial](https://www.tutorialexample.com/set-windows-powershell-to-utf-8-encoding-to-fix-gbk-codec-can-not-encode-character-error-powershell-tutorial)
-- [<i class="fa fa-github" aria-hidden="true"></i> Add emoji support to Windows Console](https://github.com/Microsoft/Terminal/issues/190)
+- [Add emoji support to Windows Console](https://github.com/Microsoft/Terminal/issues/190)

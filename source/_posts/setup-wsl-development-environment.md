@@ -1,4 +1,5 @@
 ---
+uuid: 3aeeff36-c7d4-0fec-551e-fbea6e8a7f56
 title: 配置 WSL 开发环境
 tags:
   - wsl
@@ -139,7 +140,7 @@ deploy:
 
 ### 参考链接
 
-- [<i class="fa fa-windows" aria-hidden="true"></i>Install Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
+- [Install Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
 - [上海交通大学 Linux 用户组 软件源镜像服务](https://mirrors.sjtug.sjtu.edu.cn/docs/ubuntu)
-- [<i class="fa fa-windows" aria-hidden="true"></i>Set up a WSL development environment](https://learn.microsoft.com/en-us/windows/wsl/setup/environment)
-- [<i class="fa fa-github" aria-hidden="true"></i>GitHub Hosts | hosts](https://ineo6.github.io/hosts/)
+- [Set up a WSL development environment](https://learn.microsoft.com/en-us/windows/wsl/setup/environment)
+- [GitHub Hosts | hosts](https://ineo6.github.io/hosts/)

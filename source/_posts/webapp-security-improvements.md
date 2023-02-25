@@ -1,4 +1,5 @@
 ---
+uuid: ee369cc4-020f-3a0b-99c4-dc8f8374aefb
 title: Web 应用程序安全提升
 tags: [web, security, asp.net, mvc, csp, content-security-policy, cache-control]
 comments: false

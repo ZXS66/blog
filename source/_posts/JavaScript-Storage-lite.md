@@ -1,4 +1,5 @@
 ---
+uuid: faca1e43-3e1b-cc94-38c9-a409c3feb7c8
 title: JavaScript 轻量级缓存
 tags:
   - javascript

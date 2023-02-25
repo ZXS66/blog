@@ -1,4 +1,5 @@
 ---
+uuid: 61488afb-cd9b-f06e-c87f-7e20032b4b96
 title: 译：从代码中发帖至 WordPress.com
 comments: false
 date: 2020-10-01 21:04:08

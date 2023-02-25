@@ -1,4 +1,5 @@
 ---
+uuid: 87bb4a21-b7cb-6abc-4a06-362d5e3fba23
 title: SQL Server 数据迁移
 tags:
   - sql server

@@ -1,4 +1,5 @@
 ---
+uuid: 7ac1645c-fcad-d1ed-925d-52a8105185b7
 title: 企业网络下设置 git、npm 等代理
 date: 2020-07-01 10:44:19
 tags: [proxy, git, npm, intranet, corpnet]

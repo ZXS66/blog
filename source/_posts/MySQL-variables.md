@@ -1,4 +1,5 @@
 ---
+uuid: 54018281-d1a5-5b1f-86b4-f339a95de3ff
 title: MySQL 变量
 tags:
   - mysql

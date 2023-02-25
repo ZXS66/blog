@@ -1,4 +1,5 @@
 ---
+uuid: eafc8ccf-79dd-b51a-615e-71b737206cc1
 title: CORS 复习
 tags:
   - cors

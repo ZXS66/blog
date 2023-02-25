@@ -1,4 +1,5 @@
 ---
+uuid: 7a2f27cd-ff3b-fbd9-33d6-0ced939a10e9
 title: 开源许可证
 tags:
   - open source

@@ -63,7 +63,7 @@ highlight:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 3
+  per_page: 5
   order_by: -date
 
 # Category & Tag
@@ -98,7 +98,8 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+# theme: landscape
+theme: niemingzhao.github.io
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

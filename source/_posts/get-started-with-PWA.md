@@ -1,4 +1,5 @@
 ---
+uuid: efaf298b-60ee-d184-1b77-55012bf4bac6
 title: 渐进式网页应用(PWA)入门
 tags:
   - pwa
@@ -17,7 +18,7 @@ date: 2021-05-06 12:54:15
 
 ### 起步
 
-参考的是 [<i class="fa fa-microsoft" aria-hidden="true"></i> 这篇文档](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started)。~~此处又省略了一万字。~~
+参考的是 [<i class="mdui-icon material-icons">link</i> 这篇文档](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started)。~~此处又省略了一万字。~~
 
 ### 一个小 bug
 
@@ -67,14 +68,14 @@ workbox.routing.registerRoute(
 );
 ```
 
-更多策略，请参考 [<i class="fa fa-google" aria-hidden="true"></i> Workbox 官方文档](https://developers.google.com/web/tools/workbox/modules/workbox-strategies) 或 [Workbox Strategies with examples and use-cases](https://www.charistheo.io/blog/2021/03/workbox-strategies-with-examples-and-use-cases/)。
+更多策略，请参考 [Workbox 官方文档](https://developers.google.com/web/tools/workbox/modules/workbox-strategies) 或 [Workbox Strategies with examples and use-cases](https://www.charistheo.io/blog/2021/03/workbox-strategies-with-examples-and-use-cases/)。
 
 发布上线，测试，完美解决问题！😄
 
 ### 参考链接
 
-- [<i class="fa fa-microsoft" aria-hidden="true"></i> Get started with Progressive Web Apps (Chromium)](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started)
-- [<i class="fa fa-stack-overflow" aria-hidden="true"></i> When and how does a PWA update itself?](https://stackoverflow.com/questions/49739438/when-and-how-does-a-pwa-update-itself)
+- [Get started with Progressive Web Apps (Chromium)](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started)
+- [When and how does a PWA update itself?](https://stackoverflow.com/questions/49739438/when-and-how-does-a-pwa-update-itself)
 - [PWA Builder](https://www.pwabuilder.com/)
-- [<i class="fa fa-google" aria-hidden="true"></i> Workbox 官方文档](https://developers.google.com/web/tools/workbox/modules/workbox-strategies)
+- [Workbox 官方文档](https://developers.google.com/web/tools/workbox/modules/workbox-strategies)
 - [Workbox Strategies with examples and use-cases](https://www.charistheo.io/blog/2021/03/workbox-strategies-with-examples-and-use-cases/)

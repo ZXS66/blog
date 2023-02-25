@@ -1,13 +1,14 @@
 ---
+uuid: 4028b543-ae24-0805-4e74-182a8add1814
 title: '微信、微博、QQ一键分享'
 comments: false
 date: 2020-07-15 23:31:43
 tags: [javaScript, hexo]
 ---
 
-Hexo 默认的主题 Landscape，默认支持分享到 <i class="fa fa-twitter" aria-hidden="true"></i> Twitter、<i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook、<i class="fa fa-pinterest" aria-hidden="true"></i> Pinterest、<i class="fa fa-linkedin-square" aria-hidden="true"></i> Linkedin 等国外社交媒体。但是，众所周知，这些社交媒体，在镇上都被🈲了！！
+Hexo 默认的主题 Landscape，默认支持分享到 Twitter、Facebook、Pinterest、Linkedin 等国外社交媒体。但是，众所周知，这些社交媒体，在镇上都被🈲了！！
 
-所以，这篇文章介绍如何将 Hexo 主题本地化，以支持 <i class="fa fa-weibo" aria-hidden="true"></i> 微博、<i class="fa fa-wechat" aria-hidden="true"></i> 微信、<i class="fa fa-qq" aria-hidden="true"></i> QQ 及 <i class="fa fa-envelope-o" aria-hidden="true"></i> 邮件分享。
+所以，这篇文章介绍如何将 Hexo 主题本地化，以支持微博、微信、QQ 及邮件分享。
 
 ## 替换文章分享生成脚本
 
@@ -188,4 +189,4 @@ Hexo 默认使用 [fontawesome](http://www.fontawesome.com.cn/) 作为 iconfont�
 ## 参考链接
 
 - [一键分享到QQ空间、QQ好友、新浪微博、微信代码](https://zixuephp.net/article-309.html)
-- <i class="fa fa-github" aria-hidden="true"></i> [hexojs/hexo-theme-landscape](https://github.com/hexojs/hexo-theme-landscape)
+- [hexojs/hexo-theme-landscape](https://github.com/hexojs/hexo-theme-landscape)

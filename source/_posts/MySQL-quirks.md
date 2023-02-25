@@ -1,4 +1,5 @@
 ---
+uuid: ad51be5d-c062-7a6e-5df4-473c963ff841
 title: MySQL怪癖
 tags:
   - mysql
@@ -83,5 +84,5 @@ DELIMITER ;
 ### 参考链接
 
 - [MySQL::Miscellaneous Functions::Sleep](https://dev.mysql.com/doc/refman/8.0/en/miscellaneous-functions.html#function_sleep)
-- [<i class="fa fa-stack-overflow" aria-hidden="true"></i> How and when to use SLEEP() correctly in MySQL?](https://stackoverflow.com/questions/4284524/how-and-when-to-use-sleep-correctly-in-mysql)
-- [<i class="fa fa-weixin" aria-hidden="true"></i> Oracle大佬离职，怒喷MySQL是“糟糕的数据库”……](https://mp.weixin.qq.com/s/zajIrjPAJPYnBzrqyU0U4Q)
+- [How and when to use SLEEP() correctly in MySQL?](https://stackoverflow.com/questions/4284524/how-and-when-to-use-sleep-correctly-in-mysql)
+- [Oracle大佬离职，怒喷MySQL是“糟糕的数据库”……](https://mp.weixin.qq.com/s/zajIrjPAJPYnBzrqyU0U4Q)

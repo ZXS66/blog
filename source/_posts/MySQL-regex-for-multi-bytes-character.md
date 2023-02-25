@@ -1,4 +1,5 @@
 ---
+uuid: 5dc239e5-7a47-07f0-c9b0-8b005b566482
 title: MySQL 正则表达式支持多字节字符
 tags:
   - mysql

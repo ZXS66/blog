@@ -1,4 +1,5 @@
 ---
+uuid: 3fc407a7-6f39-faad-4a94-0a363f8c4ad5
 title: 提升 Angular 应用性能技巧
 date: 2020-06-22 17:47:35
 tags: [angular, performance, javascript]

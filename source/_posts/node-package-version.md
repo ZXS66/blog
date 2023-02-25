@@ -1,4 +1,5 @@
 ---
+uuid: 99e6dec7-ec65-d75a-1eb8-5ada5a4959ad
 title: node 包的版本号
 comments: false
 date: 2020-08-20 16:11:52
@@ -7,7 +8,7 @@ tags: [node, package.json]
 
 ## 背景
 
-复习时间到啦 <i class="fa fa-bell" aria-hidden="true"></i>
+复习时间到啦 <i class="mdui-icon material-icons">alarm</i>
 
 突然脑子不灵光了，不记得 `package.json` 文件下面的包，带 `^` 和 `~` 有什么区别了，看来是上年纪了。
 

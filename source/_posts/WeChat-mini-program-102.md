@@ -1,4 +1,5 @@
 ---
+uuid: 5238a092-9f5e-d3c7-0ecc-58a9e36c5902
 title: 微信小程序入门篇(2)
 tags:
   - wechat

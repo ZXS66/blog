@@ -1,4 +1,5 @@
 ---
+uuid: 337ce5bc-00d5-8d55-9d83-ee4b2c8d7a56
 title: 我所遇到的 Python 常见问题
 tags:
   - python
@@ -168,7 +169,7 @@ pip install playwright
 playwright install
 ```
 
-上述命令，虽然第一个命令成功执行，第二个依然报错 `the term 'playwright' is not recognized`。通过检查，发现 `Python` 安装目录以及 `Scripts` 子目录都已经放到环境变量里了。解决办法是，还需要把用户目录里的 `Python/Scripts` 也加到环境变量中。[<i class="fa fa-chain" aria-hidden="true"></i>](https://packaging.python.org/en/latest/tutorials/installing-packages/#installing-to-the-user-site)
+上述命令，虽然第一个命令成功执行，第二个依然报错 `the term 'playwright' is not recognized`。通过检查，发现 `Python` 安装目录以及 `Scripts` 子目录都已经放到环境变量里了。解决办法是，还需要把用户目录里的 `Python/Scripts` 也加到环境变量中。[<i class="mdui-icon material-icons">link</i>](https://packaging.python.org/en/latest/tutorials/installing-packages/#installing-to-the-user-site)
 
 ```
 %USERPROFILE%\AppData\Roaming\Python\Python310\Scripts
@@ -176,6 +177,6 @@ playwright install
 
 ### 参考链接
 
-- [<i class="fa fa-github" aria-hidden="true"></i> run_python_script_in_conda_env.bat](https://gist.github.com/maximlt/531419545b039fa33f8845e5bc92edd6)
+- [run_python_script_in_conda_env.bat](https://gist.github.com/maximlt/531419545b039fa33f8845e5bc92edd6)
 - [Installing packages using pip and virtual environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments)
-- [<i class="fa fa-stack-overflow" aria-hidden="true"></i> pip installs packages successfully, but executables not found from command line](https://stackoverflow.com/questions/35898734/pip-installs-packages-successfully-but-executables-not-found-from-command-line)
+- [pip installs packages successfully, but executables not found from command line](https://stackoverflow.com/questions/35898734/pip-installs-packages-successfully-but-executables-not-found-from-command-line)

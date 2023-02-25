@@ -1,4 +1,5 @@
 ---
+uuid: 38a738eb-dc8f-831d-a1fa-187967237388
 title: SQL Server 中的 GROUP_CONCAT
 tags:
   - group_concat
@@ -53,7 +54,7 @@ GO
 第二步：部署至 SQL Server。可选择编译好后，把 dll 文件扔到目标机器上后用 SSMS 完成发布；也可以直接使用 VS 连接到 SQL Server 直接发布，看实际情况和个人喜好。
 第三步：使用。同其他内置函数一样，只不过要写清楚命名空间(namespace)。
 
-更多请参考：[<i class="fa fa-github" aria-hidden="true"></i> ZXS66/mssql_clr_util](https://github.com/ZXS66/mssql_clr_util)
+更多请参考：[ZXS66/mssql_clr_util](https://github.com/ZXS66/mssql_clr_util)
 
 ### 参考链接
 

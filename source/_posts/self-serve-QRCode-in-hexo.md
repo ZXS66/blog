@@ -1,4 +1,5 @@
 ---
+uuid: bf9c0652-cf48-0c12-2e00-e030f2c7784c
 title: Hexo博客使用二维码生成器
 tags:
   - qr code

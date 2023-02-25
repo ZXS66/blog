@@ -1,4 +1,5 @@
 ---
+uuid: 92e20839-7c08-79a9-8806-89f0c613bfdf
 title: MySQL 大小写问题
 tags:
   - mysql
@@ -68,9 +69,9 @@ emmm，第一个推荐方法，我不能更改 `Linux` 上的 `MySQL` 啊，人�
 
 什么鬼，推荐了两个不能用的办法???
 
-那还有没有其他办法？我先去倒杯咖啡，冷静一下！<i class="fa fa-coffee" aria-hidden="true"></i>
+那还有没有其他办法？我先去倒杯咖啡，冷静一下！<i class="mdui-icon material-icons">free_breakfast</i>
 
-<i class="fa fa-lightbulb-o" aria-hidden="true"></i> 有了！既然服务器配置无法更改，那我试试改数据库配置？我记得，`MySQL` 数据库中有一个编码问题（`utf8`、`latin` 等等），还有一个 `collation` 问题。
+<i class="mdui-icon material-icons">lightbulb_outline</i> 有了！既然服务器配置无法更改，那我试试改数据库配置？我记得，`MySQL` 数据库中有一个编码问题（`utf8`、`latin` 等等），还有一个 `collation` 问题。
 
 OK，先调研，再备份，再动手。
 
@@ -99,4 +100,4 @@ OPTIONS (USER 'Remote',PASSWORD '', HOST 'XXX.XXX.XXX.XXX', DATABASE 'test');
 - [MySQL::Identifier Case Sensitivity](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html)
 - [MySQL::Server System Variables](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names)
 - [MySQL::Character Sets and Collations in MySQL](https://dev.mysql.com/doc/refman/8.0/en/charset-mysql.html)
-- [<i class="fa fa-stackoverflow" aria-hidden="true"></i> How can I transfer data between 2 MySQL databases?](https://stackoverflow.com/questions/3242504/how-can-i-transfer-data-between-2-mysql-databases)
+- [How can I transfer data between 2 MySQL databases?](https://stackoverflow.com/questions/3242504/how-can-i-transfer-data-between-2-mysql-databases)

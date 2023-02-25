@@ -1,4 +1,5 @@
 ---
+uuid: e8669531-60eb-9db0-b037-4a6edff0855c
 title: 海贼王恶魔果实（翻译）
 tags:
   - one piece
@@ -10,7 +11,7 @@ date: 2021-08-26 09:09:12
 
 忽然想起，很久以前（大概 2016 年 9 月吧），我翻译过 [Fandom](https://onepiece.fandom.com) 网站（以前的网址是 https://onepiece.wikia.com ）上一篇关于海贼王恶魔果实的文章，放在 [Github](https://github.com/ZXS66/articles/blob/master/20160906_Devil%20Fruit.md) 上面吃灰了。不如搬来 [码云](https://gitee.com)，以后查看的时候还更方便。
 
-_20220723更新：重新迁移回 <i class="fa fa-github" aria-hidden="true"></i>_
+_20220723更新：重新迁移回 [github](https://github.com)_
 
 **声明：本文是翻译，不是原创。如果你发现有任何不对，请以 [原文](https://onepiece.fandom.com/wiki/Devil_Fruit) 为准。**
 

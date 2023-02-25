@@ -1,4 +1,5 @@
 ---
+uuid: a324603e-9587-7f60-63ce-a5ef4b25acf4
 title: 从 MySQL 迁移数据至 SQL Server
 tags:
   - mysql
@@ -91,6 +92,6 @@ SSMA 网上有很多图文/视频教程，各位可以自行搜索。期间可�
 
 ### 参考链接：
 
-- <i class="fa fa-windows" aria-hidden="true"></i> [Download Microsoft SQL Server Migration Assistant for MySQL](https://www.microsoft.com/en-us/download/details.aspx?id=54257)
+- [Download Microsoft SQL Server Migration Assistant for MySQL](https://www.microsoft.com/en-us/download/details.aspx?id=54257)
 - [MySQL :: Download Connector/ODBC](https://dev.mysql.com/downloads/connector/odbc/)
-- <i class="fa fa-windows" aria-hidden="true"></i> [Integration Services Data Types](https://docs.microsoft.com/en-us/sql/integration-services/data-flow/integration-services-data-types?view=sql-server-ver15)
+- [Integration Services Data Types](https://docs.microsoft.com/en-us/sql/integration-services/data-flow/integration-services-data-types?view=sql-server-ver15)

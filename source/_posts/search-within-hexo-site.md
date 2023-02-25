@@ -1,4 +1,5 @@
 ---
+uuid: 1fdc3571-78a2-a82c-4dac-9f1dd967f476
 title: Hexo 站点支持搜索
 tags:
   - hexo
@@ -21,8 +22,8 @@ Hexo 默认的模板 landscape 对搜索的支持并不友好（也许是我没�
 
 ##### 安装 `hexo-generator-search`
 
-详细请参考 <i class="fa fa-github" aria-hidden="true"></i> [hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
-   
+详细请参考 [hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
+
 ``` sh
 npm install hexo-generator-search --save
 ```

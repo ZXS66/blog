@@ -1,4 +1,5 @@
 ---
+uuid: b2f756fe-815a-78b4-01c5-7b26472dbb24
 title: 消失的日期
 tags:
   - 随笔
@@ -124,8 +125,8 @@ date: 2021-11-20 13:16:10
 
 ### 参考链接
 
-- [<i class="fa fa-weixin" aria-hidden="true"></i> 历史上"消失"的日期：我消失了，但仿佛又没消失…](https://mp.weixin.qq.com/s/W2jm-MUQ5QfTq6xo8PG4Ng)
-- [<i class="fa fa-weixin" aria-hidden="true"></i> 热搜第一！地球自转加速，一天不足24小时！网友最想知道的果然是它](https://mp.weixin.qq.com/s/hgZMUy54cEf3iPc_DLTQwg)
-- [<i class="fa fa-weixin" aria-hidden="true"></i> 计算机时间到底是怎么来的？程序员必看的时间知识！](https://mp.weixin.qq.com/s/Xw-CQV0QvxhKw0zMgbHpQA)
+- [历史上"消失"的日期：我消失了，但仿佛又没消失…](https://mp.weixin.qq.com/s/W2jm-MUQ5QfTq6xo8PG4Ng)
+- [热搜第一！地球自转加速，一天不足24小时！网友最想知道的果然是它](https://mp.weixin.qq.com/s/hgZMUy54cEf3iPc_DLTQwg)
+- [计算机时间到底是怎么来的？程序员必看的时间知识！](https://mp.weixin.qq.com/s/Xw-CQV0QvxhKw0zMgbHpQA)
 - [Leap Seconds FAQs](https://www.nist.gov/pml/time-and-frequency-division/leap-seconds-faqs)
 - [一文看懂世界各国的夏令时冬令时](http://web.overseas-sa.com/article/5876.html)
