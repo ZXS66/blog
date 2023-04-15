@@ -3,7 +3,7 @@ uuid: 14617783-aade-bf04-ea66-aa9084992ffc
 title: Angular × web worker
 comments: false
 date: 2020-07-05 23:19:38
-tags: [Angular, Web Worker, Performance]
+tags: [angular, web worker, performance]
 ---
 
 继前段时间瞎折腾 Angular 应用性能之后，页面性能确实有所提升，但感觉还有提升空间。想到此前一直缠绕在心中的 Web Worker，于是耐不住萌（ji）动（mo）的心，准备再接再厉，来一顿骚操作，让页面更加丝滑。

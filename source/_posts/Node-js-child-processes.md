@@ -2,7 +2,7 @@
 uuid: c6dc739a-ffa3-0ba5-cb8b-10f6539bd2cf
 title: Node.js 子进程
 tags:
-  - Node.js
+  - node.js
   - multitasking
 comments: false
 date: 2021-12-30 14:10:42

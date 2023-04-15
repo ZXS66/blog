@@ -134,10 +134,6 @@ deploy:
   message: "Blog committed on {{ now('YYYY/MM/DD HH:mm') }}"
 ```
 
-
-
-
-
 ### 参考链接
 
 - [Install Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install)

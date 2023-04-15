@@ -2,10 +2,10 @@
 uuid: 5216bed1-c464-9bb6-8b08-9ad127e92c31
 title: 在 Windows 命令行和 PowerShell 中显示非 ASCII 字符
 tags:
-  - ASCII
+  - ascii
   - encoding
-  - UTF8
-  - BOM
+  - utf8
+  - bom
 comments: false
 date: 2022-03-04 23:14:48
 ---
