@@ -8,7 +8,9 @@
     "deploy": "hexo deploy",
     "new": "hexo new",
     "publish": "hexo clean && hexo generate && hexo deploy && echo ✔️",
-    "start": "hexo server"
+    "publish:ecs": "hexo clean && hexo generate --config _ecs_config.yml && hexo deploy --config _ecs_config.yml && echo ✔️",
+    "start": "hexo server",
+    "start:ecs": "hexo server --config _ecs_config.yml"
   },
   "hexo": {
     "version": "4.2.1"
@@ -16,6 +18,7 @@
   "dependencies": {
     "hexo": "^4.2.1",
     "hexo-deployer-git": "^2.1.0",
+    "hexo-deployer-rsync": "^3.0.0",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
     "hexo-generator-index": "^1.0.0",

@@ -84,3 +84,5 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+_ecs_config.yml
