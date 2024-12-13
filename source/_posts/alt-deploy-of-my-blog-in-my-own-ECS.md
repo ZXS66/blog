@@ -16,11 +16,16 @@ date: 2024-01-20 20:50:55
   },
   ```
 3. 运行命令：`npm run ecs_publish`
-4. 在 ECS 服务器上 host 这些文件（如 Nginx）
+4. 在 ECS 服务器上 host 这些文件（如 `Nginx`）
+5. 启用 https
 
 -------
 
-关于将本地生成的文件（默认在 `public` 文件夹下）同步至 ECS 服务器，此处我使用了 [hexojs/hexo-deployer-rsync](https://github.com/hexojs/hexo-deployer-rsync) 这个插件。如果嫌麻烦，也可以自行手动同步：
+PS：
+关于将本地生成的文件（默认在 `public` 文件夹下）同步至 ECS 服务器，此处我使用了 [hexojs/hexo-deployer-rsync](https://github.com/hexojs/hexo-deployer-rsync) 这个插件。如果嫌麻烦，也可以以下命令自行手动同步：
 ```sh
 scp -r public/* username@xxxx:/home/username/blog
 ```
+
+PSS:
+我是自托管的，服务器用的阿里云99一年的机器，证书则使用 LetsEncrypt 推荐的 Certbot，亲测在 Alibaba Cloud Linux 3 上可用。

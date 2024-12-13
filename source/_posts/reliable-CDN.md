@@ -22,6 +22,9 @@ tags: [cdn, cloudflare, baidu, firefox, iconfont]
 
 ![](/images/reliable-cdn/caniuse%20font%20face%20web%20fonts.jpg)
 
+test:::
+{% asset_img "/images/reliable-cdn/caniuse%20font%20face%20web%20fonts.jpg" "caniuse font face web fonts" %}
+
 只要服务器支持 CORS 浏览器就没问题！[这篇文章](http://cssbakery.com/2010/07/fixing-firefox-font-face-cross-domain_25.html) 遇到的问题也是这样。
 
 不会吧，CDN 不支持 CORS 那 CDN 要怎么用，cloudflare 肯定是支持 CORS 的！
