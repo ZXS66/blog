@@ -85,4 +85,6 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
+package-lock.json
+
 _ecs_config.yml
